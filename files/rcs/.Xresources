@@ -1,0 +1,77 @@
+! Inspiration:
+! Luke Smith (URXVT video: https://www.youtube.com/watch?v=eaBf_yFHps8)
+! Origin config file: https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.Xdefaults
+
+! To load into RESOURCE_MANAGER, run xrdb ~/.Xresources
+
+!*foreground:		#00cc00
+!*foreground_bold:	#a8a19f
+!*cursor:			#a8a19f
+!*background:		#1b1918
+
+! black
+!black
+*color0: #000000
+!jet
+*color8: #343434
+! red
+!Red (NCS)
+*color1: #c40233
+!Red (Munsell)
+*color9: #f2003c
+! green
+!Shamrock
+*color2: #009e60
+!Spring green
+*color10: #00ff7f
+! yellow
+!Yellow (Munsell)
+*color3: #efcc00
+!Aureolin
+*color11: #fdee00
+! blue
+!Indigo
+*color4: #3f00ff
+!Electric Indigo
+*color12: #6f00ff
+! magenta
+!Magenta dye
+*color5: #ca1f7b
+!Hollywood cerise
+*color13: #f400a1
+! cyan
+!Baby blue
+*color6: #89cff0
+!Cyan
+*color14: #00ffff
+! white
+!silver
+*color7: #c0c0c0
+!white
+*color15: #ffffff
+
+! [<n>] is opacity %
+URxvt.background:	Black
+URxvt.foreground:	White
+URxvt.scrollBar:	false
+URxvt.cursorColor:	#3f00ff
+!URxvt.title:		urxvt
+!URxvt.fading:		30
+URxvt.transparent:	true
+URxvt.shading:		30
+!URxvt.visualBell:	true ! Visual signal when bell character processed
+
+URxvt.font:		xft:monospace:size=10
+
+! From https://www.askapache.com/linux/rxvt-xresources/#rxvt-unicode_urxvt
+!URxvt*font:  -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12
+!URxvt*boldFont:  -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12
+!URxvt*italicFont:  xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
+!URxvt*boldItalicFont:  xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=12
+
+! Leaving this blank stops perl from being initialized
+URxvt.perl-ext:
+!URxvt.perl-ext-common:	fullscreen, resize-font
+!URxvt.keysym.F11:	perl:fullscreen:switch
+!URxvt.keysym.C-J:	resize-font:smaller
+!URxvt.keysym.C-K:	resize-font:bigger
