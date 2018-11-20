@@ -19,6 +19,9 @@ inoremap ,, <Esc>/<++><Enter>cf>
 inoremap ,e <Esc>
 inoremap ,w <Esc>:w<Enter>
 inoremap ,d <Esc>ddA
+nnoremap ,p "+p
+vnoremap ,y "+y
+vnoremap ,d "+d
 
 "" html
 
