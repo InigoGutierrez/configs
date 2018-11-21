@@ -1,4 +1,5 @@
 alias r="ranger"
+alias v="vim"
 alias rmu="ranger ~/music"
 alias rp="ranger ~/IIS/poland"
 

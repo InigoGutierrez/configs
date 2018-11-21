@@ -74,13 +74,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu_run (a program launcher)
-bindsym $mod+x exec dmenu_run \
--l 8 \
--p "~$" \
--nb "#000000" \
--nf "#60ff00" \
--sb "#60ff00" \
--sf "#000000"
+bindsym $mod+x exec dmenu_run -l 8 -p "~$"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -182,7 +176,13 @@ client.urgent			$red		$black	$white	$red		$red
 
 # for window config
 for_window [class="^.*"] border pixel 2
-for_window [instance="floating"] floating enable border pixel 2
+for_window [instance="floating"] floating enable border pixel 1
+for_window [title="mpvfloat"] floating enable
+for_window [title="mpvfloat"] sticky enable
+for_window [title="mpvfloat"] border pixel 1
+for_window [title="pqivfloat"] floating enable
+for_window [title="pqivfloat"] sticky enable
+for_window [title="pqivfloat"] border pixel 1
 assign [class="Transmission"] 5
 
 # edge borders
@@ -306,5 +306,5 @@ bar {
 ### Init
 # bg
 #exec_always bash ~/scripts/pkmBgSelector.sh
-exec feh --bg-scale ~/images/wallpapers/an_era_gone_by.jpg
+exec feh --bg-scale ~/images/wallpapers/bg*
 exec transmission-gtk
