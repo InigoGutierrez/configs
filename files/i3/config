@@ -187,7 +187,7 @@ for_window [title="mpvfloat"] border pixel 1
 for_window [title="pqivfloat"] floating enable
 for_window [title="pqivfloat"] sticky enable
 for_window [title="pqivfloat"] border pixel 1
-#assign [class="Transmission"] 5
+assign [class="Transmission"] 5
 
 # edge borders
 hide_edge_borders both
@@ -295,7 +295,7 @@ bindsym $mod+Shift+r mode "resize"
 # finds out, if available)
 bar {
 	position top
-	font pango:monospace 7
+	font pango:monospace 6
 	colors {
 		background			$black
 		statusline			$white2
@@ -311,4 +311,4 @@ bar {
 # bg
 #exec_always bash ~/scripts/pkmBgSelector.sh
 exec feh --bg-scale ~/images/wallpapers/bg*
-exec transmission-gtk
+#exec transmission-gtk
