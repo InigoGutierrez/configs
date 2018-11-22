@@ -56,7 +56,7 @@ URxvt.foreground:	White
 URxvt.scrollBar:	false
 URxvt.cursorColor:	#3f00ff
 !URxvt.title:		urxvt
-!URxvt.fading:		30
+URxvt.fading:		30
 URxvt.transparent:	true
 URxvt.shading:		20
 !URxvt.visualBell:	true ! Visual signal when bell character processed

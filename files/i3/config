@@ -114,12 +114,15 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Control+s layout stacking
+bindsym $mod+Shift+w layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -177,13 +180,14 @@ client.urgent			$red		$black	$white	$red		$red
 # for window config
 for_window [class="^.*"] border pixel 2
 for_window [instance="floating"] floating enable border pixel 1
+for_window [title="floating"] floating enable border pixel 1
 for_window [title="mpvfloat"] floating enable
 for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 1
 for_window [title="pqivfloat"] floating enable
 for_window [title="pqivfloat"] sticky enable
 for_window [title="pqivfloat"] border pixel 1
-assign [class="Transmission"] 5
+#assign [class="Transmission"] 5
 
 # edge borders
 hide_edge_borders both
@@ -228,7 +232,7 @@ bindsym $mod+XF86MonBrightnessDown exec bash ~/scripts/brightness.sh -$bigBright
 ## Programs
 
 bindsym $mod+q exec qutebrowser
-bindsym $mod+Shift+s exec gnome-screenshot
+bindsym $mod+Control+s exec gnome-screenshot
 bindsym $mod+r exec urxvt -e ranger
 bindsym $mod+a exec urxvt -e alsamixer
 bindsym $mod+n exec urxvt -e newsboat

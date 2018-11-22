@@ -1533,21 +1533,22 @@ config.bind(';d', 'hint links download')
 # open url with mpv
 config.bind(',v', 'spawn i3 exec mpv {url}')
 config.bind(',fv', 'hint links spawn i3 exec mpv {hint-url}')
-config.bind(',V', 'spawn i3 exec mpv --loop-file {url}')
+config.bind(',V', 'spawn i3 exec bash /home/inigo/scripts/mpvFloat.sh {url}')
+config.bind(',fV', 'hint links spawn i3 exec bash /home/inigo/scripts/mpvFloat.sh {hint-url}')
 #download url's video in ~/videos/qutebrowser
 config.bind(',d', 'spawn youtube-dl -o ~/videos/qutebrowser/%(title)s.%(ext)s {url}')
 # same as previous, but showing urxvt
-config.bind(',D', 'spawn urxvt -e youtube-dl -o ~/videos/qutebrowser/%(title)s.%(ext)s {url}')
+config.bind(',D', 'spawn i3 exec bash /home/inigo/scripts/youtube-dlFloat.sh {url}')
 # two same commands, using hints instead than current url
 config.bind(',fd', 'hint links spawn youtube-dl -o ~/videos/qutebrowser/%(title)s.%(ext)s {hint-url}')
-config.bind(',fD', 'hint links spawn urxvt -e youtube-dl -o ~/videos/qutebrowser/%(title)s.%(ext)s {hint-url}')
+config.bind(',fD', 'hint links spawn i3 exec bash /home/inigo/scripts/youtube-dlFloat.sh {hint-url}')
 # download url's audio in mp3 in ~/music/qutebrowser
 config.bind(',a', 'spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 {url}')
 # same as previous, but showing urxvt
-config.bind(',A', 'spawn urxvt -e youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 {url}')
+config.bind(',A', 'spawn i3 exec bash /home/inigo/scripts/youtube-dlFloatAudio.sh {url}')
 # two same commands, using hints instead than current url
 config.bind(',fa', 'hint links spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 {hint-url}')
-config.bind(',fA', 'hint links spawn urxvt -e youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 {hint-url}')
+config.bind(',fA', 'hint links spawn i3 exec bash /home/inigo/scripts/youtube-dlFloatAudio.sh {hint-url}')
 # open images with pqiv
 config.bind(',i', 'spawn i3 exec "pqiv -i {url}"')
 config.bind(',fi', 'hint links spawn i3 exec "pqiv -i {hint-url}"')
