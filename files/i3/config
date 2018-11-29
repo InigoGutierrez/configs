@@ -179,8 +179,10 @@ client.urgent			$red		$black	$white	$red		$red
 
 # for window config
 for_window [class="^.*"] border pixel 2
-for_window [instance="floating"] floating enable border pixel 1
 for_window [title="floating"] floating enable border pixel 1
+for_window [title="noborder"] border none
+for_window [title="invisible"] floating enable
+for_window [title="invisible"] border none
 for_window [title="mpvfloat"] floating enable
 for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 1
@@ -199,6 +201,10 @@ bindsym $mod+s exec bash ~/scripts/systemControl.sh
 bindsym $mod+Control+Shift+r exec bash ~/scripts/prompt.sh "Reboot?" "$reboot"
 # lock (image must be .png)
 bindsym $mod+Control+l exec i3lock -i /home/inigo/images/wallpapers/lockbg.png -f
+
+# scratchpad
+bindsym $mod+minus move scratchpad
+bindsym $mod+plus scratchpad show
 
 # From https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
 # Pulse Audio controls
@@ -295,7 +301,10 @@ bindsym $mod+Shift+r mode "resize"
 # finds out, if available)
 bar {
 	position top
-	font pango:monospace 6
+	font pango:monospace 7
+	#font pango:proggy 8
+	#font -*-clean-*-*-*-*-12-*-*-*-*-70-*-*
+	#font pango:Terminus 10px
 	colors {
 		background			$black
 		statusline			$white2

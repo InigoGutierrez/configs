@@ -2,9 +2,19 @@
 execute pathogen#infect()
 filetype plugin indent on
 
-" From above video, line number config
+" Inspired by https://github.com/LukeSmithxyz/voidrice/blob/master/.vimrc
+set nocompatible
+set encoding=utf-8
 set number
 set relativenumber
+set splitbelow
+set splitright
+
+" Shortcuts for split navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Make tabs appear as 4 spaces (default is 8)
 set tabstop=4
@@ -13,6 +23,9 @@ set tabstop=4
 
 syntax enable
 syntax on
+
+" Autoupdate ~/.Xresources
+autocmd BufWritePost ~/.Xresources !xrdb %
 
 """ Remaps """
 inoremap ,, <Esc>/<++><Enter>cf>
