@@ -230,10 +230,9 @@ bindsym $mod+XF86MonBrightnessDown exec bash ~/scripts/brightness.sh -$bigBright
 #bindsym XF86Switch_VT_5 exec ~.config/i3/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-#bindsym XF86AudioPlay exec playerctl play
-#bindsym XF86AudioPause exec playerctl pause
-#bindsym XF86AudioNext exec playerctl next
-#bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec ~/scripts/cmusPlay.sh
+bindsym XF86AudioNext exec cmus-remote -n
+bindsym XF86AudioPrev exec cmus-remote -r
 
 ## Programs
 

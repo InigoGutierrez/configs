@@ -28,6 +28,7 @@ syntax on
 autocmd BufWritePost ~/.Xresources !xrdb %
 
 """ Remaps """
+inoremap Y y$
 inoremap ,, <Esc>/<++><Enter>cf>
 inoremap ,e <Esc>
 inoremap ,w <Esc>:w<Enter>
