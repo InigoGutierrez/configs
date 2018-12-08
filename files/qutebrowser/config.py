@@ -161,7 +161,7 @@ c.colors.hints.fg = 'white'
 ## Font color for the matched part of hints.
 ## Type: QssColor
 # c.colors.hints.match.fg = 'green'
-c.colors.hints.match.fg = 'grey'
+c.colors.hints.match.fg = 'yellow'
 
 ## Background color of the keyhint widget.
 ## Type: QssColor
@@ -267,6 +267,7 @@ c.colors.statusbar.insert.bg = '#3fff00' #Harlequin
 ## Foreground color of the statusbar in insert mode.
 ## Type: QssColor
 # c.colors.statusbar.insert.fg = 'white'
+c.colors.statusbar.insert.fg = 'black'
 
 ## Background color of the statusbar.
 ## Type: QssColor
@@ -288,7 +289,6 @@ c.colors.statusbar.passthrough.bg = '#3f00ff'
 ## Background color of the statusbar in private browsing mode.
 ## Type: QssColor
 # c.colors.statusbar.private.bg = '#666666'
-c.colors.statusbar.private.bg = '#ca1f7b'
 
 ## Foreground color of the statusbar in private browsing mode.
 ## Type: QssColor
@@ -405,6 +405,7 @@ c.colors.tabs.odd.fg = '#9F9F9F'
 ## Height (in pixels or as percentage of the window) of the completion.
 ## Type: PercOrInt
 # c.completion.height = '50%'
+c.completion.height = '60%'
 
 ## Minimum amount of characters needed to update completions.
 ## Type: Int
@@ -505,6 +506,7 @@ c.colors.tabs.odd.fg = '#9F9F9F'
 ## `qutebrowser --help` instead.
 ## Type: Bool
 # c.content.developer_extras = False
+#c.content.developer_extras = True
 
 ## Try to pre-fetch DNS entries to speed up browsing.
 ## Type: Bool
@@ -869,10 +871,12 @@ c.downloads.location.directory = "~/downloads"
 ## CSS border value for hints.
 ## Type: String
 # c.hints.border = '1px solid #E3BE23'
+c.hints.border = '1px solid #000000'
 
 ## Characters used for hint strings.
 ## Type: UniqueCharString
 # c.hints.chars = 'asdfghjkl'
+c.hints.chars = 'asdfjklñ'
 
 ## Dictionary file to be used by the word hints.
 ## Type: File
@@ -884,6 +888,7 @@ c.downloads.location.directory = "~/downloads"
 ##   - javascript: Better but slower
 ##   - python: Slightly worse but faster
 # c.hints.find_implementation = 'python'
+c.hints.find_implementation = 'javascript'
 
 ## Hide unmatched hints in rapid mode.
 ## Type: Bool
@@ -892,6 +897,7 @@ c.downloads.location.directory = "~/downloads"
 ## Minimum number of characters used for hint strings.
 ## Type: Int
 # c.hints.min_chars = 1
+c.hints.min_chars = 2
 
 ## Mode to use for hints.
 ## Type: String
@@ -900,6 +906,7 @@ c.downloads.location.directory = "~/downloads"
 ##   - letter: Use the characters in the `hints.chars` setting.
 ##   - word: Use hints words based on the html elements and the extra words.
 # c.hints.mode = 'letter'
+c.hints.mode = 'letter'
 
 ## Comma-separated list of regular expressions to use for 'next' links.
 ## Type: List of Regex
@@ -1551,8 +1558,8 @@ config.bind(',A', 'spawn i3-msg exec bash /home/inigo/scripts/youtube-dlFloatAud
 config.bind(',fa', 'hint links spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 {hint-url}')
 config.bind(',fA', 'hint links spawn i3-msg exec bash /home/inigo/scripts/youtube-dlFloatAudio.sh {hint-url}')
 # open images with pqiv
-config.bind(',i', 'spawn i3-msg exec bash pqiv -T pqivfloat -i {url}')
-config.bind(',fi', 'hint links spawn i3-msg exec bash pqiv -T pqivfloat -i {hint-url}')
+config.bind(',i', 'spawn i3-msg exec "pqiv -i -T pqivfloat {url}"')
+config.bind(',fi', 'hint links spawn i3-msg exec "pqiv -i -T pqivfloat {hint-url}"')
 
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')

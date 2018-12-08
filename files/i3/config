@@ -169,7 +169,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 #client.focused			$blue		$black	$white2	$blue2		$blue
 client.focused			$black2		$black2	$white2	$magenta2	$blue
 client.focused_inactive	$black2		$black	$white	$white		$white
-client.unfocused		$black2		$black	$white	$black2		$black2
+client.unfocused		$black2		$black	$white	$black2		$black
 client.urgent			$red		$black	$white	$red		$red
 
 #client.focused			$magenta	$black	$magenta	$magenta		$magenta
@@ -219,13 +219,14 @@ bindsym $mod+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -
 #mute sound
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 # Sreen brightness controls
-set $brightChange 5
-set $bigBrightChange 100
-bindsym XF86MonBrightnessUp exec bash ~/scripts/brightness.sh $brightChange # increase screen brightness
-bindsym XF86MonBrightnessDown exec bash ~/scripts/brightness.sh -$brightChange  # decrease screen brightness
-bindsym $mod+XF86MonBrightnessUp exec bash ~/scripts/brightness.sh $bigBrightChange # increase screen brightness
-bindsym $mod+XF86MonBrightnessDown exec bash ~/scripts/brightness.sh -$bigBrightChange # decrease screen brightness
-
+set $brightChange 4
+set $bigBrightChange 80
+# increase screen brightness
+bindsym XF86MonBrightnessUp exec ~/scripts/brightness.sh $brightChange 
+bindsym $mod+XF86MonBrightnessUp exec ~/scripts/brightness.sh $bigBrightChange
+# decrease screen brightness
+bindsym XF86MonBrightnessDown exec ~/scripts/brightness.sh -$brightChange
+bindsym $mod+XF86MonBrightnessDown exec ~/scripts/brightness.sh -$bigBrightChange
 # Touchpad controls
 #bindsym XF86Switch_VT_5 exec ~.config/i3/toggletouchpad.sh # toggle touchpad
 
@@ -242,8 +243,8 @@ bindsym $mod+r exec urxvt -e ranger
 bindsym $mod+a exec urxvt -e alsamixer
 bindsym $mod+n exec urxvt -e newsboat
 bindsym $mod+c exec bash ~/scripts/dmenuTerm.sh
-bindsym $mod+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo bash /home/inigo/scripts/dmenuMount.sh
-bindsym $mod+Shift+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo bash /home/inigo/scripts/dmenuUmount.sh
+bindsym $mod+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo /home/inigo/scripts/dmenuMount.sh
+bindsym $mod+Shift+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo /home/inigo/scripts/dmenuUmount.sh
 
 ##
 
@@ -301,6 +302,7 @@ bindsym $mod+Shift+r mode "resize"
 bar {
 	position top
 	font pango:monospace 7
+	#font pango:DejaVu Sans Mono 8
 	#font pango:proggy 8
 	#font -*-clean-*-*-*-*-12-*-*-*-*-70-*-*
 	#font pango:Terminus 10px

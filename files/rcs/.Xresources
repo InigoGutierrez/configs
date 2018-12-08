@@ -9,56 +9,33 @@
 !*cursor:			#a8a19f
 !*background:		#1b1918
 
-! black
-!black
+! Light
 *color0: #000000
-!jet
-*color8: #343434
-! red
-!Red (NCS)
-*color1: #c40233
-!Red (Munsell)
-*color9: #f2003c
-! green
-!Shamrock
-*color2: #009e60
-!Spring green
-*color10: #00ff7f
-! yellow
-!Yellow (Munsell)
-*color3: #efcc00
-!Aureolin
-*color11: #fdee00
-! blue
-!Indigo
-*color4: #3f00ff
-!Electric Indigo
-*color12: #6f00ff
-! magenta
-!Magenta dye
-*color5: #ca1f7b
-!Hollywood cerise
-*color13: #f400a1
-! cyan
-!Baby blue
-*color6: #89cff0
-!Cyan
-*color14: #00ffff
-! white
-!silver
-*color7: #c0c0c0
-!white
-*color15: #ffffff
+*color8: #242424
+*color1: #d1375d
+*color9: #ff4e7a
+*color2: #6da48e
+*color10: #bceebc
+*color3: #fff04b
+*color11: #ffff7d
+*color4: #696eff
+*color12: #a5acff
+*color5: #e45eff
+*color13: #eb87ff
+*color6: #00ffff
+*color14: #89cff0
+*color7: #b2ffe5
+*color15: #cdfffc
 
 ! [<n>] is opacity %
 URxvt.background:	Black
 URxvt.foreground:	#b2ffe5
 URxvt.scrollBar:	false
-URxvt.cursorColor:	#3f00ff
+URxvt.cursorColor:	#b2ffe5
 !URxvt.title:		urxvt
 URxvt.fading:		20
 URxvt.transparent:	true
-URxvt.shading:		20
+URxvt.shading:		15
 !URxvt.visualBell:	true ! Visual signal when bell character processed
 
 URxvt.font:		xft:monospace:size=10
