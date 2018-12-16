@@ -9,6 +9,8 @@
 !*cursor:			#a8a19f
 !*background:		#1b1918
 
+*.alpha: 120
+
 ! Light
 *color0: #000000
 *color8: #242424
@@ -23,7 +25,7 @@
 *color5: #e45eff
 *color13: #eb87ff
 *color6: #00ffff
-*color14: #89cff0
+*color14: #b3ffff
 *color7: #b2ffe5
 *color15: #cdfffc
 
@@ -33,12 +35,13 @@ URxvt.foreground:	#b2ffe5
 URxvt.scrollBar:	false
 URxvt.cursorColor:	#b2ffe5
 !URxvt.title:		urxvt
-URxvt.fading:		20
+URxvt.fading:		15
 URxvt.transparent:	true
-URxvt.shading:		15
+URxvt.shading:		10
 !URxvt.visualBell:	true ! Visual signal when bell character processed
 
 URxvt.font:		xft:monospace:size=10
+!xft:font-awesome:size=10
 
 ! From https://www.askapache.com/linux/rxvt-xresources/#rxvt-unicode_urxvt
 !URxvt*font:  -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12

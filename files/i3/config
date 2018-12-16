@@ -163,13 +163,13 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # class					border		bg		text	indicator	child_border
 # client.focused			#3F00FF	#000000 #FFFFFF	#9F9FFF		#0000FF
-# client.focused_inactive	#007FFF	#797979	#00FF00	#9F9FFF		#00FF00	
+# client.focused_inactive	#007FFF	#797979	#00FF00	#9F9FFF		#00FF00
 # client.unfocused		#7F7F7F	#000000 #BFBFBF	#FF00FF		#7F7F7F
 
 #client.focused			$blue		$black	$white2	$blue2		$blue
 client.focused			$black2		$black2	$white2	$magenta2	$blue
 client.focused_inactive	$black2		$black	$white	$white		$white
-client.unfocused		$black2		$black	$white	$black2		$black
+client.unfocused		$black2		$black	$blue2	$black2		$black
 client.urgent			$red		$black	$white	$red		$red
 
 #client.focused			$magenta	$black	$magenta	$magenta		$magenta
@@ -211,18 +211,18 @@ bindsym $mod+plus scratchpad show
 set $volChange 2
 set $bigVolChange 10
 #increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +$volChange%
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +$bigVolChange%
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/scripts/vol.sh +$volChange
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id ~/scripts/vol.sh +$bigVolChange
 #decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -$volChange%
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -$bigVolChange%
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/scripts/vol.sh -$volChange
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id ~/scripts/vol.sh -$bigVolChange
 #mute sound
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute exec --no-startup-id ~/scripts/vol.sh mute
 # Sreen brightness controls
 set $brightChange 4
-set $bigBrightChange 80
+set $bigBrightChange 60
 # increase screen brightness
-bindsym XF86MonBrightnessUp exec ~/scripts/brightness.sh $brightChange 
+bindsym XF86MonBrightnessUp exec ~/scripts/brightness.sh $brightChange
 bindsym $mod+XF86MonBrightnessUp exec ~/scripts/brightness.sh $bigBrightChange
 # decrease screen brightness
 bindsym XF86MonBrightnessDown exec ~/scripts/brightness.sh -$brightChange
@@ -232,13 +232,14 @@ bindsym $mod+XF86MonBrightnessDown exec ~/scripts/brightness.sh -$bigBrightChang
 
 # Media player controls
 bindsym XF86AudioPlay exec ~/scripts/cmusPlay.sh
-bindsym XF86AudioNext exec cmus-remote -n
-bindsym XF86AudioPrev exec cmus-remote -r
+bindsym XF86AudioNext exec cmus-remote -n && pkill -SIGRTMIN+12 i3blocks
+bindsym XF86AudioPrev exec cmus-remote -r && pkill -SIGRTMIN+12 i3blocks
 
 ## Programs
 
 bindsym $mod+q exec qutebrowser
 bindsym $mod+Control+s exec gnome-screenshot
+bindsym $mod+Control+a exec gnome-screenshot -a
 bindsym $mod+r exec urxvt -e ranger
 bindsym $mod+a exec urxvt -e alsamixer
 bindsym $mod+n exec urxvt -e newsboat
@@ -301,7 +302,7 @@ bindsym $mod+Shift+r mode "resize"
 # finds out, if available)
 bar {
 	position top
-	font pango:monospace 7
+	font pango:monospace 8
 	#font pango:DejaVu Sans Mono 8
 	#font pango:proggy 8
 	#font -*-clean-*-*-*-*-12-*-*-*-*-70-*-*
@@ -314,7 +315,8 @@ bar {
 		inactive_workspace	$black	$black2		$white
 		urgent_workspace	$black	$magenta	$white2
 	}
-        status_command i3status
+        #status_command i3status
+        status_command i3blocks
 }
 
 ### Init
