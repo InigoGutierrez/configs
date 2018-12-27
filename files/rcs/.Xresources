@@ -37,7 +37,7 @@ URxvt.cursorColor:	#b2ffe5
 !URxvt.title:		urxvt
 URxvt.fading:		15
 URxvt.transparent:	true
-URxvt.shading:		10
+URxvt.shading:		18
 !URxvt.visualBell:	true ! Visual signal when bell character processed
 
 URxvt.font:		xft:monospace:size=10

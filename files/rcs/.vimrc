@@ -44,15 +44,21 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Autoupdate ~/.Xresources
 autocmd BufWritePost ~/.Xresources !xrdb %
+autocmd BufWritePost ~/.config/qutebrowser/config.py !cat .config/qutebrowser/config.py | grep -e \'.*\':\ \'.*{}.*\' | grep -v DEFAULT | sed 's/,//' | sed 's/^\ *//' > ~/.mainpage/urls
 
 """ Remaps """
-inoremap Y y$
-inoremap <leader><leader> <Esc>/<++><Enter>cf>
+
+nnoremap Y y$
+nnoremap zh zt
+nnoremap zl zb
 inoremap <leader>e <Esc>
 inoremap <leader>w <Esc>:w<Enter>
 inoremap <leader>d <Esc>ddA
+inoremap <leader><leader> <Esc>/<++><Enter>cf>
 nnoremap <leader>p "+p
+nnoremap <leader>y "+yy
 vnoremap <leader>y "+y
+nnoremap <leader>d "+dd
 vnoremap <leader>d "+d
 
 map <leader>g :Goyo \| set linebreak<CR>

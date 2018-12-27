@@ -63,6 +63,7 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
+set $wst T
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -144,6 +145,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+t workspace $wst
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -156,6 +158,7 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+t move container to workspace $wst
 
 ## Custom ##
 
@@ -196,7 +199,7 @@ hide_edge_borders both
 #hide_edge_borders none
 
 # system control
-bindsym $mod+s exec bash ~/scripts/systemControl.sh
+bindsym $mod+Control+s exec bash ~/scripts/systemControl.sh
 # reboot
 bindsym $mod+Control+Shift+r exec bash ~/scripts/prompt.sh "Reboot?" "$reboot"
 # lock (image must be .png)
@@ -238,11 +241,12 @@ bindsym XF86AudioPrev exec cmus-remote -r && pkill -SIGRTMIN+12 i3blocks
 ## Programs
 
 bindsym $mod+q exec qutebrowser
-bindsym $mod+Control+s exec gnome-screenshot
-bindsym $mod+Control+a exec gnome-screenshot -a
+bindsym $mod+Shift+f exec firefox
+bindsym $mod+s exec gnome-screenshot
+bindsym $mod+a exec gnome-screenshot -a
 bindsym $mod+r exec urxvt -e ranger
-bindsym $mod+a exec urxvt -e alsamixer
 bindsym $mod+n exec urxvt -e newsboat
+bindsym $mod+Shift+a exec urxvt -e alsamixer
 bindsym $mod+c exec bash ~/scripts/dmenuTerm.sh
 bindsym $mod+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo /home/inigo/scripts/dmenuMount.sh
 bindsym $mod+Shift+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo /home/inigo/scripts/dmenuUmount.sh
@@ -303,6 +307,7 @@ bindsym $mod+Shift+r mode "resize"
 bar {
 	position top
 	font pango:monospace 8
+	separator_symbol "·"
 	#font pango:DejaVu Sans Mono 8
 	#font pango:proggy 8
 	#font -*-clean-*-*-*-*-12-*-*-*-*-70-*-*

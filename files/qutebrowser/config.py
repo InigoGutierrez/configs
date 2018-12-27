@@ -405,7 +405,7 @@ c.colors.tabs.odd.fg = '#9F9F9F'
 ## Height (in pixels or as percentage of the window) of the completion.
 ## Type: PercOrInt
 # c.completion.height = '50%'
-c.completion.height = '60%'
+c.completion.height = '30%'
 
 ## Minimum amount of characters needed to update completions.
 ## Type: Int
@@ -948,6 +948,7 @@ c.hints.mode = 'letter'
 ## after loading the page.
 ## Type: Bool
 # c.input.insert_mode.auto_load = False
+c.input.insert_mode.auto_load = True
 
 ## Switch to insert mode when clicking flash and other plugins.
 ## Type: Bool
@@ -1009,6 +1010,7 @@ c.hints.mode = 'letter'
 ##   - tab-bg-silent: Open a new background tab in the existing window without activating the window.
 ##   - window: Open in a new window.
 # c.new_instance_open_target = 'tab'
+c.new_instance_open_target = 'window'
 
 ## Which window to choose when opening links as new tabs. When
 ## `new_instance_open_target` is not set to `window`, this is ignored.
@@ -1257,6 +1259,7 @@ c.tabs.last_close = 'close'
 ##   - multiple: Hide the tab bar if only one tab is open.
 ##   - switching: Show the tab bar when switching tabs.
 # c.tabs.show = 'always'
+c.tabs.show = 'multiple'
 
 ## Duration (in milliseconds) to show the tab bar before hiding it when
 ## tabs.show is set to 'switching'.
@@ -1314,7 +1317,7 @@ c.tabs.last_close = 'close'
 ## for a blank page.
 ## Type: FuzzyUrl
 # c.url.default_page = 'https://start.duckduckgo.com/'
-c.url.default_page = 'about:blank'
+c.url.default_page = '/home/inigo/.mainpage/index.html'
 
 ## URL segments where `:navigate increment/decrement` will search for a
 ## number.
@@ -1336,24 +1339,26 @@ c.url.default_page = 'about:blank'
 ## `:open google qutebrowser`.
 ## Type: Dict
 c.url.searchengines = {
-        'DEFAULT': 'https://duckduckgo.com/?q={}',
-        'ddg': 'https://duckduckgo.com/?q={}',
-        'y': 'https://www.youtube.com/results?search_query={}',
-        'tw': 'https://twitter.com/{}',
-        'w': 'https://en.wikipedia.org/?search={}',
-        'we': 'https://es.wikipedia.org/?search={}',
-        'aw': 'https://wiki.archlinux.org/?search={}',
-        'sf': 'https://scryfall.com/search?q={}',
-        'mkm': 'https://www.cardmarket.com/en/Magic/MainPage/showSearchResult?searchFor={}',
-        'gi': 'https://game-icons.net/search.html?q={}',
-        'bc': 'https://bandcamp.com/search?q={}',
-        'mdd': 'https://www.megadede.com/search/{}',
-        'gh': 'https://www.github.com/search?q={}'
+        'DEFAULT': 'https://duckduckgo.com/?q={}', #duckduckgo
+        'ddg': 'https://duckduckgo.com/?q={}', #duckduckgo
+        'y': 'https://www.youtube.com/results?search_query={}', #youtube
+        'tw': 'https://twitter.com/{}', #twitter
+        'w': 'https://en.wikipedia.org/?search={}', #wikipedia
+        'we': 'https://es.wikipedia.org/?search={}', #wikipedia(ES)
+        'aw': 'https://wiki.archlinux.org/?search={}', #archWiki
+        'sf': 'https://scryfall.com/search?q={}', #scryfall
+        'mkm': 'https://www.cardmarket.com/en/Magic/MainPage/showSearchResult?searchFor={}', #mkm
+        'gi': 'https://game-icons.net/search.html?q={}', #game-icons
+        'bc': 'https://bandcamp.com/search?q={}', #bancamp
+        'mdd': 'https://www.megadede.com/search/{}', #megadede
+        'gh': 'https://www.github.com/search?q={}', #github
+        'ep': 'https://emojipedia.org/search/?q={}' #emojipedia
 }
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
 # c.url.start_pages = ['https://start.duckduckgo.com']
+c.url.start_pages = ['file:///home/inigo/.mainpage/index.html']
 
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String
@@ -1396,7 +1401,8 @@ c.url.searchengines = {
 # config.bind(';R', 'hint --rapid links window')
 # config.bind(';Y', 'hint links yank-primary')
 # config.bind(';b', 'hint all tab-bg')
-config.bind(';d', 'hint links download')
+config.bind(';da', 'hint all download')
+config.bind(';di', 'hint images download')
 # config.bind(';f', 'hint all tab-fg')
 # config.bind(';h', 'hint all hover')
 # config.bind(';i', 'hint images')
@@ -1475,6 +1481,9 @@ config.bind(';d', 'hint links download')
 # config.bind('cd', 'download-clear')
 # config.bind('co', 'tab-only')
 # config.bind('d', 'tab-close')
+config.bind('d',  'scroll-page 0 0.5')
+config.bind('u', 'scroll-page 0 -0.5')
+config.bind('q', 'tab-close')
 # config.bind('f', 'hint')
 # config.bind('g$', 'tab-focus -1')
 # config.bind('g0', 'tab-focus 1')
@@ -1505,6 +1514,7 @@ config.bind(';d', 'hint links download')
 # config.bind('pP', 'open -- {primary}')
 # config.bind('pp', 'open -- {clipboard}')
 # config.bind('q', 'record-macro')
+config.bind('Q', 'record-macro')
 # config.bind('r', 'reload')
 # config.bind('sf', 'save')
 # config.bind('sk', 'set-cmd-text -s :bind')
@@ -1513,6 +1523,7 @@ config.bind(';d', 'hint links download')
 # config.bind('th', 'back -t')
 # config.bind('tl', 'forward -t')
 # config.bind('u', 'undo')
+config.bind('U', 'undo')
 # config.bind('v', 'enter-mode caret')
 # config.bind('wB', 'set-cmd-text -s :bookmark-load -w')
 # config.bind('wO', 'set-cmd-text :open -w {url:pretty}')
@@ -1541,25 +1552,26 @@ config.bind(';d', 'hint links download')
 # open url with mpv
 config.bind(',v', 'spawn i3-msg exec mpv {url}')
 config.bind(',fv', 'hint links spawn i3-msg exec mpv {hint-url}')
-config.bind(',V', 'spawn i3-msg exec bash /home/inigo/scripts/mpvFloat.sh {url}')
-config.bind(',fV', 'hint links spawn i3-msg exec bash /home/inigo/scripts/mpvFloat.sh {hint-url}')
+config.bind(',V', 'spawn i3-msg exec bash /home/inigo/scripts/floats/mpvFloat.sh {url}')
+config.bind(',fV', 'hint links spawn i3-msg exec bash /home/inigo/scripts/floats/mpvFloat.sh {hint-url}')
 #download url's video in ~/videos/qutebrowser
 config.bind(',d', 'spawn youtube-dl -o ~/videos/qutebrowser/%(title)s.%(ext)s {url}')
 # same as previous, but showing urxvt
-config.bind(',D', 'spawn i3-msg exec bash /home/inigo/scripts/youtube-dlFloat.sh {url}')
+config.bind(',D', 'spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloat.sh {url}')
 # two same commands, using hints instead than current url
 config.bind(',fd', 'hint links spawn youtube-dl -o ~/videos/qutebrowser/%(title)s.%(ext)s {hint-url}')
-config.bind(',fD', 'hint links spawn i3-msg exec bash /home/inigo/scripts/youtube-dlFloat.sh {hint-url}')
+config.bind(',fD', 'hint links spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloat.sh {hint-url}')
 # download url's audio in mp3 in ~/music/qutebrowser
 config.bind(',a', 'spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 {url}')
 # same as previous, but showing urxvt
-config.bind(',A', 'spawn i3-msg exec bash /home/inigo/scripts/youtube-dlFloatAudio.sh {url}')
+config.bind(',A', 'spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloatAudio.sh {url}')
 # two same commands, using hints instead than current url
 config.bind(',fa', 'hint links spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 {hint-url}')
-config.bind(',fA', 'hint links spawn i3-msg exec bash /home/inigo/scripts/youtube-dlFloatAudio.sh {hint-url}')
+config.bind(',fA', 'hint links spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloatAudio.sh {hint-url}')
 # open images with pqiv
 config.bind(',i', 'spawn i3-msg exec "pqiv -i -T pqivfloat {url}"')
-config.bind(',fi', 'hint links spawn i3-msg exec "pqiv -i -T pqivfloat {hint-url}"')
+config.bind(',fi', 'hint images spawn i3-msg exec "pqiv -i -T pqivfloat {hint-url}"')
+config.bind(',fI', 'hint all spawn i3-msg exec "pqiv -i -T pqivfloat {hint-url}"')
 
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')

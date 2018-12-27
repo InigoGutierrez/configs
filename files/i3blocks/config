@@ -1,36 +1,61 @@
-#separator="|"
 markup=pango
+#separator_block_width=0
 
-[test]
+[fortune]
 color=#ffffff
-background=#000000
-full_text=<i>>:)</i>
+color=#bceebc
+#background=#6da48e
+command=echo "🥠 $(fortune -n 55 -s)"
+interval=once
 
 [music]
 color=#a5acff
+#background=#696eff
 command=~/scripts/i3blocks/i3music.sh
 interval=2
 signal=12
 
 [vol]
-color=#bceebc
+#background=#bceebc
+#color=#000000
 command=~/scripts/i3blocks/i3vol.sh
 interval=once
 signal=10
 
 [brightness]
+#background=#ffff7d
+#color=#000000
 command=~/scripts/i3blocks/i3brightness.sh
 interval=once
 signal=11
-
-[internet]
-command=~/scripts/i3blocks/i3internet.sh
-interval=2
 
 [battery]
 command=~/scripts/i3blocks/i3battery.sh BAT1
 interval=2
 
+[internet]
+#background=#009e60
+command=~/scripts/i3blocks/i3internet.sh
+interval=2
+
+[cpu]
+label=🌡️
+command=~/scripts/i3blocks/i3cpu.sh
+interval=20
+
+[mem]
+label=🤔
+command=~/scripts/i3blocks/i3mem.sh
+interval=30
+
+[disk]
+label=💽
+command=~/scripts/i3blocks/i3disk.sh
+interval=30
+
 [date]
+#color=#000000
+#background=#eb87ff
+color=#eb87ff
 command=~/scripts/i3blocks/i3date.sh
-interval=1
+interval=10
