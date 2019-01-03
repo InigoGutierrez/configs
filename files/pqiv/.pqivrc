@@ -1,0 +1,20 @@
+[options]
+command-1=|convert - -blur 80 -
+
+[keybindings]
+j { shift_y(-5); }
+k { shift_y(5); }
+h { shift_x(5); }
+l { shift_x(-5); }
+J { shift_y(-40); }
+K { shift_y(40); }
+H { shift_x(40); }
+L { shift_x(-40); }
+<control>j { shift_y(-200); }
+<control>k { shift_y(200); }
+<control>h { shift_x(200); }
+<control>l { shift_x(-200); }
+w { rotate_left(); }
+e { rotate_right(); }
+g { jump_dialog(); }
+<equal>  { reset_scale_level() }

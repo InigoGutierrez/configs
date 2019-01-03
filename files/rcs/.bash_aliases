@@ -20,8 +20,9 @@ alias cg="vim ~/.gitconfig"
 alias cnb="vim ~/.newsboat/config"
 alias cnbu="vim ~/.newsboat/urls"
 
-alias ydlmp3="youtube-dl -x --audio-format mp3"
+alias upgrade="sudo apt-get update && sudo apt-get upgrade"
 
 alias starwars="telnet towel.blinkenlights.nl"
-
-alias upgrade="sudo apt-get update && sudo apt-get upgrade"
+alias nintendos="mpv -vo caca https://www.youtube.com/watch?v=hYNcJj2QDhk 2>/dev/null"
+alias adormir="mpv -vo caca ~/videos/Adormir.mp4 && clear 2>/dev/null"
+alias adormirloop="mpv --loop-file -vo caca ~/videos/Adormir.mp4 2>/dev/null && clear"

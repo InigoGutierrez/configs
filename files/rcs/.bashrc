@@ -132,4 +132,8 @@ def="\[\e[0;00m\]"
 
 PS1="${keys}[${pur}${wd}\w${keys}]${umode}\$${def} "
 
-EDITOR=vim
+export EDITOR=vim
+
+export ARDUINO_DIR=/usr/share/arduino
+export ARDMK_DIR=/usr/share/arduino
+export AVR_TOOLS_DIR=/usr

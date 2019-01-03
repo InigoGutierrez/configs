@@ -248,8 +248,10 @@ bindsym $mod+r exec urxvt -e ranger
 bindsym $mod+n exec urxvt -e newsboat
 bindsym $mod+Shift+a exec urxvt -e alsamixer
 bindsym $mod+c exec bash ~/scripts/dmenuTerm.sh
-bindsym $mod+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo /home/inigo/scripts/dmenuMount.sh
-bindsym $mod+Shift+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo /home/inigo/scripts/dmenuUmount.sh
+# bindsym $mod+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo /home/inigo/scripts/dmenuMount.sh
+bindsym $mod+m exec sudo /home/inigo/scripts/dmenuMount.sh
+# bindsym $mod+Shift+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo /home/inigo/scripts/dmenuUmount.sh
+bindsym $mod+Shift+m exec sudo /home/inigo/scripts/dmenuUmount.sh
 
 ##
 
