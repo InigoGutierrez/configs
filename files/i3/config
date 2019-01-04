@@ -125,6 +125,12 @@ bindsym $mod+Shift+space floating toggle
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
 
+# modify gaps
+bindsym $mod+Shift+g gaps inner all minus 2
+bindsym $mod+g gaps inner all plus 2
+bindsym $mod+Shift+o gaps outer all minus 2
+bindsym $mod+o gaps outer all plus 2
+
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -132,7 +138,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+p focus parent
 
 # focus the child container
-bindsym $mod+o focus child
+bindsym $mod+Shift+p focus child
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -182,6 +188,9 @@ client.urgent			$red		$black	$white	$red		$red
 
 # for window config
 for_window [class="^.*"] border pixel 2
+gaps inner 15
+gaps outer 2
+
 for_window [title="floating"] floating enable border pixel 1
 for_window [title="noborder"] border none
 for_window [title="invisible"] floating enable
