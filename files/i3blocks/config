@@ -5,7 +5,7 @@ markup=pango
 color=#ffffff
 color=#bceebc
 #background=#6da48e
-command=echo "🥠 $(fortune -n 55 -s)"
+command=echo "🥠 $(fortune -n 55 -s | sed 's/\n/ \/ /g')"
 interval=once
 
 [music]
@@ -58,4 +58,4 @@ interval=30
 #background=#eb87ff
 color=#eb87ff
 command=~/scripts/i3blocks/i3date.sh
-interval=10
+interval=5

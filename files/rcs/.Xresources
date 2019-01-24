@@ -9,8 +9,6 @@
 !*cursor:			#a8a19f
 !*background:		#1b1918
 
-*.alpha: 120
-
 ! Light
 *color0: #000000
 *color8: #242424
@@ -29,7 +27,6 @@
 *color7: #b2ffe5
 *color15: #cdfffc
 
-! [<n>] is opacity %
 URxvt.background:	Black
 URxvt.foreground:	#b2ffe5
 URxvt.scrollBar:	false
@@ -38,7 +35,7 @@ URxvt.cursorColor:	#b2ffe5
 URxvt.fading:		15
 URxvt.transparent:	true
 URxvt.shading:		18
-!URxvt.visualBell:	true ! Visual signal when bell character processed
+*.alpha: 120
 
 URxvt.font:		xft:monospace:size=10
 !xft:font-awesome:size=10

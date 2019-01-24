@@ -114,6 +114,8 @@ bindsym $mod+v split v
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
+# toggle bar
+bindsym $mod+Shift+b bar mode toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+w layout stacking
 bindsym $mod+w layout tabbed
@@ -126,10 +128,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+s sticky toggle
 
 # modify gaps
-bindsym $mod+Shift+g gaps inner all minus 2
-bindsym $mod+g gaps inner all plus 2
-bindsym $mod+Shift+o gaps outer all minus 2
-bindsym $mod+o gaps outer all plus 2
+bindsym $mod+Shift+g gaps inner current minus 2
+bindsym $mod+g gaps inner current plus 2
+bindsym $mod+Shift+o gaps outer current minus 2
+bindsym $mod+o gaps outer current plus 2
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -187,9 +189,9 @@ client.urgent			$red		$black	$white	$red		$red
 #client.unfocused		$blue	$black	$blue	$blue		$blue
 
 # for window config
-for_window [class="^.*"] border pixel 2
-gaps inner 15
-gaps outer 2
+for_window [class="^.*"] border pixel 1
+gaps inner 14
+gaps outer 0
 
 for_window [title="floating"] floating enable border pixel 1
 for_window [title="noborder"] border none
@@ -256,11 +258,13 @@ bindsym $mod+a exec gnome-screenshot -a
 bindsym $mod+r exec urxvt -e ranger
 bindsym $mod+n exec urxvt -e newsboat
 bindsym $mod+Shift+a exec urxvt -e alsamixer
-bindsym $mod+c exec bash ~/scripts/dmenuTerm.sh
-# bindsym $mod+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo /home/inigo/scripts/dmenuMount.sh
-bindsym $mod+m exec sudo /home/inigo/scripts/dmenuMount.sh
-# bindsym $mod+Shift+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo /home/inigo/scripts/dmenuUmount.sh
-bindsym $mod+Shift+m exec sudo /home/inigo/scripts/dmenuUmount.sh
+bindsym $mod+c exec ~/scripts/dmenuTerm.sh
+# bindsym $mod+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo ~/scripts/dmenuMount.sh
+bindsym $mod+m exec ~/scripts/dmenuMount.sh
+# bindsym $mod+Shift+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo ~/scripts/dmenuUmount.sh
+bindsym $mod+Shift+m exec ~/scripts/dmenuUmount.sh
+
+bindsym $mod+Shift+c exec notify-send "$(fortune)"
 
 ##
 
@@ -327,8 +331,8 @@ bar {
 		background			$black
 		statusline			$white2
 		separator			$white2
-		focused_workspace	$cyan	$blue		$white2
-		inactive_workspace	$black	$black2		$white
+		focused_workspace	$blue	$blue		$black
+		inactive_workspace	$black	$black		$blue
 		urgent_workspace	$black	$magenta	$white2
 	}
         #status_command i3status
@@ -338,5 +342,5 @@ bar {
 ### Init
 # bg
 #exec_always bash ~/scripts/pkmBgSelector.sh
-exec feh --bg-scale ~/images/wallpapers/bg*
+exec feh --bg-fill ~/images/wallpapers/bg*
 #exec transmission-gtk

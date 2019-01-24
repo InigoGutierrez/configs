@@ -21,8 +21,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=-1
+HISTFILESIZE=-1
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -118,6 +118,7 @@ fi
 
 # Set custom PS1 (prompt text variable)
 
+def="\[\e[0;00m\]"
 keys="\[\e[0;34m\]"
 red="\[\e[1;31m\]"
 green="\[\e[1;32m\]"
@@ -127,13 +128,15 @@ pur="\[\e[1;35m\]"
 cyan="\[\e[1;36m\]"
 white="\[\e[1;37m\]"
 wd="\[\e[1;35m\]"
-umode="\[\e[1;35m\]"
-def="\[\e[0;00m\]"
+umode=$pur
 
 PS1="${keys}[${pur}${wd}\w${keys}]${umode}\$${def} "
 
-export EDITOR=vim
+EDITOR=vim
+BROWSER=qutebrowser
+TERM=rxvt-256color
+TERCMD=urxvt
 
-export ARDUINO_DIR=/usr/share/arduino
-export ARDMK_DIR=/usr/share/arduino
-export AVR_TOOLS_DIR=/usr
+ARDUINO_DIR=/usr/share/arduino
+ARDMK_DIR=/usr/share/arduino
+AVR_TOOLS_DIR=/usr
