@@ -5,3 +5,4 @@ map D toggle_page_mode
 map r reload
 map R rotate
 map p print
+#map P change_mode presentation

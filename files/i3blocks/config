@@ -31,7 +31,7 @@ signal=11
 
 [battery]
 command=~/scripts/i3blocks/i3battery.sh BAT1
-interval=2
+interval=10
 
 [internet]
 #background=#009e60

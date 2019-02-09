@@ -1353,7 +1353,8 @@ c.url.searchengines = {
         'bc': 'https://bandcamp.com/search?q={}', #bancamp
         'mdd': 'https://www.megadede.com/search/{}', #megadede
         'gh': 'https://www.github.com/search?q={}', #github
-        'ep': 'https://emojipedia.org/search/?q={}' #emojipedia
+        'ep': 'https://emojipedia.org/search/?q={}', #emojipedia
+        'rae': 'https://dle.rae.es/?w={}' #rae
 }
 
 ## Page(s) to open at the start.
@@ -1556,18 +1557,18 @@ config.bind(',fv', 'hint links spawn i3-msg exec mpv {hint-url}')
 config.bind(',V', 'spawn i3-msg exec bash /home/inigo/scripts/floats/mpvFloat.sh {url}')
 config.bind(',fV', 'hint links spawn i3-msg exec bash /home/inigo/scripts/floats/mpvFloat.sh {hint-url}')
 #download url's video in ~/videos/qutebrowser
-config.bind(',d', 'spawn youtube-dl -o ~/downloads/videos/%(title)s.%(ext)s {url}')
+config.bind(',d', 'spawn youtube-dl --all-subs --embed-subs -o ~/downloads/videos/%(title)s.%(ext)s {url}')
 # same as previous, but showing urxvt
 config.bind(',D', 'spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloat.sh {url}')
 # two same commands, using hints instead than current url
-config.bind(',fd', 'hint links spawn youtube-dl -o ~/downloads/videos/%(title)s.%(ext)s {hint-url}')
+config.bind(',fd', 'hint links spawn youtube-dl --all-subs --embed-subs -o ~/downloads/videos/%(title)s.%(ext)s {hint-url}')
 config.bind(',fD', 'hint links spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloat.sh {hint-url}')
 # download url's audio in mp3 in ~/music/qutebrowser
-config.bind(',a', 'spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 {url}')
+config.bind(',a', 'spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 --embed-thumbnail {url}')
 # same as previous, but showing urxvt
 config.bind(',A', 'spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloatAudio.sh {url}')
 # two same commands, using hints instead than current url
-config.bind(',fa', 'hint links spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 {hint-url}')
+config.bind(',fa', 'hint links spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 --embed-thumbnail {hint-url}')
 config.bind(',fA', 'hint links spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloatAudio.sh {hint-url}')
 # open images with pqiv
 config.bind(',i', 'spawn i3-msg exec "pqiv -i -T pqivfloat {url}"')
