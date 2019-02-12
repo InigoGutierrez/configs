@@ -1354,7 +1354,8 @@ c.url.searchengines = {
         'mdd': 'https://www.megadede.com/search/{}', #megadede
         'gh': 'https://www.github.com/search?q={}', #github
         'ep': 'https://emojipedia.org/search/?q={}', #emojipedia
-        'rae': 'https://dle.rae.es/?w={}' #rae
+        'rae': 'https://dle.rae.es/?w={}', #rae
+        'maps': 'https://www.google.com/maps/place/{}' #google maps
 }
 
 ## Page(s) to open at the start.
@@ -1574,6 +1575,9 @@ config.bind(',fA', 'hint links spawn i3-msg exec bash /home/inigo/scripts/floats
 config.bind(',i', 'spawn i3-msg exec "pqiv -i -T pqivfloat {url}"')
 config.bind(',fi', 'hint images spawn i3-msg exec "pqiv -i -T pqivfloat {hint-url}"')
 config.bind(',fI', 'hint all spawn i3-msg exec "pqiv -i -T pqivfloat {hint-url}"')
+# ripme bulk image downloading
+config.bind(',rm', 'spawn i3-msg exec "java -jar ~/programs/ripme.jar -u {url}"')
+config.bind(',frm', 'hint links spawn i3-msg exec "java -jar ~/programs/ripme.jar -u {hint-url}"')
 
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')

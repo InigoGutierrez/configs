@@ -7,9 +7,13 @@
 " Inspired by https://github.com/LukeSmithxyz/voidrice/blob/master/.vimrc
 
 let mapleader = ","
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged') "Update with PlugInstall
 Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
 set nocompatible
