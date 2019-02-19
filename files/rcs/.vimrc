@@ -14,6 +14,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vimwiki/vimwiki'
+Plug 'suan/vim-instant-markdown'
 call plug#end()
 
 set nocompatible
@@ -24,6 +26,16 @@ set scrolloff=3
 set wildmode=longest,list,full
 set splitbelow
 set splitright
+
+" For vimwiki
+filetype plugin on
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                     \ 'syntax': 'markdown', 'ext': '.md'}]
+
+" For vim-instant-markdown
+let g:instant_markdown_autostart = 0
+map <leader>md :InstantMarkdownPreview<CR>
 
 " Shortcuts for split navigation
 map <C-h> <C-w>h
@@ -39,7 +51,6 @@ map <C-l> <C-w>l
 set tabstop=4
 
 " Color
-
 syntax enable
 syntax on
 
