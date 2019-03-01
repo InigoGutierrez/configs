@@ -344,3 +344,4 @@ bar {
 #exec_always bash ~/scripts/pkmBgSelector.sh
 exec feh --bg-fill ~/images/wallpapers/bg*
 #exec transmission-gtk
+exec setxkbmap -option caps:swapescape

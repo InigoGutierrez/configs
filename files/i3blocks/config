@@ -8,6 +8,11 @@ color=#bceebc
 command=echo "🥠 $(fortune -n 55 -s | sed 's/\n/ \/ /g')"
 interval=once
 
+[screenRec]
+command=~/scripts/i3blocks/i3rec.sh
+interval=once
+signal=13
+
 [music]
 color=#a5acff
 #background=#696eff

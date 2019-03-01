@@ -1,0 +1,75 @@
+#!/bin/sh
+
+case "$1" in
+	"s")
+		width=$(echo "" | dmenu -p "Width of new files?")
+		[ "$width" ] || exit 0
+		height=$(echo "" | dmenu -p "Height of new files?")
+		[ "$height" ] || exit 0
+		modifier=""
+		[ "$(printf "Yes\nNo" | dmenu -i -p "Maintain aspect ratio?")" = "No" ] && modifier="!"
+		while read file
+		do
+			convert "$file" -resize "$width"x"$height""$modifier" "$width"x"$height""$modifier"_"$file"
+		done ;;
+	"h")
+		notify-send "\
+w: Set as wallpaper.                        .
+r: Rotate clockwise.                        .
+R: Rotate counter-clockwise.                .
+f: Flop (horizontally).                     .
+f: Flop (vertically).                       .
+y: Yank filename to clipboard.              .
+Y: Yank file path to clipboard.             .
+d: Delete file (with confirmation prompt).  .
+c: Rename file.                             .
+g: Open in gimp.                            .
+s: Create new image with different size.    .
+S: Search image online.                     .
+h: Show help.                               ." ;;
+esac
+
+while read file
+do
+	case "$1" in
+	"w") setBG.sh "$file" ;;
+	"r")
+		convert -rotate 90 "$file" "$file" &&
+		notify-send "$file rotated clockwise" ;;
+	"R")
+		convert -rotate -90 "$file" "$file" &&
+		notify-send "$file rotated counter-clockwise" ;;
+	"f")
+		convert -flop "$file" "$file" &&
+		notify-send "$file flopped" ;;
+	"F")
+		convert -flip "$file" "$file" &&
+		notify-send "$file flipped" ;;
+	"y")
+		echo -n "$file" | xclip -selection clipboard &&
+		notify-send "$file copied to clipboard" & ;;
+	"Y")
+		echo -n "$(readlink -f "$file")" | xclip -selection clipboard &&
+		notify-send "$(readlink -f "$file") copied to clipboard" & ;;
+	"d")
+		[ "$(printf "No\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && notify-send "$file deleted." ;;
+	"c")
+		newname="$(dmenu -p "New name of $file?")"
+		[ "$newname" ] && newname="$newname"'.'"${file##*.}" && [ "$(printf "No\nYes" | dmenu -i -p "Rename $file to $newname?")" = "Yes" ] && mv "$file" "$newname" && notify-send "$file renamed to $newname." ;;
+	"g")
+		gimp "$file" & ;;
+	"S")
+		echo -n "$(readlink -f "$file")" | xclip -selection clipboard && notify-send "$(readlink -f "$file") copied to clipboard"
+		$BROWSER https://tineye.com/ ;;
+	# "c")
+	# [ -z "$destdir" ] && destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.bmdirs | awk '{print $2}' | dmenu -l 20 -i -p "Copy file(s) to where?" | sed "s|~|$HOME|g")"
+	# [ -z "$destdir" ] && exit
+	# cp "$file" "$destdir" && notify-send -i "$(readlink -f "$file")" "$file copied to $destdir." &
+	# ;;
+	# "m")
+	# [ -z "$destdir" ] && destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.bmdirs | awk '{print $2}' | dmenu -l 20 -i -p "Move file(s) to where?" | sed "s|~|$HOME|g")"
+	# [ -z "$destdir" ] && exit
+	# mv "$file" "$destdir" && notify-send -i "$(readlink -f "$file")" "$file moved to $destdir." &
+	# ;;
+	esac
+done

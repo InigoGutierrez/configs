@@ -1,0 +1,2 @@
+image-info path: ~/.config/sxiv/exec/image-info
+key-handler path: ~/.config/sxiv/exec/key-handler
