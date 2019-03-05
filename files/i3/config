@@ -343,7 +343,8 @@ bar {
 # bg
 #exec_always bash ~/scripts/pkmBgSelector.sh
 exec feh --bg-fill ~/images/wallpapers/bg*
-#exec transmission-gtk
+exec dunst
 exec setxkbmap -layout es -option caps:swapescape
 exec xset -b
 exec xrdb ~/.Xresources
+#exec transmission-gtk
