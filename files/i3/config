@@ -225,13 +225,13 @@ bindsym $mod+plus scratchpad show
 set $volChange 2
 set $bigVolChange 10
 #increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/scripts/vol.sh +$volChange
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id ~/scripts/vol.sh +$bigVolChange
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/scripts/vol.sh "+$volChange"
+bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id ~/scripts/vol.sh "+$bigVolChange"
 #decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/scripts/vol.sh -$volChange
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id ~/scripts/vol.sh -$bigVolChange
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/scripts/vol.sh "-$volChange"
+bindsym $mod+XF86AudioLowerVolume exec --no-startup-id ~/scripts/vol.sh "-$bigVolChange"
 #mute sound
-bindsym XF86AudioMute exec --no-startup-id ~/scripts/vol.sh mute
+bindsym XF86AudioMute exec --no-startup-id ~/scripts/vol.sh "mute"
 # Sreen brightness controls
 set $brightChange 4
 set $bigBrightChange 60
@@ -344,4 +344,6 @@ bar {
 #exec_always bash ~/scripts/pkmBgSelector.sh
 exec feh --bg-fill ~/images/wallpapers/bg*
 #exec transmission-gtk
-exec setxkbmap -option caps:swapescape
+exec setxkbmap -layout es -option caps:swapescape
+exec xset -b
+exec xrdb ~/.Xresources
