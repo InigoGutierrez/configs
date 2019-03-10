@@ -1,0 +1,1 @@
+Remove config.h before compiling so it gets generated based on config.def.h
