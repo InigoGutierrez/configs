@@ -12,20 +12,39 @@ case "$1" in
 		do
 			convert "$file" -resize "$width"x"$height""$modifier" "$width"x"$height""$modifier"_"$file"
 		done ;;
+	"y")
+		text=""
+		while read file
+		do
+			text="$text""$file""\n"
+		done
+		echo -en "$text" | xsel -ib  &&
+		dunstify "$(xsel -ob) copied to clipboard" ;;
+	"Y")
+		text=""
+		while read file
+		do
+		text="$text""$(readlink -f "$file")""\n"
+		done
+		echo -en "$text" | xsel -ib &&
+		dunstify "$(xsel -ob) copied to clipboard" ;;
 	"h")
-		notify-send "\
+		dunstify "\
 w: Set as wallpaper.                        .
 r: Rotate clockwise.                        .
 R: Rotate counter-clockwise.                .
 f: Flop (horizontally).                     .
-f: Flop (vertically).                       .
+f: Flip (vertically).                       .
 y: Yank filename to clipboard.              .
 Y: Yank file path to clipboard.             .
 d: Delete file (with confirmation prompt).  .
-c: Rename file.                             .
+n: Rename file.                             .
+N: Open in a new instance of sxiv.          .
 g: Open in gimp.                            .
 s: Create new image with different size.    .
 S: Search image online.                     .
+c: Copy images to a chosen folder.          .
+m: Move images to a chosen folder.          .
 h: Show help.                               ." ;;
 esac
 
@@ -35,41 +54,47 @@ do
 	"w") setBG.sh "$file" ;;
 	"r")
 		convert -rotate 90 "$file" "$file" &&
-		notify-send "$file rotated clockwise" ;;
+		dunstify "$file rotated clockwise" ;;
 	"R")
 		convert -rotate -90 "$file" "$file" &&
-		notify-send "$file rotated counter-clockwise" ;;
+		dunstify "$file rotated counter-clockwise" ;;
 	"f")
 		convert -flop "$file" "$file" &&
-		notify-send "$file flopped" ;;
+		dunstify "$file flopped" ;;
 	"F")
 		convert -flip "$file" "$file" &&
-		notify-send "$file flipped" ;;
-	"y")
-		echo -n "$file" | xclip -selection clipboard &&
-		notify-send "$file copied to clipboard" & ;;
-	"Y")
-		echo -n "$(readlink -f "$file")" | xclip -selection clipboard &&
-		notify-send "$(readlink -f "$file") copied to clipboard" & ;;
+		dunstify "$file flipped" ;;
 	"d")
-		[ "$(printf "No\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && notify-send "$file deleted." ;;
-	"c")
+		[ "$(printf "No\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && dunstify "$file deleted." ;;
+	"n")
 		newname="$(dmenu -p "New name of $file?")"
-		[ "$newname" ] && newname="$newname"'.'"${file##*.}" && [ "$(printf "No\nYes" | dmenu -i -p "Rename $file to $newname?")" = "Yes" ] && mv "$file" "$newname" && notify-send "$file renamed to $newname." ;;
+		[ "$newname" ] && newname="$newname"'.'"${file##*.}" && [ "$(printf "No\nYes" | dmenu -i -p "Rename $file to $newname?")" = "Yes" ] && mv "$file" "$newname" && dunstify "$file renamed to $newname." ;;
+	"N")
+		sxiv -b "$file" & ;;
 	"g")
 		gimp "$file" & ;;
 	"S")
-		echo -n "$(readlink -f "$file")" | xclip -selection clipboard && notify-send "$(readlink -f "$file") copied to clipboard"
-		$BROWSER https://tineye.com/ ;;
-	# "c")
-	# [ -z "$destdir" ] && destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.bmdirs | awk '{print $2}' | dmenu -l 20 -i -p "Copy file(s) to where?" | sed "s|~|$HOME|g")"
-	# [ -z "$destdir" ] && exit
-	# cp "$file" "$destdir" && notify-send -i "$(readlink -f "$file")" "$file copied to $destdir." &
-	# ;;
-	# "m")
-	# [ -z "$destdir" ] && destdir="$(sed "s/\s.*#.*$//;/^\s*$/d" ~/.bmdirs | awk '{print $2}' | dmenu -l 20 -i -p "Move file(s) to where?" | sed "s|~|$HOME|g")"
-	# [ -z "$destdir" ] && exit
-	# mv "$file" "$destdir" && notify-send -i "$(readlink -f "$file")" "$file moved to $destdir." &
-	# ;;
+		echo -n "$(readlink -f "$file")" | xsel -ib && dunstify "$(xsel -ob) copied to clipboard"
+		$BROWSER "https://tineye.com/" ;;
+	"c")
+		[ -z "$destdir" ] && destdir="$(selectPath.sh "Copy image(s) to:")"
+		[ -z "$destdir" ] && exit
+		replace="Yes"
+		if [ -e "$destdir""$file" ]; then
+			dunstify -i "$destdir""$file" "Old:"
+			dunstify -i "$(readlink -f "$file")" "New:"
+			replace="$(echo -e "No\nYes" | dmenu -i -p "Replace $file in $destdir?")"
+		fi
+		[ "$replace" = "Yes" ] && cp "$file" "$destdir" && dunstify -t 2000 -i "$(readlink -f "$file")" "$file copied to $destdir" & ;;
+	"m")
+		[ -z "$destdir" ] && destdir="$(selectPath.sh "Move image(s) to:")"
+		[ -z "$destdir" ] && exit
+		replace="Yes"
+		if [ -e "$destdir""$file" ]; then
+			dunstify -i "$destdir""$file" "Old:"
+			dunstify -i "$(readlink -f "$file")" "New:"
+			replace="$(echo -e "No\nYes" | dmenu -i -p "Replace $file in $destdir?")"
+		fi
+		[ "$replace" = "Yes" ] && mv "$file" "$destdir" && dunstify -t 2000 -i "$destdir$file" "$file moved to $destdir" & ;;
 	esac
 done

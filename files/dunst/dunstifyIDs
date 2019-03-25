@@ -1,0 +1,6 @@
+vol         1001
+musicMode   1002
+brightness  1003
+cpu         1004
+memory      1005
+disk        1006

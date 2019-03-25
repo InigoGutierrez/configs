@@ -151,7 +151,7 @@
 ## for transparency.
 ## Type: QssColor
 # c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
-c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 255, 0.5), stop:1 rgba(255, 0, 255, 0.5))'
+c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 255, 0.8), stop:1 rgba(255, 0, 255, 0.8))'
 
 ## Font color for hints.
 ## Type: QssColor
@@ -755,6 +755,7 @@ c.downloads.location.directory = "~/downloads"
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
 # c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['urxvt', '-e', 'vim', '{file}']
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -763,38 +764,47 @@ c.downloads.location.directory = "~/downloads"
 ## Font used in the completion categories.
 ## Type: Font
 # c.fonts.completion.category = 'bold 10pt monospace'
+c.fonts.completion.category = 'bold 10pt serif'
 
 ## Font used in the completion widget.
 ## Type: Font
 # c.fonts.completion.entry = '10pt monospace'
+c.fonts.completion.entry = '10pt serif'
 
 ## Font used for the debugging console.
 ## Type: QtFont
 # c.fonts.debug_console = '10pt monospace'
+c.fonts.debug_console = '10pt serif'
 
 ## Font used for the downloadbar.
 ## Type: Font
 # c.fonts.downloads = '10pt monospace'
+c.fonts.downloads = '10pt serif'
 
 ## Font used for the hints.
 ## Type: Font
 # c.fonts.hints = 'bold 10pt monospace'
+c.fonts.hints = 'bold 10pt Inconsolata'
 
 ## Font used in the keyhint widget.
 ## Type: Font
 # c.fonts.keyhint = '10pt monospace'
+c.fonts.keyhint = '10pt serif'
 
 ## Font used for error messages.
 ## Type: Font
 # c.fonts.messages.error = '10pt monospace'
+c.fonts.messages.error = '10pt serif'
 
 ## Font used for info messages.
 ## Type: Font
 # c.fonts.messages.info = '10pt monospace'
+c.fonts.messages.info = '10pt serif'
 
 ## Font used for warning messages.
 ## Type: Font
 # c.fonts.messages.warning = '10pt monospace'
+c.fonts.messages.warning = '10pt serif'
 
 ## Default monospace fonts. Whenever "monospace" is used in a font
 ## setting, it's replaced with the fonts listed here.
@@ -808,10 +818,12 @@ c.downloads.location.directory = "~/downloads"
 ## Font used in the statusbar.
 ## Type: Font
 # c.fonts.statusbar = '10pt monospace'
+c.fonts.statusbar = '10pt Linux Libertine'
 
 ## Font used in the tab bar.
 ## Type: QtFont
 # c.fonts.tabs = '10pt monospace'
+c.fonts.tabs = '10pt serif'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
@@ -1318,7 +1330,7 @@ c.tabs.show = 'multiple'
 ## for a blank page.
 ## Type: FuzzyUrl
 # c.url.default_page = 'https://start.duckduckgo.com/'
-c.url.default_page = '/home/inigo/.mainpage/index.html'
+c.url.default_page = '/home/taamas/.mainpage/index.html'
 
 ## URL segments where `:navigate increment/decrement` will search for a
 ## number.
@@ -1361,7 +1373,7 @@ c.url.searchengines = {
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
 # c.url.start_pages = ['https://start.duckduckgo.com']
-c.url.start_pages = ['file:///home/inigo/.mainpage/index.html']
+c.url.start_pages = ['file:///home/taamas/.mainpage/index.html']
 
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String
@@ -1404,8 +1416,6 @@ c.url.start_pages = ['file:///home/inigo/.mainpage/index.html']
 # config.bind(';R', 'hint --rapid links window')
 # config.bind(';Y', 'hint links yank-primary')
 # config.bind(';b', 'hint all tab-bg')
-config.bind(';da', 'hint all download')
-config.bind(';di', 'hint images download')
 # config.bind(';f', 'hint all tab-fg')
 # config.bind(';h', 'hint all hover')
 # config.bind(';i', 'hint images')
@@ -1555,29 +1565,29 @@ config.bind('U', 'undo')
 # open url with mpv
 config.bind(',v', 'spawn i3-msg exec mpv {url}')
 config.bind(',fv', 'hint links spawn i3-msg exec mpv {hint-url}')
-config.bind(',V', 'spawn i3-msg exec bash /home/inigo/scripts/floats/mpvFloat.sh {url}')
-config.bind(',fV', 'hint links spawn i3-msg exec bash /home/inigo/scripts/floats/mpvFloat.sh {hint-url}')
+config.bind(',V', 'spawn i3-msg exec bash /home/taamas/scripts/floats/mpvFloat.sh {url}')
+config.bind(',fV', 'hint links spawn i3-msg exec bash /home/taamas/scripts/floats/mpvFloat.sh {hint-url}')
 #download url's video in ~/videos/qutebrowser
 config.bind(',d', 'spawn youtube-dl --all-subs --embed-subs -o ~/downloads/videos/%(title)s.%(ext)s {url}')
 # same as previous, but showing urxvt
-config.bind(',D', 'spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloat.sh {url}')
+config.bind(',D', 'spawn i3-msg exec bash /home/taamas/scripts/floats/youtube-dlFloat.sh {url}')
 # two same commands, using hints instead than current url
 config.bind(',fd', 'hint links spawn youtube-dl --all-subs --embed-subs -o ~/downloads/videos/%(title)s.%(ext)s {hint-url}')
-config.bind(',fD', 'hint links spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloat.sh {hint-url}')
+config.bind(',fD', 'hint links spawn i3-msg exec bash /home/taamas/scripts/floats/youtube-dlFloat.sh {hint-url}')
 # download url's audio in mp3 in ~/music/qutebrowser
 config.bind(',a', 'spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 --embed-thumbnail {url}')
 # same as previous, but showing urxvt
-config.bind(',A', 'spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloatAudio.sh {url}')
+config.bind(',A', 'spawn i3-msg exec bash /home/taamas/scripts/floats/youtube-dlFloatAudio.sh {url}')
 # two same commands, using hints instead than current url
 config.bind(',fa', 'hint links spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 --embed-thumbnail {hint-url}')
-config.bind(',fA', 'hint links spawn i3-msg exec bash /home/inigo/scripts/floats/youtube-dlFloatAudio.sh {hint-url}')
-# open images with pqiv
-config.bind(',i', 'spawn i3-msg exec "pqiv -i -T pqivfloat {url}"')
-config.bind(',fi', 'hint images spawn i3-msg exec "pqiv -i -T pqivfloat {hint-url}"')
-config.bind(',fI', 'hint all spawn i3-msg exec "pqiv -i -T pqivfloat {hint-url}"')
+config.bind(',fA', 'hint links spawn i3-msg exec bash /home/taamas/scripts/floats/youtube-dlFloatAudio.sh {hint-url}')
+# open images with corresponding script
+config.bind(',i', 'spawn showURLimage.sh {url}')
+config.bind(',fi', 'hint images spawn showURLimage.sh {hint-url}')
+config.bind(',fI', 'hint all spawn showURLimage.sh {hint-url}')
 # ripme bulk image downloading
-config.bind(',rm', 'spawn i3-msg exec "java -jar ~/programs/ripme.jar -u {url}"')
-config.bind(',frm', 'hint links spawn i3-msg exec "java -jar ~/programs/ripme.jar -u {hint-url}"')
+config.bind(',rm', 'spawn i3-msg exec "ripme.sh {url}"')
+config.bind(',frm', 'hint links spawn i3-msg exec "ripme.sh {hint-url}"')
 
 ## Bindings for caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')

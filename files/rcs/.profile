@@ -16,32 +16,41 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-[[ $(tty) = "/dev/tty5" ]] && setfont Lat2-VGA8
-neofetch
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-#export JAVA_HOME=/usr/java/jdk-10.0.2
-export JAVA_HOME=/usr/java/jdk1.8.0_181
+# java
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 PATH=${PATH}:${JAVA_HOME}/bin
 
-# add vim live latex preview to path:
-PATH=${PATH}:$HOME/vim/bundle/vim-live-latex-preview/bin
+# add vim live latex preview to path
+# PATH=${PATH}:$HOME/vim/bundle/vim-live-latex-preview/bin
 
-# add scripts folder to path:
+# add scripts folder to path
 PATH="$PATH:$HOME/scripts"
 
 # export final PATH
 export PATH
 
 export EDITOR="vim"
+export TERM="rxvt-256color"
 export TERMINAL="urxvt"
 export BROWSER="qutebrowser"
+export READER="zathura"
+
+# less/man colors
+# export LESS=-R
+# export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"; a="${a%_}"
+# export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"; a="${a%_}"
+# export LESS_TERMCAP_me="$(printf '%b' '[0m')"; a="${a%_}"
+# export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"; a="${a%_}"
+# export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
+# export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
+# export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
+
+sudo loadkeys es
+sudo -n loadkeys "$HOME/.config/ttymaps.kmap"
+[[ $(tty) = "/dev/tty6" ]] && setfont alt-8x8
+echo ""
+neofetch --config ~/.config/neofetch/neofetchLogin.conf
+if [ "$(tty)" = "/dev/tty1" ] && [ ! "$(pgrep -x i3)" ]; then
+	figlet "Starting i3-gaps..." | lolcat -a -d 1 -s 10 -p 1 -F 0.05
+	exec startx >~/.startx.log 2>~/.startxerr.log
+fi

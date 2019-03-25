@@ -45,7 +45,7 @@ font pango:monospace 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 #
-# use these keys for focus, movement, and resize directions when reaching for
+# Use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up k
 set $down j
@@ -63,9 +63,9 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
-set $wst T
+set $wst 🙈
 
-# Use Mouse+$mod to drag floating windows to their wanted position
+# use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
@@ -200,9 +200,9 @@ for_window [title="invisible"] border none
 for_window [title="mpvfloat"] floating enable
 for_window [title="mpvfloat"] sticky enable
 for_window [title="mpvfloat"] border pixel 1
-for_window [title="pqivfloat"] floating enable
-for_window [title="pqivfloat"] sticky enable
-for_window [title="pqivfloat"] border pixel 1
+for_window [instance="sxivfloat"] floating enable
+for_window [instance="sxivfloat"] sticky enable
+for_window [instance="sxivfloat"] border pixel 1
 assign [class="Transmission"] 5
 
 # edge borders
@@ -210,11 +210,11 @@ hide_edge_borders both
 #hide_edge_borders none
 
 # system control
-bindsym $mod+Control+s exec bash ~/scripts/systemControl.sh
+bindsym $mod+Control+s exec ~/scripts/systemControl.sh
 # reboot
-bindsym $mod+Control+Shift+r exec bash ~/scripts/prompt.sh "Reboot?" "$reboot"
-# lock (image must be .png)
-bindsym $mod+Control+l exec i3lock -i /home/inigo/images/wallpapers/lockbg.png -f
+bindsym $mod+Control+Shift+r exec ~/scripts/prompt.sh "Reboot?" "$reboot"
+# lock
+bindsym $mod+Control+l exec i3lock.sh
 
 # scratchpad
 bindsym $mod+minus move scratchpad
@@ -242,7 +242,7 @@ bindsym $mod+XF86MonBrightnessUp exec ~/scripts/brightness.sh $bigBrightChange
 bindsym XF86MonBrightnessDown exec ~/scripts/brightness.sh -$brightChange
 bindsym $mod+XF86MonBrightnessDown exec ~/scripts/brightness.sh -$bigBrightChange
 # Touchpad controls
-#bindsym XF86Switch_VT_5 exec ~.config/i3/toggletouchpad.sh # toggle touchpad
+#bindsym XF86Switch_VT_5 exec ~/.config/i3/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
 bindsym XF86AudioPlay exec ~/scripts/cmusPlay.sh
@@ -253,18 +253,21 @@ bindsym XF86AudioPrev exec cmus-remote -r && pkill -SIGRTMIN+12 i3blocks
 
 bindsym $mod+q exec qutebrowser
 bindsym $mod+Shift+f exec firefox
-bindsym $mod+s exec gnome-screenshot
-bindsym $mod+a exec gnome-screenshot -a
+bindsym $mod+s exec screenshot.sh
+bindsym $mod+a exec screenshot.sh -a
 bindsym $mod+r exec urxvt -e ranger
 bindsym $mod+n exec urxvt -e newsboat
 bindsym $mod+Shift+a exec urxvt -e alsamixer
 bindsym $mod+c exec ~/scripts/dmenuTerm.sh
+bindsym $mod+d exec ~/scripts/dmenuDic.sh
 # bindsym $mod+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo ~/scripts/dmenuMount.sh
 bindsym $mod+m exec ~/scripts/dmenuMount.sh
 # bindsym $mod+Shift+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo ~/scripts/dmenuUmount.sh
 bindsym $mod+Shift+m exec ~/scripts/dmenuUmount.sh
-
 bindsym $mod+Shift+c exec notify-send "$(fortune)"
+bindsym $mod+y exec surfraw.sh
+bindsym $mod+Control+f exec screenRecord.sh
+
 
 ##
 
@@ -321,7 +324,7 @@ bindsym $mod+Shift+r mode "resize"
 # finds out, if available)
 bar {
 	position bottom
-	font pango:monospace 8
+	font pango:inconsolata 8
 	separator_symbol "·"
 	#font pango:DejaVu Sans Mono 8
 	#font pango:proggy 8
@@ -342,9 +345,10 @@ bar {
 ### Init
 # bg
 #exec_always bash ~/scripts/pkmBgSelector.sh
-exec feh --bg-fill ~/images/wallpapers/bg*
+exec xrdb ~/.Xresources
+exec feh --bg-max ~/images/wallpapers/bg*
 exec dunst
 exec setxkbmap -layout es -option caps:swapescape
 exec xset -b
-exec xrdb ~/.Xresources
+exec unclutter --idle 1
 #exec transmission-gtk

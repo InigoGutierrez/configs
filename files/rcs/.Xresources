@@ -34,11 +34,11 @@ URxvt.cursorColor:	#b2ffe5
 !URxvt.title:		urxvt
 URxvt.fading:		15
 URxvt.transparent:	true
-URxvt.shading:		18
+URxvt.shading:		12
 *.alpha: 120
 
-URxvt.font:		xft:monospace:size=10
-!xft:font-awesome:size=10
+URxvt.font:		xft:inconsolata:size=10
+!URxvt.font:		xft:noto-fonts-emoji:size=6
 
 ! From https://www.askapache.com/linux/rxvt-xresources/#rxvt-unicode_urxvt
 !URxvt*font:  -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12
