@@ -3,6 +3,7 @@ alias v="vim"
 alias rmu="ranger ~/music"
 alias rp="ranger ~/IIS/poland"
 alias cdf='cd $(fzfPath.sh)'
+alias vim='nvim'
 
 # IIS
 alias ipds="ssh halite.ii.pwr.wroc.pl -l 250839"

@@ -90,7 +90,7 @@ umode=$pur
 
 PS1="${keys}[${pur}${wd}\w${keys}]${umode}\$${def} "
 
-EDITOR=vim
+EDITOR=nvim
 BROWSER=qutebrowser
 TERM=rxvt-256color
 TERCMD=urxvt

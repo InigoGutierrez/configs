@@ -27,14 +27,14 @@
 *color7: #b2ffe5
 *color15: #cdfffc
 
-URxvt.background:	Black
+URxvt.background:	#0f1f1f
 URxvt.foreground:	#b2ffe5
 URxvt.scrollBar:	false
 URxvt.cursorColor:	#b2ffe5
 !URxvt.title:		urxvt
-URxvt.fading:		15
-URxvt.transparent:	true
-URxvt.shading:		12
+URxvt.fading:		18
+URxvt.transparent:	false
+!URxvt.shading:		12
 *.alpha: 120
 
 URxvt.font:		xft:inconsolata:size=10
