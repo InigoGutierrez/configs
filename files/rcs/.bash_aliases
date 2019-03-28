@@ -24,6 +24,9 @@ alias cg="vim ~/.gitconfig"
 alias cnb="vim ~/.newsboat/config"
 alias cnbu="vim ~/.newsboat/urls"
 
+# Programs
+alias CryptTool="wine \"~/.wine/drive_c/Program Files (x86)/CrypTool/CrypTool.exe\""
+
 alias upgrade="sudo pacman -Syu"
 
 alias starwars="telnet towel.blinkenlights.nl"
@@ -31,6 +34,3 @@ alias nintendos="mpv -vo caca https://www.youtube.com/watch?v=hYNcJj2QDhk 2>/dev
 alias adormir="mpv -vo caca ~/videos/Adormir.mp4 && clear 2>/dev/null"
 alias adormirloop="mpv --loop-file -vo caca ~/videos/Adormir.mp4 2>/dev/null && clear"
 
-# Programs
-alias CryptTool="~/.wine/drive_c/Program Files (x86)/CrypTool/CrypTool.exe"
-alias spyder="~/anaconda3/bin/spyder"

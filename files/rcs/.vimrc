@@ -138,7 +138,7 @@ nnoremap <leader>hC 05x/--><Enter>3x0
 
 "" LaTeX
 
-nnoremap <leader>lc :w<Enter>:! pdflatex %<Enter>
+nnoremap <leader>lc :w<Enter>:! pdflatex --shell-escape %<Enter>
 inoremap <leader>ldocumentclass \documentclass{}<Esc>o<++><Esc>k$i
 inoremap <leader>lpckg \usepackage{}<Esc>o<++><Esc>k$i
 inoremap <leader>ldocument \begin{document}<Esc>o<Enter><Enter><Enter>\end{document}<Esc>kkI

@@ -99,21 +99,4 @@ ARDUINO_DIR=/usr/share/arduino
 ARDMK_DIR=/usr/share/arduino
 AVR_TOOLS_DIR=/usr
 
-XDG_CONFIG_HOME=/home/inigo/.config
-
-## # added by Anaconda3 2018.12 installer
-## # >>> conda init >>>
-## # !! Contents within this block are managed by 'conda init' !!
-## __conda_setup="$(CONDA_REPORT_ERRORS=false '/home/taamas/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
-## if [ $? -eq 0 ]; then
-##     \eval "$__conda_setup"
-## else
-##     if [ -f "/home/taamas/anaconda3/etc/profile.d/conda.sh" ]; then
-##         . "/home/taamas/anaconda3/etc/profile.d/conda.sh"
-##         CONDA_CHANGEPS1=false conda activate base
-##     else
-##         \export PATH="/home/taamas/anaconda3/bin:$PATH"
-##     fi
-## fi
-## unset __conda_setup
-## # <<< conda init <<<
+XDG_CONFIG_HOME=~/.config
