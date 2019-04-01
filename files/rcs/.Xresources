@@ -33,8 +33,8 @@ URxvt.scrollBar:	false
 URxvt.cursorColor:	#b2ffe5
 !URxvt.title:		urxvt
 URxvt.fading:		18
-URxvt.transparent:	false
-!URxvt.shading:		12
+URxvt.transparent:	true
+URxvt.shading:		12
 *.alpha: 120
 
 URxvt.font:		xft:inconsolata:size=10

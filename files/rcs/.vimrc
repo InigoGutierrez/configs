@@ -7,15 +7,17 @@
 " Inspired by https://github.com/LukeSmithxyz/voidrice/blob/master/.vimrc
 
 let mapleader = ","
+
 call plug#begin('~/.vim/plugged') "Update with PlugInstall
-Plug 'junegunn/goyo.vim'
 Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vimwiki/vimwiki'
 Plug 'suan/vim-instant-markdown'
+Plug 'airodactyl/neovim-ranger'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 set nocompatible
@@ -27,6 +29,16 @@ set wildmode=longest,list,full
 set splitbelow
 set splitright
 set vb " No bell
+
+" For vim-airline
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_left_sep='▶'
+let g:airline_right_sep='◀'
+let g:airline_symbols.linenr = 'F'
+let g:airline_symbols.maxlinenr = 'LN'
+
 
 " For vimwiki
 filetype plugin on
@@ -184,7 +196,7 @@ function! RangeChooser()
     endif
     " Edit the first item.
     exec 'edit ' . fnameescape(names[0])
-    " Add any remaning items to the arg list/buffer list.
+    " Add any remaining items to the arg list/buffer list.
     for name in names[1:]
         exec 'argadd ' . fnameescape(name)
     endfor
