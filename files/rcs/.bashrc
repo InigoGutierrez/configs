@@ -10,6 +10,8 @@ case $- in
       *) return;;
 esac
 
+[[ -z "$TMUX" ]] && exec tmux
+
 # Activate vi mode with <Escape>.
 set -o vi
 
@@ -90,13 +92,14 @@ umode=$pur
 
 PS1="${keys}[${pur}${wd}\w${keys}]${umode}\$${def} "
 
-EDITOR=nvim
-BROWSER=qutebrowser
-TERM=rxvt-256color
-TERCMD=urxvt
-
-ARDUINO_DIR=/usr/share/arduino
-ARDMK_DIR=/usr/share/arduino
-AVR_TOOLS_DIR=/usr
-
-XDG_CONFIG_HOME=~/.config
+# EDITOR="nvim"
+# TERM="rxvt-256color"
+# TERMINAL="urxvt"
+# BROWSER="qutebrowser"
+# READER="zathura"
+#
+# ARDUINO_DIR="/usr/share/arduino"
+# ARDMK_DIR="/usr/share/arduino"
+# AVR_TOOLS_DIR="/usr"
+#
+# XDG_CONFIG_HOME="$HOME/.config"

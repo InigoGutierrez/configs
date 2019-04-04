@@ -1,10 +1,8 @@
-alias r="ranger"
-alias v="vim"
-alias rmu="ranger ~/music"
-alias rp="ranger ~/IIS/poland"
+alias r='ranger'
+alias v='vim'
+alias vim='nvim'
+alias ping='ping fsf.org'
 alias cdf='cd $(fzfPath.sh)'
-alias v="vim"
-#alias vim='nvim'
 
 # IIS
 alias ipds="ssh halite.ii.pwr.wroc.pl -l 250839"
@@ -14,8 +12,7 @@ alias cb="vim ~/.bashrc"
 alias cba="vim ~/.bash_aliases"
 alias cx="vim ~/.Xresources"
 alias ci3="vim ~/.config/i3/config"
-alias ci3b="vim ~/.i3status.conf"
-alias ci3blocks="vim ~/.config/i3blocks/config"
+alias ci3b="vim ~/.config/i3blocks/config"
 alias cdunst="vim ~/.config/dunst/dunstrc"
 alias cv="vim ~/.vimrc"
 alias cqb="vim ~/.config/qutebrowser/config.py"
@@ -32,7 +29,7 @@ alias CryptTool="wine \"~/.wine/drive_c/Program Files (x86)/CrypTool/CrypTool.ex
 alias upgrade="sudo pacman -Syu"
 
 alias starwars="telnet towel.blinkenlights.nl"
-alias nintendos="mpv -vo caca https://www.youtube.com/watch?v=hYNcJj2QDhk 2>/dev/null"
 alias adormir="mpv -vo caca ~/videos/Adormir.mp4 && clear 2>/dev/null"
 alias adormirloop="mpv --loop-file -vo caca ~/videos/Adormir.mp4 2>/dev/null && clear"
+alias nintendos="mpv -vo caca https://www.youtube.com/watch?v=hYNcJj2QDhk 2>/dev/null"
 

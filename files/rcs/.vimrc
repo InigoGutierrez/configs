@@ -13,31 +13,52 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vimwiki/vimwiki'
 Plug 'suan/vim-instant-markdown'
 Plug 'airodactyl/neovim-ranger'
 Plug 'vim-airline/vim-airline'
+"Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
 set nocompatible
 filetype plugin indent on
 set encoding=utf-8
 set number relativenumber
-set scrolloff=3
+set scrolloff=2
 set wildmode=longest,list,full
 set splitbelow
 set splitright
 set vb " No bell
+" Searching
+set ignorecase
+set wrapscan
+set incsearch
+
+" For cursor shape with tmux
+if empty($TMUX)
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+else
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+endif
+
+if &term =~ '^screen'
+  " tmux will send xterm-style keys when its xterm-keys option is on
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
 
 " For vim-airline
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
-let g:airline_left_sep='▶'
-let g:airline_right_sep='◀'
-let g:airline_symbols.linenr = 'F'
-let g:airline_symbols.maxlinenr = 'LN'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_symbols.linenr = '🔃'
+let g:airline_symbols.maxlinenr = '↩'
 
 
 " For vimwiki
@@ -72,6 +93,8 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Autoupdate ~/.Xresources
 autocmd BufWritePost ~/.Xresources !xrdb %
+
+" Generate ~/.mainpage/urls on ~/.config/qutebrowser save
 autocmd BufWritePost ~/.config/qutebrowser/config.py !cat .config/qutebrowser/config.py | grep -e \'.*\':\ \'.*{}.*\' | grep -v DEFAULT | sed 's/,//' | sed 's/^\ *//' > ~/.mainpage/urls
 
 """ Remaps """
@@ -151,9 +174,9 @@ nnoremap <leader>hC 05x/--><Enter>3x0
 "" LaTeX
 
 nnoremap <leader>lc :w<Enter>:! pdflatex --shell-escape %<Enter>
-inoremap <leader>ldocumentclass \documentclass{}<Esc>o<++><Esc>k$i
+inoremap <leader>ldocclass \documentclass{}<Esc>o<++><Esc>k$i
 inoremap <leader>lpckg \usepackage{}<Esc>o<++><Esc>k$i
-inoremap <leader>ldocument \begin{document}<Esc>o<Enter><Enter><Enter>\end{document}<Esc>kkI
+inoremap <leader>lbdoc \begin{document}<Esc>o<Enter><Enter><Enter>\end{document}<Esc>kkI
 inoremap <leader>lauthor \author{}<Esc>o<++><Esc>k$i
 inoremap <leader>ltitle \title{}<Esc>o<++><Esc>k$i
 inoremap <leader>lsection \section{}<Esc>o<++><Esc>k$i

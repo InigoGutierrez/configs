@@ -69,7 +69,9 @@ set $wst 🙈
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt -e tmux
+bindsym $mod+Shift+Return exec st -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -119,7 +121,7 @@ bindsym $mod+Shift+b bar mode toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+w layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -215,6 +217,8 @@ bindsym $mod+Control+s exec ~/scripts/systemControl.sh
 bindsym $mod+Control+Shift+r exec ~/scripts/prompt.sh "Reboot?" "$reboot"
 # lock
 bindsym $mod+Control+l exec i3lock.sh
+# touchpad
+bindsym $mod+Control+t exec touchpad.sh
 
 # scratchpad
 bindsym $mod+minus move scratchpad
@@ -254,15 +258,15 @@ bindsym XF86AudioPrev exec cmus-remote -r && pkill -SIGRTMIN+12 i3blocks
 bindsym $mod+q exec qutebrowser
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+s exec screenshot.sh
+bindsym Print exec screenshot.sh
 bindsym $mod+a exec screenshot.sh -a
 bindsym $mod+r exec urxvt -e ranger
 bindsym $mod+n exec urxvt -e newsboat
 bindsym $mod+Shift+a exec urxvt -e alsamixer
 bindsym $mod+c exec ~/scripts/dmenuTerm.sh
 bindsym $mod+d exec ~/scripts/dmenuDic.sh
-# bindsym $mod+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo ~/scripts/dmenuMount.sh
 bindsym $mod+m exec ~/scripts/dmenuMount.sh
-# bindsym $mod+Shift+m exec urxvt -name floating -sh 20 -cr black -geometry 32x1 -e sudo ~/scripts/dmenuUmount.sh
+bindsym $mod+e exec ~/scripts/emoji.sh
 bindsym $mod+Shift+m exec ~/scripts/dmenuUmount.sh
 bindsym $mod+Shift+c exec notify-send "$(fortune)"
 bindsym $mod+y exec surfraw.sh
@@ -326,10 +330,6 @@ bar {
 	position bottom
 	font pango:inconsolata 8
 	separator_symbol "·"
-	#font pango:DejaVu Sans Mono 8
-	#font pango:proggy 8
-	#font -*-clean-*-*-*-*-12-*-*-*-*-70-*-*
-	#font pango:Terminus 10px
 	colors {
 		background			$black
 		statusline			$white2
@@ -351,4 +351,5 @@ exec dunst
 exec setxkbmap -layout es -option caps:swapescape
 exec xset -b
 exec unclutter --idle 1
+exec touchpad.sh
 #exec transmission-gtk

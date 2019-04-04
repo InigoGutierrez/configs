@@ -63,4 +63,4 @@ interval=30
 #background=#eb87ff
 color=#eb87ff
 command=~/scripts/i3blocks/i3date.sh
-interval=5
+interval=1

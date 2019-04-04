@@ -20,20 +20,23 @@ fi
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 PATH=${PATH}:${JAVA_HOME}/bin
 
-# add vim live latex preview to path
-# PATH=${PATH}:$HOME/vim/bundle/vim-live-latex-preview/bin
-
 # add scripts folder to path
 PATH="$PATH:$HOME/scripts"
 
 # export final PATH
 export PATH
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERM="rxvt-256color"
 export TERMINAL="urxvt"
 export BROWSER="qutebrowser"
 export READER="zathura"
+
+export ARDUINO_DIR="/usr/share/arduino"
+export ARDMK_DIR="/usr/share/arduino"
+export AVR_TOOLS_DIR="/usr"
+
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # less/man colors
 # export LESS=-R

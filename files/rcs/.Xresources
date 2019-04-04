@@ -1,50 +1,33 @@
-! Inspiration:
-! Luke Smith (URXVT video: https://www.youtube.com/watch?v=eaBf_yFHps8)
-! Origin config file: https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.Xdefaults
-
 ! To load into RESOURCE_MANAGER, run xrdb ~/.Xresources
 
-!*foreground:		#00cc00
-!*foreground_bold:	#a8a19f
-!*cursor:			#a8a19f
-!*background:		#1b1918
+! Dracula
+*.foreground: #f8f8f2
+*.background: #282a36
+*.color0:     #000000
+*.color8:     #4d4d4d
+*.color1:     #ff5555
+*.color9:     #ff6e67
+*.color2:     #50fa7b
+*.color10:    #5af78e
+*.color3:     #f1fa8c
+*.color11:    #f4f99d
+*.color4:     #bd93f9
+*.color12:    #caa9fa
+*.color5:     #ff79c6
+*.color13:    #ff92d0
+*.color6:     #008080
+*.color14:    #9aedfe
+*.color7:     #bfbfbf
+*.color15:    #e6e6e6
 
-! Light
-*color0: #000000
-*color8: #242424
-*color1: #d1375d
-*color9: #ff4e7a
-*color2: #6da48e
-*color10: #bceebc
-*color3: #fff04b
-*color11: #ffff7d
-*color4: #696eff
-*color12: #a5acff
-*color5: #e45eff
-*color13: #eb87ff
-*color6: #008080
-*color14: #00ffff
-*color7: #b2ffe5
-*color15: #cdfffc
-
-URxvt.background:	#0f1f1f
-URxvt.foreground:	#b2ffe5
 URxvt.scrollBar:	false
-URxvt.cursorColor:	#b2ffe5
-!URxvt.title:		urxvt
 URxvt.fading:		18
-URxvt.transparent:	true
+URxvt.transparent:	false
 URxvt.shading:		12
+
 *.alpha: 120
 
-URxvt.font:		xft:inconsolata:size=10
-!URxvt.font:		xft:noto-fonts-emoji:size=6
-
-! From https://www.askapache.com/linux/rxvt-xresources/#rxvt-unicode_urxvt
-!URxvt*font:  -xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:pixelsize:12
-!URxvt*boldFont:  -xos4-terminus-bold-*-*-*-14-*-*-*-*-*-iso8859-15,xft:terminus:bold:pixelsize:12
-!URxvt*italicFont:  xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
-!URxvt*boldItalicFont:  xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=12
+URxvt.font:	xft:inconsolata:size=10,xft:symbola
 
 ! Leaving this blank stops perl from being initialized
 URxvt.perl-ext:
