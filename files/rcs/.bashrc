@@ -10,7 +10,7 @@ case $- in
       *) return;;
 esac
 
-[[ -z "$TMUX" ]] && exec tmux
+# [[ -z "$TMUX" ]] && exec tmux # Doesn't allow to automatically start X
 
 # Activate vi mode with <Escape>.
 set -o vi
@@ -91,6 +91,7 @@ wd="\[\e[1;35m\]"
 umode=$pur
 
 PS1="${keys}[${pur}${wd}\w${keys}]${umode}\$${def} "
+PS1="${keys}[${pur}\u${keys}@${pur}\h${keys}]${wd}\w${umode}\$${def} "
 
 # EDITOR="nvim"
 # TERM="rxvt-256color"

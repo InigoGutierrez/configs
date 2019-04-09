@@ -4,14 +4,14 @@
 *.foreground: #f8f8f2
 *.background: #282a36
 *.color0:     #000000
-*.color8:     #4d4d4d
+*.color8:     #282a36
 *.color1:     #ff5555
 *.color9:     #ff6e67
 *.color2:     #50fa7b
 *.color10:    #5af78e
 *.color3:     #f1fa8c
 *.color11:    #f4f99d
-*.color4:     #bd93f9
+*.color4:     #008ecc
 *.color12:    #caa9fa
 *.color5:     #ff79c6
 *.color13:    #ff92d0

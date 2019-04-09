@@ -6,6 +6,8 @@ alias cdf='cd $(fzfPath.sh)'
 
 # IIS
 alias ipds="ssh halite.ii.pwr.wroc.pl -l 250839"
+alias web="ssh -p 3022 user@localhost"
+alias webvarnish="ssh -p 3022 varnish1@localhost"
 
 # config files
 alias cb="vim ~/.bashrc"
@@ -22,6 +24,7 @@ alias ccmus="vim ~/.config/cmus/autosave"
 alias cg="vim ~/.gitconfig"
 alias cnb="vim ~/.newsboat/config"
 alias cnbu="vim ~/.newsboat/urls"
+alias ctmux="vim ~/.tmux.conf"
 
 # Programs
 alias CryptTool="wine \"~/.wine/drive_c/Program Files (x86)/CrypTool/CrypTool.exe\""

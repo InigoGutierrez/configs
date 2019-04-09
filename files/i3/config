@@ -107,6 +107,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# navigate workspaces
+bindsym $mod+Control+$left workspace prev
+bindsym $mod+Control+$right workspace next
+
 # split in horizontal orientation
 bindsym $mod+b split h
 
@@ -117,7 +121,8 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # toggle bar
-bindsym $mod+Shift+b bar mode toggle
+bindsym $mod+Control+b bar mode invisible
+bindsym $mod+Shift+b bar mode dock
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+Shift+w layout stacking
 bindsym $mod+w layout tabbed
@@ -155,7 +160,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
-bindsym $mod+t workspace $wst
+bindsym $mod+Control+t workspace $wst
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -168,30 +173,21 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-bindsym $mod+Shift+t move container to workspace $wst
+bindsym $mod+Shift+Control+t move container to workspace $wst
 
 ## Custom ##
 
 # colors
-
-# class					border		bg		text	indicator	child_border
-# client.focused			#3F00FF	#000000 #FFFFFF	#9F9FFF		#0000FF
-# client.focused_inactive	#007FFF	#797979	#00FF00	#9F9FFF		#00FF00
-# client.unfocused		#7F7F7F	#000000 #BFBFBF	#FF00FF		#7F7F7F
-
-#client.focused			$blue		$black	$white2	$blue2		$blue
-client.focused			$black2		$black2	$white2	$magenta2	$blue
-client.focused_inactive	$black2		$black	$white	$white		$white
-client.unfocused		$black2		$black	$blue2	$black2		$black
+#class					#border		#bg		#text	#indicator	#child_border
+client.focused			$black2		$black2	$white2	$blue		$blue
+client.focused_inactive	$black2		$black	$white	$black2		$black2
+client.unfocused		$black2		$black	$blue2	$black		$black
 client.urgent			$red		$black	$white	$red		$red
-
-#client.focused			$magenta	$black	$magenta	$magenta		$magenta
-#client.focused_inactive	$cyan	$black	$cyan	$cyan		$cyan
-#client.focused_inactive	$blue2	$black	$blue2	$blue2		$blue2
-#client.unfocused		$blue	$black	$blue	$blue		$blue
 
 # for window config
 for_window [class="^.*"] border pixel 1
+
+# gaps config
 gaps inner 14
 gaps outer 0
 
@@ -215,10 +211,8 @@ hide_edge_borders both
 bindsym $mod+Control+s exec ~/scripts/systemControl.sh
 # reboot
 bindsym $mod+Control+Shift+r exec ~/scripts/prompt.sh "Reboot?" "$reboot"
-# lock
-bindsym $mod+Control+l exec i3lock.sh
 # touchpad
-bindsym $mod+Control+t exec touchpad.sh
+bindsym $mod+t exec touchpad.sh
 
 # scratchpad
 bindsym $mod+minus move scratchpad
@@ -327,25 +321,26 @@ bindsym $mod+Shift+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	position bottom
+	position top
 	font pango:inconsolata 8
 	separator_symbol "·"
 	colors {
-		background			$black
+		background			$black2
 		statusline			$white2
 		separator			$white2
-		focused_workspace	$blue	$blue		$black
-		inactive_workspace	$black	$black		$blue
-		urgent_workspace	$black	$magenta	$white2
+		focused_workspace	$blue	$blue		$black2
+		inactive_workspace	$black2	$black2		$blue
+		urgent_workspace	$black2	$magenta	$white2
 	}
         #status_command i3status
         status_command i3blocks
 }
 
 ### Init
+exec i3-msg "gaps inner current set 0; gaps outer current set 0"
 # bg
 #exec_always bash ~/scripts/pkmBgSelector.sh
-exec xrdb ~/.Xresources
+exec xrdb ~/.Xresources && urxvt -e tmux new -s main
 exec feh --bg-max ~/images/wallpapers/bg*
 exec dunst
 exec setxkbmap -layout es -option caps:swapescape

@@ -17,6 +17,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'suan/vim-instant-markdown'
 Plug 'airodactyl/neovim-ranger'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-syntastic/syntastic'
 "Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
@@ -33,6 +34,15 @@ set vb " No bell
 set ignorecase
 set wrapscan
 set incsearch
+
+" For syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " For cursor shape with tmux
 if empty($TMUX)
@@ -188,7 +198,7 @@ inoremap <leader>lb \textbf{}<++><Esc>F}i
 inoremap <leader>li \textit{}<++><Esc>F}i
 inoremap <leader>lemph \emph{}<++><Esc>F}i
 inoremap <leader>llabel \label{}<++><Esc>F}i
-inoremap <leader>lref \ref{}<++><Esc>F}i
+inoremap <leader>lref ~\ref{}<++><Esc>F}i
 inoremap <leader>lenumerate \begin{enumerate}<Esc>o<Enter><Enter><Enter>\end{enumerate}<Esc>kkI\item<Enter><Esc>I<Tab><++><Esc>k<<i<Tab><Esc>$a<Space>
 inoremap <leader>litemize \begin{itemize}<Esc>o<Enter><Enter><Enter>\end{itemize}<Esc>kkI\item<Enter><Esc>I<Tab><++><Esc>k<<i<Tab><Esc>$a<Space>
 inoremap <leader>litem \item<Enter><++><Esc>k$a<Space>
