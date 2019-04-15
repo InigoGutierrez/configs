@@ -30,8 +30,10 @@ URxvt.shading:		12
 URxvt.font:	xft:inconsolata:size=10,xft:symbola
 
 ! Leaving this blank stops perl from being initialized
-URxvt.perl-ext:
+!URxvt.perl-ext:
 !URxvt.perl-ext-common:	fullscreen, resize-font
+URxvt.perl-ext-common: font-size
+URxvt.keysym.C-equal: font-size:reset
 !URxvt.keysym.F11:	perl:fullscreen:switch
 !URxvt.keysym.C-J:	resize-font:smaller
 !URxvt.keysym.C-K:	resize-font:bigger

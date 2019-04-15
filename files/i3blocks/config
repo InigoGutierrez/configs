@@ -1,12 +1,16 @@
 markup=pango
 #separator_block_width=0
 
-[fortune]
-color=#ffffff
-color=#bceebc
-#background=#6da48e
-command=echo "🥠 $(fortune -n 55 -s | sed 's/\n/ \/ /g')"
+[emojis]
+command=shufEmoji.sh 1
 interval=once
+
+#[fortune]
+#color=#ffffff
+#color=#bceebc
+##background=#6da48e
+#command=echo "🥠 $(fortune -n 55 -s | sed 's/\n/ \/ /g')"
+#interval=once
 
 [screenRec]
 command=~/scripts/i3blocks/i3rec.sh
@@ -57,6 +61,12 @@ interval=30
 label=💽
 command=~/scripts/i3blocks/i3disk.sh
 interval=30
+
+[litter]
+label=🚮
+command=du -sh $HOME/litter | cut -d'	' -f1
+interval=once
+signal=14
 
 [date]
 #color=#000000

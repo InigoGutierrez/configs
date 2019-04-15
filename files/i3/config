@@ -53,18 +53,29 @@ set $left h
 set $right l
 
 # define workspaces names
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
+set $ws1 1:💻
+set $ws2 2:👾
+set $ws3 3:🌍
+set $ws4 4:🎮
 set $ws5 5
-set $ws6 6
+set $ws6 6:🎵
 set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
 set $wst 🙈
 
+#set $ws1 1:I
+#set $ws2 2:II
+#set $ws3 3:III
+#set $ws4 4:IV
+#set $ws5 5:V
+#set $ws6 6:VI
+#set $ws7 7:VII
+#set $ws8 8:VIII
+#set $ws9 9:IX
+#set $ws10 10:X
+#set $wst 🙈
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -110,6 +121,10 @@ bindsym $mod+Shift+Right move right
 # navigate workspaces
 bindsym $mod+Control+$left workspace prev
 bindsym $mod+Control+$right workspace next
+
+# blablabla cursor keys:
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Right workspace next
 
 # split in horizontal orientation
 bindsym $mod+b split h
@@ -322,13 +337,14 @@ bindsym $mod+Shift+r mode "resize"
 # finds out, if available)
 bar {
 	position top
-	font pango:inconsolata 8
+	font pango:inconsolata 9
 	separator_symbol "·"
+strip_workspace_numbers yes
 	colors {
 		background			$black2
 		statusline			$white2
 		separator			$white2
-		focused_workspace	$blue	$blue		$black2
+		focused_workspace	$blue	$black2		$blue
 		inactive_workspace	$black2	$black2		$blue
 		urgent_workspace	$black2	$magenta	$white2
 	}

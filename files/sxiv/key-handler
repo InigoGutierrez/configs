@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 case "$1" in
 	"s")
@@ -8,13 +8,13 @@ case "$1" in
 		[ "$height" ] || exit 0
 		modifier=""
 		[ "$(printf "Yes\nNo" | dmenu -i -p "Maintain aspect ratio?")" = "No" ] && modifier="!"
-		while read file
+		while read -r file
 		do
 			convert "$file" -resize "$width"x"$height""$modifier" "$width"x"$height""$modifier"_"$file"
 		done ;;
 	"y")
 		text=""
-		while read file
+		while read -r file
 		do
 			text="$text""$file""\n"
 		done
@@ -22,7 +22,7 @@ case "$1" in
 		dunstify "$(xsel -ob) copied to clipboard" ;;
 	"Y")
 		text=""
-		while read file
+		while read -r file
 		do
 		text="$text""$(readlink -f "$file")""\n"
 		done
@@ -37,7 +37,7 @@ f: Flop (horizontally).                     .
 f: Flip (vertically).                       .
 y: Yank filename to clipboard.              .
 Y: Yank file path to clipboard.             .
-d: Delete file (with confirmation prompt).  .
+d: Move file to litter.	                    .
 n: Rename file.                             .
 N: Open in a new instance of sxiv.          .
 g: Open in gimp.                            .
@@ -48,7 +48,7 @@ m: Move images to a chosen folder.          .
 h: Show help.                               ." ;;
 esac
 
-while read file
+while read -r file
 do
 	case "$1" in
 	"w") setBG.sh "$file" ;;
@@ -65,7 +65,7 @@ do
 		convert -flip "$file" "$file" &&
 		dunstify "$file flipped" ;;
 	"d")
-		[ "$(printf "No\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && dunstify "$file deleted." ;;
+		rm.sh "$file" && dunstify -i "$file" "$file moved to litter." ;;
 	"n")
 		newname="$(dmenu -p "New name of $file?")"
 		[ "$newname" ] && newname="$newname"'.'"${file##*.}" && [ "$(printf "No\nYes" | dmenu -i -p "Rename $file to $newname?")" = "Yes" ] && mv "$file" "$newname" && dunstify "$file renamed to $newname." ;;
