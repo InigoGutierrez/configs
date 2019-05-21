@@ -1,8 +1,12 @@
 markup=pango
 #separator_block_width=0
 
-[emojis]
-command=shufEmoji.sh 1
+#[emojis]
+#command=shufEmoji.sh 1
+#interval=once
+
+[moon]
+command=~/scripts/i3blocks/moon.sh
 interval=once
 
 #[fortune]
@@ -40,7 +44,13 @@ signal=11
 
 [battery]
 command=~/scripts/i3blocks/i3battery.sh BAT1
-interval=10
+interval=20
+
+[mail]
+label=📫
+command=~/scripts/i3blocks/mailbox.sh
+interval=once
+signal=15
 
 [internet]
 #background=#009e60
@@ -64,7 +74,7 @@ interval=30
 
 [litter]
 label=🚮
-command=du -sh $HOME/litter | cut -d'	' -f1
+command=[ -z "$(ls $HOME/litter)" ] && echo "✔️" || du -sh $HOME/litter | cut -d'	' -f1
 interval=once
 signal=14
 

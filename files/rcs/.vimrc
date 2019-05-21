@@ -47,21 +47,29 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " For cursor shape with tmux
-if empty($TMUX)
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\e[5 q\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\e[2 q\<Esc>\\"
 else
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+    let &t_SI = "\e[5 q"
+    let &t_EI = "\e[2 q"
 endif
 
-if &term =~ '^screen'
-  " tmux will send xterm-style keys when its xterm-keys option is on
-  execute "set <xUp>=\e[1;*A"
-  execute "set <xDown>=\e[1;*B"
-  execute "set <xRight>=\e[1;*C"
-  execute "set <xLeft>=\e[1;*D"
-endif
+"if empty($TMUX)
+"  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+"  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+"else
+"  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+"  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+"endif
+
+"if &term =~ '^screen'
+"  " tmux will send xterm-style keys when its xterm-keys option is on
+"  execute "set <xUp>=\e[1;*A"
+"  execute "set <xDown>=\e[1;*B"
+"  execute "set <xRight>=\e[1;*C"
+"  execute "set <xLeft>=\e[1;*D"
+"endif
 
 " For vim-airline
 if !exists('g:airline_symbols')
@@ -71,7 +79,6 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_symbols.linenr = '🔃'
 let g:airline_symbols.maxlinenr = '↩'
-
 
 " For vimwiki
 filetype plugin on
@@ -114,6 +121,8 @@ autocmd BufWritePost ~/.config/qutebrowser/config.py !cat .config/qutebrowser/co
 nnoremap Y y$
 nnoremap zh zt
 nnoremap zl zb
+nnoremap <leader>e :Errors<Enter>
+nnoremap <leader>x :! ./%
 inoremap <leader>e <Esc>
 inoremap <leader>w <Esc>:w<Enter>
 inoremap <leader>d <Esc>ddA
@@ -204,7 +213,7 @@ inoremap <leader>lref ~\ref{}<++><Esc>F}i
 inoremap <leader>lenumerate \begin{enumerate}<Esc>o<Enter><Enter><Enter>\end{enumerate}<Esc>kkI\item<Enter><Esc>I<Tab><++><Esc>k<<i<Tab><Esc>$a<Space>
 inoremap <leader>litemize \begin{itemize}<Esc>o<Enter><Enter><Enter>\end{itemize}<Esc>kkI\item<Enter><Esc>I<Tab><++><Esc>k<<i<Tab><Esc>$a<Space>
 inoremap <leader>litem \item<Enter><++><Esc>k$a<Space>
-inoremap <leader>limage \begin{figure}[h]<Enter>\begin{center}<Enter>\includegraphics[width=\textwidth]{}<Enter>\caption{<++>}<Enter>\end{center}<Enter>\end{figure}<Enter><++><Esc>4k$i
+inoremap <leader>limage \begin{figure}[H]<Enter>\begin{center}<Enter>\includegraphics[width=\textwidth]{}<Enter>\caption{<++>}<Enter>\end{center}<Enter>\end{figure}<Enter><++><Esc>4k$i
 
 
 """ RangerChooser

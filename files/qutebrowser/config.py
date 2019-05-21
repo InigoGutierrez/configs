@@ -734,6 +734,7 @@ c.downloads.location.directory = "~/downloads"
 ## filename, else the filename will be appended.
 ## Type: String
 # c.downloads.open_dispatcher = None
+c.downloads.open_dispatcher = "rifle"
 
 ## Where to show the downloaded files.
 ## Type: VerticalPosition
@@ -755,7 +756,7 @@ c.downloads.location.directory = "~/downloads"
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
 # c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
-c.editor.command = ['urxvt', '-e', 'vim', '{file}']
+c.editor.command = ['urxvt', '-e', 'nvim', '{file}']
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -1566,27 +1567,27 @@ config.bind('U', 'undo')
 config.bind(',v', 'spawn i3-msg exec mpv {url}')
 config.bind(',fv', 'hint links spawn i3-msg exec mpv {hint-url}')
 config.bind(',Fv', 'hint all spawn i3-msg exec mpv {hint-url}')
-config.bind(',V', 'spawn i3-msg exec bash /home/taamas/scripts/floats/mpvFloat.sh {url}')
-config.bind(',fV', 'hint links spawn i3-msg exec bash /home/taamas/scripts/floats/mpvFloat.sh {hint-url}')
-config.bind(',FV', 'hint all spawn i3-msg exec bash /home/taamas/scripts/floats/mpvFloat.sh {hint-url}')
+config.bind(',V', 'spawn i3-msg exec /home/taamas/scripts/floats/mpvFloat.sh {url}')
+config.bind(',fV', 'hint links spawn i3-msg exec /home/taamas/scripts/floats/mpvFloat.sh {hint-url}')
+config.bind(',FV', 'hint all spawn i3-msg exec /home/taamas/scripts/floats/mpvFloat.sh {hint-url}')
 #download url's video in ~/videos/qutebrowser
 config.bind(',d', 'spawn youtube-dl --all-subs --embed-subs -o ~/downloads/videos/%(title)s.%(ext)s {url}')
 # same as previous, but showing urxvt
-config.bind(',D', 'spawn i3-msg exec bash /home/taamas/scripts/floats/youtube-dlFloat.sh {url}')
+config.bind(',D', 'spawn i3-msg exec /home/taamas/scripts/floats/youtube-dlFloat.sh {url}')
 # two same commands, using hints instead than current url
 config.bind(',fd', 'hint links spawn youtube-dl --all-subs --embed-subs -o ~/downloads/videos/%(title)s.%(ext)s {hint-url}')
 config.bind(',Fd', 'hint all spawn youtube-dl --all-subs --embed-subs -o ~/downloads/videos/%(title)s.%(ext)s {hint-url}')
-config.bind(',fD', 'hint links spawn i3-msg exec bash /home/taamas/scripts/floats/youtube-dlFloat.sh {hint-url}')
-config.bind(',FD', 'hint all spawn i3-msg exec bash /home/taamas/scripts/floats/youtube-dlFloat.sh {hint-url}')
+config.bind(',fD', 'hint links spawn i3-msg exec /home/taamas/scripts/floats/youtube-dlFloat.sh {hint-url}')
+config.bind(',FD', 'hint all spawn i3-msg exec /home/taamas/scripts/floats/youtube-dlFloat.sh {hint-url}')
 # download url's audio in mp3 in ~/music/qutebrowser
 config.bind(',a', 'spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 --embed-thumbnail {url}')
 # same as previous, but showing urxvt
-config.bind(',A', 'spawn i3-msg exec bash /home/taamas/scripts/floats/youtube-dlFloatAudio.sh {url}')
+config.bind(',A', 'spawn i3-msg exec /home/taamas/scripts/floats/youtube-dlFloatAudio.sh {url}')
 # two same commands, using hints instead than current url
 config.bind(',fa', 'hint links spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 --embed-thumbnail {hint-url}')
 config.bind(',Fa', 'hint all spawn youtube-dl -o ~/music/qutebrowser/%(title)s.%(ext)s -x --audio-format mp3 --embed-thumbnail {hint-url}')
-config.bind(',fA', 'hint links spawn i3-msg exec bash /home/taamas/scripts/floats/youtube-dlFloatAudio.sh {hint-url}')
-config.bind(',FA', 'hint all spawn i3-msg exec bash /home/taamas/scripts/floats/youtube-dlFloatAudio.sh {hint-url}')
+config.bind(',fA', 'hint links spawn i3-msg exec /home/taamas/scripts/floats/youtube-dlFloatAudio.sh {hint-url}')
+config.bind(',FA', 'hint all spawn i3-msg exec /home/taamas/scripts/floats/youtube-dlFloatAudio.sh {hint-url}')
 # open images with corresponding script
 config.bind(',i', 'spawn showURLimage.sh {url}')
 config.bind(',fi', 'hint images spawn showURLimage.sh {hint-url}')

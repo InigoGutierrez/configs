@@ -4,3 +4,4 @@ brightness  1003
 cpu         1004
 memory      1005
 disk        1006
+batteryLow  1007

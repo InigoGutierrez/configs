@@ -5,7 +5,7 @@ alias ping='ping fsf.org'
 alias cdf='cd $(fzfPath.sh)'
 
 # IIS
-alias ipds="ssh halite.ii.pwr.wroc.pl -l 250839"
+#alias ipds="ssh halite.ii.pwr.wroc.pl -l 250839"
 alias web="ssh -p 3022 user@localhost"
 alias webvarnish="ssh -p 3022 varnish1@localhost"
 
@@ -35,4 +35,3 @@ alias starwars="telnet towel.blinkenlights.nl"
 alias adormir="mpv -vo caca ~/videos/Adormir.mp4 && clear 2>/dev/null"
 alias adormirloop="mpv --loop-file -vo caca ~/videos/Adormir.mp4 2>/dev/null && clear"
 alias nintendos="mpv -vo caca https://www.youtube.com/watch?v=hYNcJj2QDhk 2>/dev/null"
-
