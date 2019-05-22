@@ -25,6 +25,8 @@ set nocompatible
 filetype plugin indent on
 set encoding=utf-8
 set number relativenumber
+set tabstop=4
+set shiftwidth=4
 set scrolloff=2
 set wildmode=longest,list,full
 set splitbelow
@@ -99,9 +101,6 @@ map <C-l> <C-w>l
 "map <C-J> <C-w>J
 "map <C-K> <C-w>K
 "map <C-L> <C-w>L
-
-" Make tabs appear as 4 spaces (default is 8)
-set tabstop=4
 
 " Color
 syntax enable
