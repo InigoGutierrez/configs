@@ -6,7 +6,7 @@ markup=pango
 #interval=once
 
 [moon]
-command=~/scripts/i3blocks/moon.sh
+command=~/scripts/i3blocks/i3moon.sh
 interval=once
 
 #[fortune]
@@ -48,7 +48,7 @@ interval=20
 
 [mail]
 label=📫
-command=~/scripts/i3blocks/mailbox.sh
+command=~/scripts/i3blocks/i3mailbox.sh
 interval=once
 signal=15
 
