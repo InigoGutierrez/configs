@@ -132,8 +132,14 @@ vnoremap <leader>y "+y
 nnoremap <leader>d "+dd
 vnoremap <leader>d "+d
 
-map <leader>g :Goyo \| set linebreak<CR>
-map <leader>s :!clear && shellcheck %<CR>
+nnoremap <leader>G :Goyo \| set linebreak<CR>
+nnoremap <leader>s :!clear && shellcheck %<CR>
+
+"" git
+nnoremap <leader>gs :!git status<CR>
+"nnoremap <leader>gpull :!git pull<CR>
+nnoremap <leader>gp :!git push<CR>
+nnoremap <leader>gc :!git commit -m "
 
 "" html
 
