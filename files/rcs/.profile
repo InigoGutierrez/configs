@@ -56,6 +56,6 @@ if [ "$(tty)" = "/dev/tty1" ] && [ ! "$(pgrep -x i3)" ]; then
 	neofetch --config ~/.config/neofetch/neofetchLogin.conf
 	#figlet "Starting i3-gaps..." | lolcat -a -d 1 -s 10 -p 1 -F 0.05
 	exec startx >~/.startx.log 2>~/.startxerr.log
-elif tty | grep -e "/dev/tty.*"; then
+elif [ "$(tty | grep -e "/dev/tty.*")" ]; then
 	tmux new -s "$(tty | cut -d'/' -f3)"
 fi
