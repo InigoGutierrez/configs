@@ -120,6 +120,7 @@ autocmd BufWritePost ~/.config/qutebrowser/config.py !cat .config/qutebrowser/co
 nnoremap Y y$
 nnoremap zh zt
 nnoremap zl zb
+nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>e :Errors<Enter>
 nnoremap <leader>x :! ./%
 inoremap <leader>e <Esc>
@@ -133,11 +134,11 @@ nnoremap <leader>d "+dd
 vnoremap <leader>d "+d
 
 nnoremap <leader>G :Goyo \| set linebreak<CR>
-nnoremap <leader>s :!clear && shellcheck %<CR>
 
 "" git
 nnoremap <leader>gs :!git status<CR>
 "nnoremap <leader>gpull :!git pull<CR>
+nnoremap <leader>ga :!git add %<CR>
 nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gc :!git commit -m "
 
