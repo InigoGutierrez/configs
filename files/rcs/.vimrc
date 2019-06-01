@@ -18,6 +18,7 @@ Plug 'suan/vim-instant-markdown'
 Plug 'airodactyl/neovim-ranger'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
+"Plug 'Valloric/YouCompleteMe'
 "Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
@@ -36,6 +37,8 @@ set vb " No bell
 set ignorecase
 set wrapscan
 set incsearch
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
 
 " For syntastic
 set statusline+=%#warningmsg#
@@ -142,6 +145,8 @@ nnoremap <leader>ga :!git add %<CR>
 nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gc :!git commit -m "
 
+"" c++
+inoremap <leader>cf for (x; <++>; <++>) {<CR><++><CR>}<Esc>?x<CR>s
 "" html
 
 " Layout elements
