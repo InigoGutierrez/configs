@@ -24,10 +24,26 @@ case "$1" in
 		text=""
 		while read -r file
 		do
-		text="$text""$(readlink -f "$file")""\n"
+			text="$text""$(readlink -f "$file")""\n"
 		done
 		echo -en "$text" | xsel -ib &&
 		dunstify "$(xsel -ob) copied to clipboard" ;;
+	"G")
+		images=""
+		tmpFolder="/tmp/sxiv/gifs/"
+		mkdir -p "$tmpFolder"
+		while read -r file
+		do
+			convert "$file" -resize 512x999999\> "$tmpFolder$file"
+			images="$images $tmpFolder$file"
+		done
+		delay=$(echo "" | dmenu -p "Delay of GIF?")
+		[ "$delay" ] || exit 0
+		name=$(echo "" | dmenu -p "Name of GIF?")
+		[ "$name" ] || exit 0
+		convert -delay "$delay" -loop 0 $images "$name.gif"
+		dunstify "Created $name.gif" ;;
+
 	"h")
 		dunstify "\
 w: Set as wallpaper.                        .
@@ -41,6 +57,7 @@ d: Move file to litter.	                    .
 n: Rename file.                             .
 N: Open in a new instance of sxiv.          .
 g: Open in gimp.                            .
+G: Make a gif out of selected images.       .
 s: Create new image with different size.    .
 S: Search image online.                     .
 c: Copy images to a chosen folder.          .

@@ -1368,7 +1368,8 @@ c.url.searchengines = {
         'gh': 'https://www.github.com/search?q={}', #github
         'ep': 'https://emojipedia.org/search/?q={}', #emojipedia
         'rae': 'https://dle.rae.es/?w={}', #rae
-        'maps': 'https://www.google.com/maps/place/{}' #google maps
+        'maps': 'https://www.google.com/maps/place/{}', #google maps
+        'im': 'https://imagemagick.org/script/search.php?q={}' # ImageMagick
 }
 
 ## Page(s) to open at the start.

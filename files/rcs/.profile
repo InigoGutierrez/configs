@@ -23,6 +23,9 @@ PATH=${PATH}:${JAVA_HOME}/bin
 # add scripts folder to path
 PATH="$PATH:$HOME/scripts"
 
+# add ruby bins folder to path
+PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
+
 # export final PATH
 export PATH
 
@@ -53,8 +56,14 @@ sudo -n loadkeys "$HOME/.config/ttymaps.kmap"
 [[ $(tty) = "/dev/tty6" ]] && setfont alt-8x8
 if [ "$(tty)" = "/dev/tty1" ] && [ ! "$(pgrep -x i3)" ]; then
 	echo ""
+	cat "$HOME/.xinitrci3" > "$HOME/.xinitrc"
 	neofetch --config ~/.config/neofetch/neofetchLogin.conf
 	#figlet "Starting i3-gaps..." | lolcat -a -d 1 -s 10 -p 1 -F 0.05
+	exec startx >~/.startx.log 2>~/.startxerr.log
+elif [ "$(tty)" = "/dev/tty3" ] && [ ! "$(pgrep -x xfce4-session)" ]; then
+	echo ""
+	cat "$HOME/.xinitrcxfce4" > "$HOME/.xinitrc"
+	neofetch --config ~/.config/neofetch/neofetchLogin.conf
 	exec startx >~/.startx.log 2>~/.startxerr.log
 elif [ "$(tty | grep -e "/dev/tty.*")" ]; then
 	tmux new -s "$(tty | cut -d'/' -f3)"

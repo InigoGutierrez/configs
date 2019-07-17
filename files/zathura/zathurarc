@@ -1,4 +1,8 @@
 set page-padding 1
+set selection-clipboard clipboard
+set statusbar-home-tilde true
+#set statusbar-bg "#00FF00"
+#set statusbar-fg "#0000FF"
 map u scroll half-up
 map d scroll half-down
 map D toggle_page_mode
@@ -6,4 +10,6 @@ map b toggle_statusbar
 map r reload
 map R rotate
 map p print
+#map y feedkeys "<Mod4>d"
+map Y exec 'dunstify %'
 #map P change_mode presentation

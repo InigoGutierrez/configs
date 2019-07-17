@@ -18,7 +18,7 @@ Plug 'suan/vim-instant-markdown'
 Plug 'airodactyl/neovim-ranger'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 "Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
@@ -147,6 +147,8 @@ nnoremap <leader>gc :!git commit -m "
 
 "" c++
 inoremap <leader>cf for (x; <++>; <++>) {<CR><++><CR>}<Esc>?x<CR>s
+
+
 "" html
 
 " Layout elements
@@ -225,6 +227,7 @@ inoremap <leader>lenumerate \begin{enumerate}<Esc>o<Enter><Enter><Enter>\end{enu
 inoremap <leader>litemize \begin{itemize}<Esc>o<Enter><Enter><Enter>\end{itemize}<Esc>kkI\item<Enter><Esc>I<Tab><++><Esc>k<<i<Tab><Esc>$a<Space>
 inoremap <leader>litem \item<Enter><++><Esc>k$a<Space>
 inoremap <leader>limage \begin{figure}[H]<Enter>\begin{center}<Enter>\includegraphics[width=\textwidth]{}<Enter>\caption{<++>}<Enter>\end{center}<Enter>\end{figure}<Enter><++><Esc>4k$i
+inoremap <leader>ltable \begin{table}[H]<Enter>\makebox[\linewidth]{\centering<Enter>\centering<Enter>\begin{tabular}{c<Space>cxxx}<Enter>\toprule<Enter><++><Space>&<Space><++><Space>\\<Enter>\midrule<Enter><++><Space>&<Space><++><Space>\\<Enter>\bottomrule<Enter>\end{tabular}<Enter>}<Enter>\end{table}<Enter><++><Esc>?xxx<Enter>cw
 
 
 """ RangerChooser

@@ -81,8 +81,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt -e tmux
-bindsym $mod+Shift+Return exec urxvt
+bindsym $mod+Return exec urxvt -title "floating" -e tmux
+bindsym $mod+Shift+Return exec -title "floating" urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -136,18 +136,22 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # toggle bar
-bindsym $mod+Control+b bar mode invisible
-bindsym $mod+Shift+b bar mode dock
+#bindsym $mod+Control+b bar mode invisible
+#bindsym $mod+Shift+b bar mode dock
+bindsym $mod+Shift+b exec toggleBar.sh
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+w layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+Control+w layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
+
+
+bindsym $mod+Shift+x exec sxivslideshot
 
 # modify gaps
 bindsym $mod+Shift+g gaps inner current minus 2
@@ -266,16 +270,16 @@ bindsym XF86AudioPrev exec cmus-remote -r && pkill -SIGRTMIN+12 i3blocks
 
 bindsym $mod+q exec qutebrowser
 bindsym $mod+Shift+f exec firefox
+bindsym $mod+w exec firefox https://web.whatsapp.com/
 bindsym $mod+s exec screenshot.sh
 bindsym Print exec screenshot.sh
 bindsym $mod+a exec screenshot.sh -a
-bindsym $mod+r exec urxvt -e ranger
-bindsym $mod+n exec urxvt -e newsboat
-bindsym $mod+Shift+a exec urxvt -e alsamixer
+bindsym $mod+r exec urxvt -title "floating" -e ranger
+bindsym $mod+Shift+a exec urxvt -title "floating" -e alsamixer
 bindsym $mod+c exec ~/scripts/dmenuTerm.sh
 bindsym $mod+d exec ~/scripts/dmenuDic.sh
 bindsym $mod+m exec ~/scripts/dmenuMount.sh
-bindsym $mod+Shift+e exec ~/scripts/emoji.sh
+bindsym $mod+e exec ~/scripts/emoji.sh
 bindsym $mod+Shift+m exec ~/scripts/dmenuUmount.sh
 bindsym $mod+Shift+c exec notify-send "$(fortune)"
 bindsym $mod+y exec surfraw.sh

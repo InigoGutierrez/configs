@@ -3,6 +3,7 @@ alias v='vim'
 alias vim='nvim'
 alias ping='ping fsf.org'
 alias cdf='cd $(fzfPath.sh)'
+#alias dict='curl dict://dict.org/d:'
 
 # IIS
 #alias ipds="ssh halite.ii.pwr.wroc.pl -l 250839"
@@ -27,7 +28,7 @@ alias cnbu="vim ~/.newsboat/urls"
 alias ctmux="vim ~/.tmux.conf"
 
 # Programs
-alias CryptTool="wine \"~/.wine/drive_c/Program Files (x86)/CrypTool/CrypTool.exe\""
+alias CryptTool="wine '~/.wine/drive_c/Program Files (x86)/CrypTool/CrypTool.exe\'"
 
 alias upgrade="sudo pacman -Syu"
 
