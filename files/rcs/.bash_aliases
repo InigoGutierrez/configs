@@ -1,8 +1,9 @@
 alias r='ranger'
 alias v='vim'
-alias vim='nvim'
 alias ping='ping fsf.org'
 alias cdf='cd $(fzfPath.sh)'
+alias mail='mail.sh'
+alias please="sudo !!"
 #alias dict='curl dict://dict.org/d:'
 
 # IIS

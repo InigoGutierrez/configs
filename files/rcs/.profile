@@ -26,6 +26,8 @@ PATH="$PATH:$HOME/scripts"
 # add ruby bins folder to path
 PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
 
+# add cargo bins folder to path
+PATH="$PATH:$HOME/.cargo/bin"
 # export final PATH
 export PATH
 
