@@ -37,8 +37,35 @@ set vb " No bell
 set ignorecase
 set wrapscan
 set incsearch
-set colorcolumn=110
-highlight ColorColumn ctermbg=darkgray
+
+" Line size marking
+highlight ColorColumn ctermbg=darkblue ctermfg=black
+call matchadd('ColorColumn', '\%81v', 100)
+"Redjail Bomb (thx Damian Conway!)
+"highlight ColorColumn ctermbg=red ctermfg=blue
+"exec 'set colorcolumn='.join(range(2,80,3), ',')
+
+" hlnext: Highlighting searches
+nnoremap <silent> n n:call HLNext(0.1)<CR>
+nnoremap <silent> N N:call HLNext(0.1)<CR>
+function! HLNext(blinktime)
+	set invcursorline
+	redraw
+	exec 'sleep'.float2nr(a:blinktime*1000).'m'
+	set invcursorline
+	redraw
+endfunction
+
+" dragvisuals: dragging visual blocks
+vmap  <expr>  <LEFT>   DVB_Drag('left')
+vmap  <expr>  <RIGHT>  DVB_Drag('right')
+vmap  <expr>  <DOWN>   DVB_Drag('down')
+vmap  <expr>  <UP>     DVB_Drag('up')
+vmap  <expr>  D        DVB_Duplicate()
+
+" Show tabs
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
 
 " For syntastic
 set statusline+=%#warningmsg#
@@ -146,8 +173,17 @@ nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gc :!git commit -m "
 
 "" c++
-inoremap <leader>cf for (x; <++>; <++>) {<CR><++><CR>}<Esc>?x<CR>s
+nnoremap <leader>ct <Esc>:r ~/.config/custom/vim/c/template.txt<CR>/<+++><CR>cf>
+nnoremap <leader>ce <Esc>:r ~/.config/custom/vim/c/enum.txt<CR>/<+++><CR>cf>
+nnoremap <leader>cf <Esc>:r ~/.config/custom/vim/c/for.txt<CR>/<+++><CR>cf>
+nnoremap <leader>cif <Esc>:r ~/.config/custom/vim/c/if.txt<CR>/<+++><CR>cf>
+nnoremap <leader>celse <Esc>:r ~/.config/custom/vim/c/else.txt<CR>/<+++><CR>cf>
+nnoremap <leader>celif <Esc>:r ~/.config/custom/vim/c/elif.txt<CR>/<+++><CR>cf>
+nnoremap <leader>cs <Esc>:r ~/.config/custom/vim/c/switch.txt<CR>/<+++><CR>cf>
+nnoremap <leader>cw <Esc>:r ~/.config/custom/vim/c/while.txt<CR>/<+++><CR>cf>
+nnoremap <leader>cd <Esc>:r ~/.config/custom/vim/c/do.txt<CR>/<+++><CR>cf>
 
+nnoremap <leader>fixit :YcmCompleter FixIt<CR>
 
 "" html
 
