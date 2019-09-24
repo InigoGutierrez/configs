@@ -122,7 +122,7 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+Control+$left workspace prev
 bindsym $mod+Control+$right workspace next
 
-# blablabla cursor keys:
+# navigate workspaces with cursor keys:
 bindsym $mod+Control+Left workspace prev
 bindsym $mod+Control+Right workspace next
 
@@ -220,6 +220,7 @@ for_window [title="mpvfloat"] border pixel 1
 for_window [instance="sxivfloat"] floating enable
 for_window [instance="sxivfloat"] sticky enable
 for_window [instance="sxivfloat"] border pixel 1
+for_window [title="SFML"] floating enable
 assign [class="Transmission"] 5
 
 # edge borders
@@ -228,6 +229,8 @@ hide_edge_borders both
 
 # system control
 bindsym $mod+Control+s exec ~/scripts/systemControl.sh
+# lock
+bindsym $mod+Control+Shift+l exec ~/scripts/i3lock.sh
 # reboot
 bindsym $mod+Control+Shift+r exec ~/scripts/prompt.sh "Reboot?" "$reboot"
 # touchpad
@@ -361,11 +364,5 @@ strip_workspace_numbers yes
 exec i3-msg "gaps inner current set 0; gaps outer current set 0"
 # bg
 #exec_always bash ~/scripts/pkmBgSelector.sh
-exec xrdb ~/.Xresources && urxvt -e tmux new -s main
-exec feh --bg-max ~/images/wallpapers/bg_*
-exec dunst
-exec setxkbmap -layout es -option caps:swapescape
-exec xset -b
-exec unclutter --idle 1
-exec touchpad.sh
 #exec transmission-gtk
+exec $HOME/scripts/xinit.sh
