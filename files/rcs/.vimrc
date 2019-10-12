@@ -64,8 +64,9 @@ vmap  <expr>  <UP>     DVB_Drag('up')
 vmap  <expr>  D        DVB_Duplicate()
 
 " Show tabs
-exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
-set list
+"exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+exec "set listchars=tab:\uBB·,trail:\uB7,nbsp:~"
+nnoremap <leader>t :set list!<CR>
 
 " For syntastic
 set statusline+=%#warningmsg#
@@ -120,7 +121,9 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 
 " For vim-instant-markdown
 let g:instant_markdown_autostart = 0
+let g:instant_markdown_browser = "qutebrowser"
 map <leader>md :InstantMarkdownPreview<CR>
+map <leader>mD :InstantMarkdownStop<CR>
 
 " Shortcuts for split navigation
 map <C-h> <C-w>h
@@ -238,7 +241,7 @@ inoremap <leader>himg <img src="" alt="<++>"><Enter><++><Esc>?""<Enter>a
 " Misc
 " Comment a line
 nnoremap <leader>hc I<!-- <Esc>A --><Esc>0
-" Uncomme<leader>t a line
+" Uncomment a line
 nnoremap <leader>hC 05x/--><Enter>3x0
 
 "" LaTeX

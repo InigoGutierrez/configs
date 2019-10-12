@@ -37,6 +37,10 @@ export TERMINAL="urxvt"
 export BROWSER="qutebrowser"
 export READER="zathura"
 
+export CONFIG_DIC_ES="/usr/share/dict/palabras.txt"
+export CONFIG_DIC_EN="/usr/share/dict/words.txt"
+export CONFIG_DIC_PL="/usr/share/dict/słowa.txt"
+
 export ARDUINO_DIR="/usr/share/arduino"
 export ARDMK_DIR="/usr/share/arduino"
 export AVR_TOOLS_DIR="/usr"

@@ -24,6 +24,7 @@
 *color12: #83a598
 ! DarkMagenta + Magenta
 *color5:  #b16286
+!*color5:  #5f005f
 *color13: #d3869b
 ! DarkCyan + Cyan
 *color6:  #689d6a
@@ -46,5 +47,5 @@ URxvt.font:	xft:inconsolata:size=10,xft:symbola
 URxvt.perl-ext-common: font-size,default,url-select
 URxvt.keysym.C-equal: font-size:reset
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/qutebrowser
+URxvt.url-select.launcher: qutebrowser
 URxvt.url-select.underline: true
