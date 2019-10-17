@@ -1366,6 +1366,7 @@ c.url.searchengines = {
         'bc': 'https://bandcamp.com/search?q={}', #bancamp
         'mdd': 'https://www.megadede.com/search/{}', #megadede
         'gh': 'https://www.github.com/search?q={}', #github
+        'ghu': 'https://github.com/search?q={}&type=Users', #github users
         'ep': 'https://emojipedia.org/search/?q={}', #emojipedia
         'rae': 'https://dle.rae.es/?w={}', #rae
         'maps': 'https://www.google.com/maps/place/{}', #google maps
