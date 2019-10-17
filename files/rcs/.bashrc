@@ -44,6 +44,7 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
+	export GREP_COLORS='ms=04;32;49:mc=04;32;49:sl=:cx=:fn=35:ln=34:bn=34:se=36'
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
