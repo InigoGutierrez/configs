@@ -1,15 +1,11 @@
 alias r='ranger'
-alias v='vim'
+alias v='nvim'
+alias vim='nvim'
 alias ping='ping fsf.org'
 alias cdf='cd $(fzfPath.sh)'
 alias mail='mail.sh'
 alias please="sudo !!"
 #alias dict='curl dict://dict.org/d:'
-
-# IIS
-#alias ipds="ssh halite.ii.pwr.wroc.pl -l 250839"
-alias web="ssh -p 3022 user@localhost"
-alias webvarnish="ssh -p 3022 varnish1@localhost"
 
 # config files
 alias cb="vim ~/.bashrc"
