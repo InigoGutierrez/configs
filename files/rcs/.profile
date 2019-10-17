@@ -23,8 +23,8 @@ PATH=${PATH}:${JAVA_HOME}/bin
 # add scripts folder to path
 PATH="$PATH:$HOME/scripts"
 
-# add ruby bins folder to path
-PATH="$PATH:$HOME/.gem/ruby/2.6.0/bin"
+# add ruby bins (gems) folder to path
+PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # add cargo bins folder to path
 PATH="$PATH:$HOME/.cargo/bin"
@@ -40,6 +40,7 @@ export READER="zathura"
 export CONFIG_DIC_ES="/usr/share/dict/palabras.txt"
 export CONFIG_DIC_EN="/usr/share/dict/words.txt"
 export CONFIG_DIC_PL="/usr/share/dict/słowa.txt"
+export CONFIG_FOLDER_RANDOMBG="$HOME/images/wallpapers/shufs/current"
 
 export ARDUINO_DIR="/usr/share/arduino"
 export ARDMK_DIR="/usr/share/arduino"
