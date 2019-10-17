@@ -41,6 +41,8 @@ URxvt.shading:		12
 *.alpha: 120
 
 URxvt.font:	xft:inconsolata:size=10,xft:symbola
+! URxvt.font:	xft:mononoki:size=9,xft:symbola
+! URxvt.font:	xft:envy code r:size=9,xft:symbola
 
 ! Leaving this blank stops perl from being initialized
 !URxvt.perl-ext:
