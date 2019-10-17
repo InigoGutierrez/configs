@@ -15,11 +15,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
 Plug 'suan/vim-instant-markdown'
-Plug 'airodactyl/neovim-ranger'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
 Plug 'Valloric/YouCompleteMe'
-"Plug 'vim-scripts/ReplaceWithRegister'
 call plug#end()
 
 set nocompatible
@@ -114,14 +112,15 @@ let g:airline_symbols.linenr = '🔃'
 let g:airline_symbols.maxlinenr = '↩'
 
 " For vimwiki
-filetype plugin on
+" filetype plugin on
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 " For vim-instant-markdown
+" Dependencies: xdg-utils, curl, nodejs
+" Install miniserver with: npm -g install instant-markdown-d
 let g:instant_markdown_autostart = 0
-let g:instant_markdown_browser = "qutebrowser"
 map <leader>md :InstantMarkdownPreview<CR>
 map <leader>mD :InstantMarkdownStop<CR>
 
@@ -268,36 +267,3 @@ inoremap <leader>litem \item<Enter><++><Esc>k$a<Space>
 inoremap <leader>limage \begin{figure}[H]<Enter>\begin{center}<Enter>\includegraphics[width=\textwidth]{}<Enter>\caption{<++>}<Enter>\end{center}<Enter>\end{figure}<Enter><++><Esc>4k$i
 inoremap <leader>ltable \begin{table}[H]<Enter>\makebox[\linewidth]{\centering<Enter>\centering<Enter>\begin{tabular}{c<Space>cxxx}<Enter>\toprule<Enter><++><Space>&<Space><++><Space>\\<Enter>\midrule<Enter><++><Space>&<Space><++><Space>\\<Enter>\bottomrule<Enter>\end{tabular}<Enter>}<Enter>\end{table}<Enter><++><Esc>?xxx<Enter>cw
 
-
-""" RangerChooser
-function! RangeChooser()
-    let temp = tempname()
-    " The option "--choosefiles" was added in ranger 1.5.1. Use the next line
-    " with ranger 1.4.2 through 1.5.0 instead.
-    "exec 'silent !ranger --choosefile=' . shellescape(temp)
-    if has("gui_running")
-        exec 'silent !xterm -e ranger --choosefiles=' . shellescape(temp)
-    else
-        exec 'silent !ranger --choosefiles=' . shellescape(temp)
-    endif
-    if !filereadable(temp)
-        redraw!
-        " Nothing to read.
-        return
-    endif
-    let names = readfile(temp)
-    if empty(names)
-        redraw!
-        " Nothing to open.
-        return
-    endif
-    " Edit the first item.
-    exec 'edit ' . fnameescape(names[0])
-    " Add any remaining items to the arg list/buffer list.
-    for name in names[1:]
-        exec 'argadd ' . fnameescape(name)
-    endfor
-    redraw!
-endfunction
-command! -bar RangerChooser call RangeChooser()
-nnoremap <leader>r :<C-U>RangerChooser<CR>
