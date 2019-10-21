@@ -11,6 +11,7 @@ let mapleader = ","
 call plug#begin('~/.vim/plugged') "Update with PlugInstall
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
@@ -18,10 +19,11 @@ Plug 'suan/vim-instant-markdown'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
 Plug 'Valloric/YouCompleteMe'
+Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
 set nocompatible
-filetype plugin indent on
+filetype indent plugin on
 set encoding=utf-8
 set number relativenumber
 set tabstop=4
@@ -70,12 +72,18 @@ nnoremap <leader>t :set list!<CR>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:syntastic_cs_checkers = ['code_checker']
 let g:syntastic_enable_signs = 1
-let g:systastic_aggregate_errors = 1
+let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" For omnisharp
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_server_path = '/home/taamas/repos/omnisharp-roslyn/artifacts/scripts/OmniSharp.Stdio'
+let g:OmniSharp_selector_ui = 'fzf'
 
 " For cursor shape with tmux
 if exists('$TMUX')
