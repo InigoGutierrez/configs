@@ -33,7 +33,7 @@ stty -ixon
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x "/usr/bin/lesspipe" ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# enable color support of ls and also add handy aliases
+# enable color support of ls
 if [ -x /usr/bin/dircolors ]; then
     test -r "$HOME/.dircolors" && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
     #alias dir='dir --color=auto'

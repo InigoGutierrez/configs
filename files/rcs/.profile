@@ -1,4 +1,4 @@
-# ~/.profile: executed by the command interpreter for login shells.
+# $HOME/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1) if ~/.bash_profile or ~/.bash_login
 # exists.
 
@@ -14,70 +14,24 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# java
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
-PATH=${PATH}:${JAVA_HOME}/bin
+# Source environment variables
+[ -f "$HOME/.bash_vars" ] && . "$HOME/.bash_vars"
 
-# add scripts folder to path
-PATH="$PATH:$HOME/scripts"
-
-# add ruby bins (gems) folder to path
-PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
-
-# add cargo bins folder to path
-PATH="$PATH:$HOME/.cargo/bin"
-# export final PATH
-export PATH
-
-export EDITOR="nvim"
-export TERM="rxvt-256color"
-export TERMINAL="urxvt"
-export BROWSER="qutebrowser"
-export READER="zathura"
-
-export CONFIG_DIC_ES="/usr/share/dict/palabras.txt"
-export CONFIG_DIC_EN="/usr/share/dict/words.txt"
-export CONFIG_DIC_PL="/usr/share/dict/słowa.txt"
-export CONFIG_FOLDER_RANDOMBG="$HOME/images/wallpapers/shufs/current"
-
-# export ARDUINO_DIR="/usr/share/arduino"
-# export ARDMK_DIR="/usr/share/arduino"
-# export AVR_TOOLS_DIR="/usr"
-
-export XDG_CONFIG_HOME="$HOME/.config"
-
-# less/man colors
-# export LESS=-R
-# export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"; a="${a%_}"
-# export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"; a="${a%_}"
-# export LESS_TERMCAP_me="$(printf '%b' '[0m')"; a="${a%_}"
-# export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"; a="${a%_}"
-# export LESS_TERMCAP_se="$(printf '%b' '[0m')"; a="${a%_}"
-# export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
-# export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
-
-# Colors for grep
-export GREP_COLORS='ms=04;32;49:mc=04;32;49:sl=:cx=:fn=35:ln=34:bn=34:se=36'
-
-# Colors for gcc
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# enable programmable completion features.
 # Login commands
 sudo loadkeys es
-sudo -n loadkeys "$HOME/.config/ttymaps.kmap"
+sudo -n loadkeys "$XDG_CONFIG_HOME/ttymaps.kmap"
 [[ $(tty) = "/dev/tty6" ]] && setfont alt-8x8
 if [ "$(tty)" = "/dev/tty1" ] && [ ! "$(pgrep -x i3)" ]; then
 	echo ""
 	cat "$HOME/.xinitrci3" > "$HOME/.xinitrc"
-	neofetch --config ~/.config/neofetch/neofetchLogin.conf
+	neofetch --config "$XDG_CONFIG_HOME/neofetch/neofetchLogin.conf"
 	#figlet "Starting i3-gaps..." | lolcat -a -d 1 -s 10 -p 1 -F 0.05
-	exec startx >~/.startx.log 2>~/.startxerr.log
+	exec startx >"$CONFIG_FOLDER_LOGS/startx.log" 2>"$CONFIG_FOLDER_LOGS/startxerr.log"
 elif [ "$(tty)" = "/dev/tty3" ] && [ ! "$(pgrep -x xfce4-session)" ]; then
 	echo ""
 	cat "$HOME/.xinitrcxfce4" > "$HOME/.xinitrc"
-	neofetch --config ~/.config/neofetch/neofetchLogin.conf
-	exec startx >~/.startx.log 2>~/.startxerr.log
-elif [ "$(tty | grep -e "/dev/tty.*")" ]; then
+	neofetch --config "$XDG_CONFIG_HOME/neofetch/neofetchLogin.conf"
+	exec startx >"$CONFIG_FOLDER_LOGS/startx.log" 2>"$CONFIG_FOLDER_LOGS/startxerr.log"
+elif [ "$(tty | egrep -e "/dev/tty.*")" ]; then
 	tmux new -s "$(tty | cut -d'/' -f3)"
 fi

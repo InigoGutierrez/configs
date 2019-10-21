@@ -1,0 +1,50 @@
+# $HOME/.bash_vars: Non-standard file for environment variables agruppation.
+
+###########
+# General #
+###########
+
+export EDITOR="nvim"
+export TERM="rxvt-256color"
+export TERMINAL="urxvt"
+export BROWSER="qutebrowser"
+export READER="zathura"
+
+export CONFIG_DIC_ES="/usr/share/dict/spanish"
+export CONFIG_DIC_EN="/usr/share/dict/british"
+export CONFIG_DIC_PL="/usr/share/dict/słowa.txt"
+
+export CONFIG_FOLDER_RANDOMBG="$HOME/images/wallpapers/shufs/current"
+export CONFIG_FOLDER_LOGS="$HOME/logs"
+
+# export ARDUINO_DIR="/usr/share/arduino"
+# export ARDMK_DIR="/usr/share/arduino"
+# export AVR_TOOLS_DIR="/usr"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Colors for grep
+export GREP_COLORS='ms=04;32;49:mc=04;32;49:sl=:cx=:fn=35:ln=34:bn=34:se=36'
+
+# Colors for gcc
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+################
+# PATH changes #
+################
+
+# java
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
+PATH="${PATH}:${JAVA_HOME}/bin"
+
+# add scripts folder to path
+PATH="$PATH:$HOME/scripts"
+
+# add ruby bins (gems) folder to path
+PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+
+# add cargo bins folder to path
+PATH="$PATH:$HOME/.cargo/bin"
+# export final PATH
+export PATH
+
