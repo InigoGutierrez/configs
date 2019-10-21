@@ -1,8 +1,6 @@
 # ~/.profile: executed by the command interpreter for login shells.
-# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# This file is not read by bash(1) if ~/.bash_profile or ~/.bash_login
 # exists.
-# see /usr/share/doc/bash/examples/startup-files for examples.
-# the files are located in the bash-doc package.
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
@@ -42,9 +40,9 @@ export CONFIG_DIC_EN="/usr/share/dict/words.txt"
 export CONFIG_DIC_PL="/usr/share/dict/słowa.txt"
 export CONFIG_FOLDER_RANDOMBG="$HOME/images/wallpapers/shufs/current"
 
-export ARDUINO_DIR="/usr/share/arduino"
-export ARDMK_DIR="/usr/share/arduino"
-export AVR_TOOLS_DIR="/usr"
+# export ARDUINO_DIR="/usr/share/arduino"
+# export ARDMK_DIR="/usr/share/arduino"
+# export AVR_TOOLS_DIR="/usr"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -58,6 +56,14 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"; a="${a%_}"
 # export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 
+# Colors for grep
+export GREP_COLORS='ms=04;32;49:mc=04;32;49:sl=:cx=:fn=35:ln=34:bn=34:se=36'
+
+# Colors for gcc
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# enable programmable completion features.
+# Login commands
 sudo loadkeys es
 sudo -n loadkeys "$HOME/.config/ttymaps.kmap"
 [[ $(tty) = "/dev/tty6" ]] && setfont alt-8x8

@@ -1,10 +1,15 @@
+# General abreviations
 alias r='ranger'
 alias v='nvim'
 alias vim='nvim'
 alias ping='ping fsf.org'
 alias cdf='cd $(fzfPath.sh)'
 alias mail='mail.sh'
-alias please="sudo !!"
+alias ls='ls -hN --color=auto --group-directories-first'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+#alias please="sudo !!"
 #alias dict='curl dict://dict.org/d:'
 
 # config files
@@ -24,8 +29,8 @@ alias cnb="vim ~/.newsboat/config"
 alias cnbu="vim ~/.newsboat/urls"
 alias ctmux="vim ~/.tmux.conf"
 
-# Programs
-alias CryptTool="wine '~/.wine/drive_c/Program Files (x86)/CrypTool/CrypTool.exe\'"
+# Non-path programs
+#alias CryptTool="wine '~/.wine/drive_c/Program Files (x86)/CrypTool/CrypTool.exe\'"
 
 alias upgrade="sudo pacman -Syu"
 
