@@ -1,1 +1,13 @@
+# Read by readline (the program bash and probably other shells use for reading input).
+
+# Disable bell
 set bell-style none
+
+# Set vi editing mode
+set editing-mode vi
+
+# Shows all possible matches the first time TAB is pressed instead of beeping.
+set show-all-if-ambiguous on
+
+# Shows file type (directory or executable) as a character when showing autocomplete targets.
+set visible-stats on
