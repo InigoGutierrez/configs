@@ -1,8 +1,9 @@
 ! To load into RESOURCE_MANAGER, run xrdb ~/.Xresources
 
+*background: #100010
 ! Gruvbox dark
 ! hard contrast:
-*background: #1d2021
+!*background: #1d2021
 !*background: #282828
 ! soft contrast:
 !*background: #32302f
@@ -34,11 +35,21 @@
 *color15: #ebdbb2
 
 URxvt.scrollBar:	false
-URxvt.fading:		18
-URxvt.transparent:	false
-URxvt.shading:		12
 
-*.alpha: 120
+
+! These options are not used when configuration is through compton
+! URxvt.fading:		18
+! *.alpha: 120
+
+! Fake transparency (copies root window, aka wallpaper)
+! Overrides real transparency if not commented
+! URxvt.transparent:	true
+! URxvt.shading:		12
+
+! Real transparency (needs a running composite manager such as compton)
+URxvt.depth:		32
+!!
+URxvt.background:	[90]#100020
 
 URxvt.font:	xft:inconsolata:size=10,xft:symbola
 ! URxvt.font:	xft:mononoki:size=9,xft:symbola
