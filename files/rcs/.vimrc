@@ -4,7 +4,6 @@
 "  \ V /| | | | | | | | | (__
 "   \_/ |_|_| |_| |_|_|  \___|
 "
-" Inspired by https://github.com/LukeSmithxyz/voidrice/blob/master/.vimrc
 
 let mapleader = ","
 
@@ -15,7 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
-Plug 'suan/vim-instant-markdown'
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
 Plug 'Valloric/YouCompleteMe'
@@ -129,6 +128,12 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 " Dependencies: xdg-utils, curl, nodejs
 " Install miniserver with: npm -g install instant-markdown-d
 let g:instant_markdown_autostart = 0
+let g:instant_markdown_allow_unsafe_content = 1
+let g:instant_markdown_allow_external_content = 1
+let g:instant_markdown_open_to_the_world = 1
+let g:instant_markdown_mathjax = 1
+let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+let g:instant_markdown_python = 1
 map <leader>md :InstantMarkdownPreview<CR>
 map <leader>mD :InstantMarkdownStop<CR>
 
@@ -158,8 +163,6 @@ autocmd BufWritePost ~/.config/qutebrowser/config.py !cat .config/qutebrowser/co
 """ Remaps """
 
 nnoremap Y y$
-nnoremap zh zt
-nnoremap zl zb
 nnoremap <leader>s :set spell!<CR>
 nnoremap <leader>e :Errors<Enter>
 nnoremap <leader>x :! ./%
