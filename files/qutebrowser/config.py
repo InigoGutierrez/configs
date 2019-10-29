@@ -1572,7 +1572,7 @@ config.bind(',Fv', 'hint all spawn i3-msg exec mpv {hint-url}')
 config.bind(',V', 'spawn i3-msg exec /home/taamas/scripts/floats/mpvFloat.sh {url}')
 config.bind(',fV', 'hint links spawn i3-msg exec /home/taamas/scripts/floats/mpvFloat.sh {hint-url}')
 config.bind(',FV', 'hint all spawn i3-msg exec /home/taamas/scripts/floats/mpvFloat.sh {hint-url}')
-#download url's video in ~/videos/qutebrowser
+#download url's video
 config.bind(',d', 'spawn youtube-dl --all-subs --embed-subs -o ~/downloads/videos/%(title)s.%(ext)s {url}')
 # same as previous, but showing urxvt
 config.bind(',D', 'spawn i3-msg exec /home/taamas/scripts/floats/youtube-dlFloat.sh {url}')

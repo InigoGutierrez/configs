@@ -82,7 +82,7 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec urxvt -title "floating" -e tmux
-bindsym $mod+Shift+Return exec -title "floating" urxvt
+bindsym $mod+Shift+Return exec urxvt -e tmux
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -277,8 +277,8 @@ bindsym $mod+w exec firefox https://web.whatsapp.com/
 bindsym $mod+s exec screenshot.sh
 bindsym Print exec screenshot.sh
 bindsym $mod+a exec screenshot.sh -a
+bindsym $mod+Shift+a exec screenshot.sh -c
 bindsym $mod+r exec urxvt -title "floating" -e ranger
-bindsym $mod+Shift+a exec urxvt -title "floating" -e alsamixer
 bindsym $mod+c exec ~/scripts/dmenuTerm.sh
 bindsym $mod+d exec ~/scripts/dmenuDic.sh
 bindsym $mod+m exec ~/scripts/dmenuMount.sh

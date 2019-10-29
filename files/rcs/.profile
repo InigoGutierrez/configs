@@ -9,9 +9,7 @@
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+    [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
 fi
 
 # Source environment variables
@@ -30,6 +28,11 @@ if [ "$(tty)" = "/dev/tty1" ] && [ ! "$(pgrep -x i3)" ]; then
 elif [ "$(tty)" = "/dev/tty3" ] && [ ! "$(pgrep -x xfce4-session)" ]; then
 	echo ""
 	cat "$HOME/.xinitrcxfce4" > "$HOME/.xinitrc"
+	neofetch --config "$XDG_CONFIG_HOME/neofetch/neofetchLogin.conf"
+	exec startx >"$CONFIG_FOLDER_LOGS/startx.log" 2>"$CONFIG_FOLDER_LOGS/startxerr.log"
+elif [ "$(tty)" = "/dev/tty4" ] && [ ! "$(pgrep -x gnome-session)" ]; then
+	echo ""
+	cat "$HOME/.xinitrcgnome" > "$HOME/.xinitrc"
 	neofetch --config "$XDG_CONFIG_HOME/neofetch/neofetchLogin.conf"
 	exec startx >"$CONFIG_FOLDER_LOGS/startx.log" 2>"$CONFIG_FOLDER_LOGS/startxerr.log"
 elif [ "$(tty | egrep -e "/dev/tty.*")" ]; then

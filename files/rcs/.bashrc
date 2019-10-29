@@ -58,6 +58,5 @@ wd="$pur"
 umode="$blue"
 PS1="${keys}[${pur}\u${keys}@${pur}\h${keys}]${wd}\w${umode}\$${def} "
 
-# Alias definitions.
 # Aliases are defined in $HOME/.bash_aliases for convenience.
 [ -f "$HOME/.bash_aliases" ] && . "$HOME/.bash_aliases"
