@@ -65,7 +65,12 @@ vmap  <expr>  D        DVB_Duplicate()
 " Show tabs
 "exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 exec "set listchars=tab:\uBB·,trail:\uB7,nbsp:~"
-nnoremap <leader>t :set list!<CR>
+nnoremap <leader>l :set list!<CR>
+
+" For YouCompleteMe
+let g:ycm_auto_trigger = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_key_list_stop_completion = ['<C-y>', '<C-Space>']
 
 " For syntastic
 set statusline+=%#warningmsg#
@@ -147,6 +152,12 @@ map <C-l> <C-w>l
 "map <C-K> <C-w>K
 "map <C-L> <C-w>L
 
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
+
+nnoremap <leader>S :!tmux split-window -p 40<CR><CR>
+
+nnoremap <leader>/ /grtfjx<CR>
 " Color
 syntax enable
 syntax on
@@ -195,86 +206,4 @@ nnoremap <leader>celif <Esc>:r ~/.config/custom/vim/c/elif.txt<CR>/<+++><CR>cf>
 nnoremap <leader>cs <Esc>:r ~/.config/custom/vim/c/switch.txt<CR>/<+++><CR>cf>
 nnoremap <leader>cw <Esc>:r ~/.config/custom/vim/c/while.txt<CR>/<+++><CR>cf>
 nnoremap <leader>cd <Esc>:r ~/.config/custom/vim/c/do.txt<CR>/<+++><CR>cf>
-
-nnoremap <leader>fixit :YcmCompleter FixIt<CR>
-
-"" html
-
-" Layout elements
-inoremap <leader>hheader <header><Enter><Enter></header><Enter><++><Esc>kki
-inoremap <leader>hnav <nav><Enter><Enter></nav><Enter><++><Esc>kki
-inoremap <leader>hsection <section><Enter><Enter></section><Enter><++><Esc>kki
-inoremap <leader>harticle <article><Enter><Enter></article><Enter><++><Esc>kki
-inoremap <leader>hfooter <footer><Enter><Enter></footer><Enter><++><Esc>kki
-inoremap <leader>haside <aside><Enter><Enter></aside><Enter><++><Esc>kki
-inoremap <leader>hdiv <div class=""><Enter><++><Enter></div><Enter><++><Esc>?""<Enter>a
-
-" Headers and paragraphs
-inoremap <leader>hh1 <h1></h1><Enter><++><Esc>?</h1><Enter>i
-inoremap <leader>hh2 <h2></h2><Enter><++><Esc>?</h2><Enter>i
-inoremap <leader>hh3 <h3></h3><Enter><++><Esc>?</h3><Enter>i
-inoremap <leader>hh4 <h4></h4><Enter><++><Esc>?</h4><Enter>i
-inoremap <leader>hh5 <h5></h5><Enter><++><Esc>?</h5><Enter>i
-inoremap <leader>hh6 <h6></h6><Enter><++><Esc>?</h6><Enter>i
-inoremap <leader>hp <p></p><Enter><++><Esc>?</p><Enter>i
-
-" Text formatting
-inoremap <leader>hb <b></b><++><Esc>?</b><Enter>i
-inoremap <leader>hi <i></i><++><Esc>?</i><Enter>i
-inoremap <leader>hem <em></em><++><Esc>?</em><Enter>i
-inoremap <leader>hcode <code></code><++><Esc>?</code><Enter>i
-inoremap <leader>hsub <sub></sub><++><Esc>?</sub><Enter>i
-inoremap <leader>hsup <sup></sup><++><Esc>?</sup><Enter>i
-inoremap <leader>hcite <cite></cite><++><Esc>?</cite><Enter>i
-
-" Tables
-inoremap <leader>htable <table border=""><Enter><caption><++></caption><Enter><thead><Enter><tr><Enter><++><Enter></tr><Enter></thead><Enter><tbody><Enter><++><Enter></tbody><Enter></table><Enter><++><Esc>?""<Enter>a
-inoremap <leader>htr <tr><Enter><Enter></tr><Enter><++><Esc>kki
-inoremap <leader>hth <th></th><Enter><++><Esc>?</<Enter>i
-inoremap <leader>htd <td></td><Enter><++><Esc>?</<Enter>i
-
-" Lists
-inoremap <leader>hul <ul><Enter><li></li><Enter><++><Enter></ul><Enter><++><Esc>?</l<Enter>i
-inoremap <leader>hol <ol><Enter><li></li><Enter><++><Enter></ol><Enter><++><Esc>?</l<Enter>i
-inoremap <leader>hli <li></li><Enter><++><Esc>?</<Enter>i
-
-" Forms
-inoremap <leader>hform <form><Enter><fieldset><Enter><Enter></fieldset><Enter></form><Enter><++><Esc>3ki
-inoremap <leader>hfs <fieldset><Enter><Enter></fieldset><Enter><++><Esc>kki
-inoremap <leader>hlegend <legend></legend><Enter><++><Esc>?</<Enter>i
-inoremap <leader>hlabel <label><input type="<++>"></label><Enter><++><Esc>?<i<Enter>i
-
-" Media
-inoremap <leader>ha <a href=""><++></a><Enter><++><Esc>?""<Enter>a
-inoremap <leader>himg <img src="" alt="<++>"><Enter><++><Esc>?""<Enter>a
-
-" Misc
-" Comment a line
-nnoremap <leader>hc I<!-- <Esc>A --><Esc>0
-" Uncomment a line
-nnoremap <leader>hC 05x/--><Enter>3x0
-
-"" LaTeX
-
-nnoremap <leader>lc :w<Enter>:! pdflatex --shell-escape %<Enter>
-inoremap <leader>ldocclass \documentclass{}<Esc>o<++><Esc>k$i
-inoremap <leader>lpckg \usepackage{}<Esc>o<++><Esc>k$i
-inoremap <leader>lbdoc \begin{document}<Esc>o<Enter><Enter><Enter>\end{document}<Esc>kkI
-inoremap <leader>lauthor \author{}<Esc>o<++><Esc>k$i
-inoremap <leader>ltitle \title{}<Esc>o<++><Esc>k$i
-inoremap <leader>lsection \section{}<Esc>o<++><Esc>k$i
-inoremap <leader>lssection \subsection{}<Esc>o<++><Esc>k$i
-inoremap <leader>lsssection \subsubsection{}<Esc>o<++><Esc>k$i
-inoremap <leader>lssssection \paragraph{}<Esc>o<++><Esc>k$i
-inoremap <leader>lsssssection \subparagraph{}<Esc>o<++><Esc>k$i
-inoremap <leader>lb \textbf{}<++><Esc>F}i
-inoremap <leader>li \textit{}<++><Esc>F}i
-inoremap <leader>lemph \emph{}<++><Esc>F}i
-inoremap <leader>llabel \label{}<++><Esc>F}i
-inoremap <leader>lref ~\ref{}<++><Esc>F}i
-inoremap <leader>lenumerate \begin{enumerate}<Esc>o<Enter><Enter><Enter>\end{enumerate}<Esc>kkI\item<Enter><Esc>I<Tab><++><Esc>k<<i<Tab><Esc>$a<Space>
-inoremap <leader>litemize \begin{itemize}<Esc>o<Enter><Enter><Enter>\end{itemize}<Esc>kkI\item<Enter><Esc>I<Tab><++><Esc>k<<i<Tab><Esc>$a<Space>
-inoremap <leader>litem \item<Enter><++><Esc>k$a<Space>
-inoremap <leader>limage \begin{figure}[H]<Enter>\begin{center}<Enter>\includegraphics[width=\textwidth]{}<Enter>\caption{<++>}<Enter>\end{center}<Enter>\end{figure}<Enter><++><Esc>4k$i
-inoremap <leader>ltable \begin{table}[H]<Enter>\makebox[\linewidth]{\centering<Enter>\centering<Enter>\begin{tabular}{c<Space>cxxx}<Enter>\toprule<Enter><++><Space>&<Space><++><Space>\\<Enter>\midrule<Enter><++><Space>&<Space><++><Space>\\<Enter>\bottomrule<Enter>\end{tabular}<Enter>}<Enter>\end{table}<Enter><++><Esc>?xxx<Enter>cw
 
