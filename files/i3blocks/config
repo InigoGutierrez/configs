@@ -5,6 +5,10 @@ markup=pango
 #command=shufEmoji.sh 1
 #interval=once
 
+[weather]
+command=~/scripts/i3blocks/i3weather.sh
+interval=once
+
 [moon]
 command=~/scripts/i3blocks/i3moon.sh
 interval=once
@@ -72,9 +76,13 @@ label=💽
 command=~/scripts/i3blocks/i3disk.sh
 interval=30
 
+[flags]
+command=~/scripts/i3blocks/i3flags.sh
+interval=30
+
 [litter]
 label=🚮
-command=[ -z "$(ls $HOME/litter)" ] && echo "✔️" || du -sh $HOME/litter | cut -d'	' -f1
+command=[ -z "$(ls $HOME/litter)" ] && echo "✅" || du -sh $HOME/litter | cut -d'	' -f1
 interval=once
 signal=14
 

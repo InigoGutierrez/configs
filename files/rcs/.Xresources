@@ -36,8 +36,7 @@
 
 URxvt.scrollBar:	false
 
-
-! These options are not used when configuration is through compton
+! These options are not used when configuration is through picom
 ! URxvt.fading:		18
 ! *.alpha: 120
 
@@ -46,7 +45,7 @@ URxvt.scrollBar:	false
 ! URxvt.transparent:	true
 ! URxvt.shading:		12
 
-! Real transparency (needs a running composite manager such as compton)
+! Real transparency (needs a running composite manager such as picom)
 URxvt.depth:		32
 !!
 URxvt.background:	[90]#100020

@@ -1470,6 +1470,7 @@ c.url.start_pages = ['file:///home/taamas/.mainpage/index.html']
 # config.bind('@', 'run-macro')
 # config.bind('B', 'set-cmd-text -s :quickmark-load -t')
 # config.bind('D', 'tab-close -o')
+config.unbind('D')
 # config.bind('F', 'hint all tab')
 # config.bind('G', 'scroll-to-perc')
 # config.bind('H', 'back')
