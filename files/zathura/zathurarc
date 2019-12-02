@@ -9,6 +9,7 @@ map b toggle_statusbar
 map r reload
 map R rotate
 map p print
-#map y feedkeys "<Mod4>d"
 map Y exec 'dunstify %'
+map I exec '/home/taamas/scripts/pdfSxiv.sh %'
+#map y feedkeys "<Mod4>d"
 #map P change_mode presentation

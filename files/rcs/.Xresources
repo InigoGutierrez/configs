@@ -1,10 +1,10 @@
 ! To load into RESOURCE_MANAGER, run xrdb ~/.Xresources
 
-*background: #100010
+! *background and foreground are read by sxiv
 ! Gruvbox dark
 ! hard contrast:
 !*background: #1d2021
-!*background: #282828
+*background: #282828
 ! soft contrast:
 !*background: #32302f
 *foreground: #ebdbb2
@@ -34,29 +34,32 @@
 *color7:  #a89984
 *color15: #ebdbb2
 
+! Man pages
+URxvt.colorIT: #ff0000
+
 URxvt.scrollBar:	false
 
 ! These options are not used when configuration is through picom
-! URxvt.fading:		18
-! *.alpha: 120
+!URxvt.fading:		18
+!*.alpha: 120
 
 ! Fake transparency (copies root window, aka wallpaper)
 ! Overrides real transparency if not commented
-! URxvt.transparent:	true
-! URxvt.shading:		12
+!URxvt.transparent:	true
+!URxvt.shading:		12
 
 ! Real transparency (needs a running composite manager such as picom)
 URxvt.depth:		32
-!!
-URxvt.background:	[90]#100020
+URxvt.background:	[90]#050505
 
+*.font:	inconsolata:size=12
 URxvt.font:	xft:inconsolata:size=10,xft:symbola
 ! URxvt.font:	xft:mononoki:size=9,xft:symbola
 ! URxvt.font:	xft:envy code r:size=9,xft:symbola
 
 ! Leaving this blank stops perl from being initialized
 !URxvt.perl-ext:
-URxvt.perl-ext-common: font-size,default,url-select
+URxvt.perl-ext-common: default,url-select,font-size
 URxvt.keysym.C-equal: font-size:reset
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: qutebrowser

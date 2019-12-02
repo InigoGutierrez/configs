@@ -32,25 +32,27 @@ export GREP_COLORS='ms=04;32;49:mc=04;32;49:sl=:cx=:fn=01;34;49:ln=34:bn=34:se=3
 # Colors for gcc
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-################
-# PATH changes #
-################
+#########
+# $PATH #
+#########
 
 # java
 export JAVA_HOME="/usr/lib/jvm/default/"
 PATH="${PATH}:${JAVA_HOME}/bin"
 
-# add scripts folder to path
-PATH="$PATH:$HOME/scripts"
+# add scripts folder to path plus its direct subfolders
+for dir in $(find "$HOME/scripts" -type d | grep -v '/\.'); do
+	PATH="${PATH}:${dir}"
+done
 
 # add ruby bins (gems) folder to path
-PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+PATH="${PATH}:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # add cargo bins folder to path
-PATH="$PATH:$HOME/.cargo/bin"
+PATH="${PATH}:${HOME}/.cargo/bin"
 
 # add pip local bins to path
-PATH="$PATH:$HOME/.local/bin"
+PATH="${PATH}:${HOME}/.local/bin"
 
 # export final PATH
 export PATH

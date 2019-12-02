@@ -1,9 +1,10 @@
 # General abreviations
-alias r='ranger'
+alias r='tmux rename-window ranger; ranger; tmux rename-window bash'
 alias v='nvim'
 alias vim='nvim'
 alias ping='ping fsf.org'
-alias cdf='cd $(fzfPath.sh)'
+alias cdf='cd "$(fzfPath.sh)"'
+alias cdr='ranger "$(fzfPath.sh)"'
 alias mail='mail.sh'
 alias ls='ls -hN --color=auto --group-directories-first'
 alias grep='grep --color=auto'
@@ -29,12 +30,10 @@ alias cnb="vim ~/.newsboat/config"
 alias cnbu="vim ~/.newsboat/urls"
 alias ctmux="vim ~/.tmux.conf"
 
-# Non-path programs
-#alias CryptTool="wine '~/.wine/drive_c/Program Files (x86)/CrypTool/CrypTool.exe\'"
-
 alias upgrade="sudo pacman -Syu"
 
 alias starwars="telnet towel.blinkenlights.nl"
 alias adormir="mpv -vo caca ~/videos/Adormir.mp4 && clear 2>/dev/null"
 alias adormirloop="mpv --loop-file -vo caca ~/videos/Adormir.mp4 2>/dev/null && clear"
 alias nintendos="mpv -vo caca https://www.youtube.com/watch?v=hYNcJj2QDhk 2>/dev/null"
+alias netris="ssh netris.rocketnine.space"

@@ -69,6 +69,7 @@ while read -r file
 do
 	case "$1" in
 	"w") setBG.sh "$file" ;;
+	"W") wal.sh "$file" ;;
 	"r")
 		convert -rotate 90 "$file" "$file" &&
 		dunstify "$file rotated clockwise" ;;

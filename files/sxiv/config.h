@@ -9,7 +9,7 @@ enum {
 /* bar font:
  * (see fonts-conf(5) subsection "FONT NAMES" for valid values)
  */
-static const char * const BAR_FONT = "monospace:size=8";
+static const char * const BAR_FONT = "monospace:size=12";
 
 /* colors:
  * overwritten by 'background' and 'foreground' X resource properties.

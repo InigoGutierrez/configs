@@ -27,7 +27,6 @@ signal=13
 
 [music]
 color=#a5acff
-#background=#696eff
 command=~/scripts/i3blocks/i3music.sh
 interval=2
 signal=12

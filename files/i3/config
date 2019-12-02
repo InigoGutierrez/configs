@@ -54,8 +54,8 @@ set $right l
 
 # define workspaces names
 set $ws1 1:💻
-set $ws2 2:👾
-set $ws3 3:🌍
+set $ws2 2:🌍
+set $ws3 3:👾
 set $ws4 4:🎮
 set $ws5 5
 set $ws6 6:🎵
@@ -89,6 +89,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu_run (a program launcher)
 bindsym $mod+x exec dmenu_run -l 8 -p "~$"
+bindsym $mod+Shift+x exec rofi -show run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -126,6 +127,9 @@ bindsym $mod+Control+$right workspace next
 bindsym $mod+Control+Left workspace prev
 bindsym $mod+Control+Right workspace next
 
+# Jump to window
+bindsym $mod+Control+j exec rofi -show window
+
 # split in horizontal orientation
 bindsym $mod+b split h
 
@@ -151,7 +155,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+s sticky toggle
 
 
-bindsym $mod+Shift+x exec sxivslideshot
+bindsym $mod+Control+x exec sxivslideshot
 
 # modify gaps
 bindsym $mod+Shift+g gaps inner current minus 2
@@ -221,6 +225,7 @@ for_window [instance="sxivfloat"] floating enable
 for_window [instance="sxivfloat"] sticky enable
 for_window [instance="sxivfloat"] border pixel 1
 for_window [title="SFML"] floating enable
+for_window [title="Firefox"] floating enable
 assign [class="Transmission"] 5
 
 # edge borders
@@ -288,7 +293,7 @@ bindsym $mod+Shift+c exec notify-send "$(fortune)"
 bindsym $mod+y exec surfraw.sh
 bindsym $mod+Control+f exec screenRecord.sh
 bindsym $mod+Control+p exec passmenu
-
+bindsym $mod+z exec docs.sh
 
 ##
 
