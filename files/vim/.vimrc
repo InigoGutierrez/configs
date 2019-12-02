@@ -14,11 +14,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
-Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
 Plug 'Valloric/YouCompleteMe'
 Plug 'OmniSharp/omnisharp-vim'
+Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 set nocompatible
@@ -70,7 +70,6 @@ nnoremap <leader>l :set list!<CR>
 " For YouCompleteMe
 let g:ycm_auto_trigger = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_list_stop_completion = ['<C-y>', '<C-Space>']
 
 " For syntastic
 set statusline+=%#warningmsg#
@@ -129,31 +128,19 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown'
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
-" For vim-instant-markdown
-" Dependencies: xdg-utils, curl, nodejs
-" Install miniserver with: npm -g install instant-markdown-d
-let g:instant_markdown_autostart = 0
-let g:instant_markdown_allow_unsafe_content = 1
-let g:instant_markdown_allow_external_content = 1
-let g:instant_markdown_open_to_the_world = 1
-let g:instant_markdown_mathjax = 1
-let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
-let g:instant_markdown_python = 1
-map <leader>md :InstantMarkdownPreview<CR>
-map <leader>mD :InstantMarkdownStop<CR>
-
 " Shortcuts for split navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-"map <C-H> <C-w>H
+"map <C-H> <C-w>H "<C-H> can't be different from <C-h>
 "map <C-J> <C-w>J
 "map <C-K> <C-w>K
 "map <C-L> <C-w>L
 
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
+nnoremap <C-n> :tabnew<CR>
+"nnoremap <Tab> gt "Can't be set without also remapping <C-i>
+"nnoremap <S-Tab> gT
 
 nnoremap <leader>S :!tmux split-window -p 40<CR><CR>
 
@@ -197,13 +184,12 @@ nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gc :!git commit -m "
 
 "" c++
-nnoremap <leader>ct <Esc>:r ~/.config/custom/vim/c/template.txt<CR>/<+++><CR>cf>
-nnoremap <leader>ce <Esc>:r ~/.config/custom/vim/c/enum.txt<CR>/<+++><CR>cf>
-nnoremap <leader>cf <Esc>:r ~/.config/custom/vim/c/for.txt<CR>/<+++><CR>cf>
-nnoremap <leader>cif <Esc>:r ~/.config/custom/vim/c/if.txt<CR>/<+++><CR>cf>
-nnoremap <leader>celse <Esc>:r ~/.config/custom/vim/c/else.txt<CR>/<+++><CR>cf>
-nnoremap <leader>celif <Esc>:r ~/.config/custom/vim/c/elif.txt<CR>/<+++><CR>cf>
-nnoremap <leader>cs <Esc>:r ~/.config/custom/vim/c/switch.txt<CR>/<+++><CR>cf>
-nnoremap <leader>cw <Esc>:r ~/.config/custom/vim/c/while.txt<CR>/<+++><CR>cf>
-nnoremap <leader>cd <Esc>:r ~/.config/custom/vim/c/do.txt<CR>/<+++><CR>cf>
-
+"nnoremap <leader>ct <Esc>:r ~/.config/custom/vim/c/template.txt<CR>/<+++><CR>cf>
+"nnoremap <leader>ce <Esc>:r ~/.config/custom/vim/c/enum.txt<CR>/<+++><CR>cf>
+"nnoremap <leader>cf <Esc>:r ~/.config/custom/vim/c/for.txt<CR>/<+++><CR>cf>
+"nnoremap <leader>cif <Esc>:r ~/.config/custom/vim/c/if.txt<CR>/<+++><CR>cf>
+"nnoremap <leader>celse <Esc>:r ~/.config/custom/vim/c/else.txt<CR>/<+++><CR>cf>
+"nnoremap <leader>celif <Esc>:r ~/.config/custom/vim/c/elif.txt<CR>/<+++><CR>cf>
+"nnoremap <leader>cs <Esc>:r ~/.config/custom/vim/c/switch.txt<CR>/<+++><CR>cf>
+"nnoremap <leader>cw <Esc>:r ~/.config/custom/vim/c/while.txt<CR>/<+++><CR>cf>
+"nnoremap <leader>cd <Esc>:r ~/.config/custom/vim/c/do.txt<CR>/<+++><CR>cf>

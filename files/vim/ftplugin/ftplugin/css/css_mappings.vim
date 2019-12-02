@@ -9,7 +9,7 @@ set nolist
 set textwidth=80
 
 " Mappings
-nnoremap <leader>cc :sp ~/.vim/ftplugin/css/css.vim<CR>
-nnoremap <leader>cm :sp ~/.vim/ftplugin/css/css_mappings.vim<CR>
+nnoremap <leader>Cc :sp ~/.vim/ftplugin/css/css.vim<CR>
+nnoremap <leader>Cm :sp ~/.vim/ftplugin/css/css_mappings.vim<CR>
 nnoremap <leader>e :Errors<CR>
 nnoremap <leader>s vi{!sort<CR>

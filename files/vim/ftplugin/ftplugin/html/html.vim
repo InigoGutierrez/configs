@@ -5,4 +5,4 @@
 
 call matchadd('ColorColumn', '\%101v', 100)
 
-autocmd BufEnter *.html source ~/.vim/ftplugin/html_mappings.vim
+autocmd BufEnter *.html source ~/.vim/ftplugin/html/html_mappings.vim

@@ -3,8 +3,8 @@
 
 nnoremap <leader>o :!$BROWSER % &<CR><CR>
 nnoremap <leader>f :!firefox --new-window % &<CR><CR>
-nnoremap <leader>cc :sp ~/.vim/ftplugin/html.vim<CR>
-nnoremap <leader>cm :sp ~/.vim/ftplugin/html_mappings.vim<CR>
+nnoremap <leader>Cc :sp ~/.vim/ftplugin/html/html.vim<CR>
+nnoremap <leader>Cm :sp ~/.vim/ftplugin/html/html_mappings.vim<CR>
 nnoremap <leader>e :Errors<CR>
 
 " Layout elements

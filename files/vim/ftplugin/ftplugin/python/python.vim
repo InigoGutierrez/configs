@@ -5,7 +5,7 @@
 call matchadd('ColorColumn', '\%81v', 100)
 let b:syntastic_mode="passive"
 
-nnoremap <leader>c :sp ~/.vim/ftplugin/python/python.vim<CR>
+nnoremap <leader>C :sp ~/.vim/ftplugin/python/python.vim<CR>
 nnoremap <leader>E :Errors<CR>
 
 nnoremap <leader>gt :YcmCompleter GoTo<CR>

@@ -9,4 +9,4 @@ call matchadd('ColorColumn', '\%81v', 100)
 " JSLint arguments
 let g:syntastic_javascript_jslint_args = "--browser --indent"
 
-autocmd BufEnter *.js source ~/.vim/ftplugin/javasctipt/javascript_BufEnter.vim
+autocmd BufEnter *.js source ~/.vim/ftplugin/javascript/javascript_BufEnter.vim

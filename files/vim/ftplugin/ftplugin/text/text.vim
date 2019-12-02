@@ -3,7 +3,7 @@
 "
 " Syntastic linter: proselint
 
-nnoremap <leader>c :sp ~/.vim/ftplugin/text.vim<CR>
+nnoremap <leader>C :sp ~/.vim/ftplugin/text/text.vim<CR>
 nnoremap <leader>e :Errors<CR>
 
 call matchadd('ColorColumn', '\%101v', 100)

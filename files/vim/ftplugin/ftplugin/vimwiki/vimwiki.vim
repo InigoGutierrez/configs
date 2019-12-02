@@ -14,5 +14,8 @@ set textwidth=80
 
 let g:syntastic_vimwiki_checkers = ['markdown/mdl']
 
-nnoremap <leader>c :sp ~/.vim/ftplugin/vimwiki.vim<CR>
+nnoremap <leader>C :sp ~/.vim/ftplugin/vimwiki/vimwiki.vim<CR>
 nnoremap <leader>e :Errors<CR>
+
+nnoremap <leader>c :w<CR>:!toPDF.sh %<CR><CR>
+nnoremap <leader>o :w<CR>:!toPDF.sh -o %<CR><CR>

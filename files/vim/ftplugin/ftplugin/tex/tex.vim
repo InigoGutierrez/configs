@@ -5,7 +5,7 @@
 
 call matchadd('ColorColumn', '\%91v', 100)
 
-nnoremap <leader>c :sp ~/.vim/ftplugin/tex.vim<CR>
+nnoremap <leader>C :sp ~/.vim/ftplugin/tex.vim<CR>
 nnoremap <leader>e :Errors<CR>
 " proselint not enabled by default (and better not be)
 nnoremap <leader>sp :SyntasticCheck proselint<CR>
