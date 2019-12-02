@@ -59,7 +59,6 @@ qutebrowser
 ranger
 rxvt-unicode
 shellcheck
-simple-mtpfs
 simple-scan
 sl
 system-config-printer
@@ -87,3 +86,4 @@ zip
 
 # yay
 ttf-symbola
+simple-mtpfs
