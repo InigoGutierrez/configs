@@ -62,8 +62,8 @@ cp "$HOME/repos/configs/files/rcs/.tmux.conf" "$HOME/.tmux.conf"
 # vim
 mkdir -p "$HOME/.vim"
 cp "$HOME/repos/configs/files/vim/.vimrc" "$HOME/.vimrc"
-cp -r "$HOME/repos/configs/files/vim/ftplugin" "$HOME/.vim/ftplugin"
-cp -r "$HOME/repos/configs/files/vim/plugin" "$HOME/.vim/plugin"
+cp -r "$HOME/repos/configs/files/vim/ftplugin" "$HOME/.vim"
+cp -r "$HOME/repos/configs/files/vim/plugin" "$HOME/.vim"
 
 # sxiv
 mkdir -p "$HOME/.config/sxiv/exec"
