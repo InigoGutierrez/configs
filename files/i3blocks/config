@@ -85,6 +85,11 @@ command=[ -z "$(ls $HOME/litter)" ] && echo "✅" || du -sh $HOME/litter | cut -
 interval=once
 signal=14
 
+[appointments]
+label=📆
+command=~/scripts/i3blocks/i3calcurse.sh
+interval=once
+
 [date]
 #color=#000000
 #background=#eb87ff

@@ -16,7 +16,7 @@ Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'dylanaraps/wal.vim'
 call plug#end()

@@ -7,7 +7,7 @@ call matchadd('ColorColumn', '\%101v', 100)
 
 nnoremap <leader>C :sp ~/.vim/ftplugin/sh/sh.vim<CR>
 nnoremap <leader>+x :!chmod 744 %<CR><CR>
-nnoremap <leader>x :!./%<Space>
+nnoremap <leader>x :w<CR>:!./%<Space>
 nnoremap <leader>e :Errors<CR>
 
 inoremap <leader>sh #!/bin/sh

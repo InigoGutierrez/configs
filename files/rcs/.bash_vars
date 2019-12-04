@@ -19,6 +19,10 @@ export CONFIG_DIC_PL="/usr/share/dict/słowa.txt"
 export CONFIG_FOLDER_RANDOMBG="$HOME/images/wallpapers/shufs/current"
 export CONFIG_FOLDER_LOGS="$HOME/logs"
 
+export CONFIG_WIFI_DEV="wlp2s0"
+export CONFIG_ETH_DEV=""
+
+
 export CONFIG_FOLDER_GMAIL_INBOX="$HOME/.mail/gmail/INBOX/new"
 export CONFIG_FOLDER_UNIOVI_INBOX="$HOME/.mail/uniovi/INBOX/new"
 
