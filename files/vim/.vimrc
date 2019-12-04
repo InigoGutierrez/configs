@@ -160,9 +160,9 @@ autocmd BufWritePost ~/.config/qutebrowser/config.py !cat .config/qutebrowser/co
 """ Remaps """
 
 nnoremap Y y$
-nnoremap <buffer> <leader>ss :set spell!
-nnoremap <buffer> <leader>sl :set spelllang=
-nnoremap <buffer> <leader>sL :setlocal spelllang=
+nnoremap <leader>ss :set spell!<CR>
+nnoremap <leader>sl :set spelllang=
+nnoremap <leader>sL :setlocal spelllang=
 nnoremap <leader>e :Errors<Enter>
 nnoremap <leader>x :! ./%
 inoremap <leader>w <Esc>:w<Enter>
