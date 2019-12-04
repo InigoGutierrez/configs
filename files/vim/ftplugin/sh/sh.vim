@@ -5,11 +5,11 @@
 
 call matchadd('ColorColumn', '\%101v', 100)
 
-nnoremap <leader>C :sp ~/.vim/ftplugin/sh/sh.vim<CR>
-nnoremap <leader>+x :!chmod 744 %<CR><CR>
-nnoremap <leader>x :w<CR>:!./%<Space>
-nnoremap <leader>e :Errors<CR>
+nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/sh/sh.vim<CR>
+nnoremap <buffer> <leader>+x :!chmod 744 %<CR><CR>
+nnoremap <buffer> <leader>x :w<CR>:!./%<Space>
+nnoremap <buffer> <leader>e :Errors<CR>
 
-inoremap <leader>sh #!/bin/sh
-inoremap <leader>if if <+++>; then<CR><++><CR>fi<++><Esc>?<+++><CR>cf>
-"inoremap <leader>if <Esc>:read ~/.vim/ftplugin/sh/snippets/if.txt<CR>kdd/<+++><CR>cf>
+inoremap <buffer> <leader>sh #!/bin/sh
+inoremap <buffer> <leader>if if <+++>; then<CR><++><CR>fi<++><Esc>?<+++><CR>cf>
+"inoremap <buffer> <leader>if <Esc>:read ~/.vim/ftplugin/sh/snippets/if.txt<CR>kdd/<+++><CR>cf>

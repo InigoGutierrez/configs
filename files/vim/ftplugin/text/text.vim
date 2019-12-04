@@ -3,10 +3,12 @@
 "
 " Syntastic linter: proselint
 
-nnoremap <leader>C :sp ~/.vim/ftplugin/text/text.vim<CR>
-nnoremap <leader>e :Errors<CR>
-
 call matchadd('ColorColumn', '\%101v', 100)
+setlocal textwidth=100
+setlocal spell
+
+nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/text/text.vim<CR>
 
 " Proselint is slow to act
-" let g:syntastic_text_checkers = ['proselint']
+nnoremap <buffer> <leader>sp :SyntasticCheck proselint<CR>
+nnoremap <buffer> <leader>e :Errors<CR>

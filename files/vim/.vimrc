@@ -17,7 +17,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
 "Plug 'Valloric/YouCompleteMe'
-Plug 'OmniSharp/omnisharp-vim'
+"Plug 'OmniSharp/omnisharp-vim'
 Plug 'dylanaraps/wal.vim'
 call plug#end()
 
@@ -39,7 +39,6 @@ set incsearch
 
 " Line size marking
 highlight ColorColumn ctermbg=darkblue ctermfg=black
-call matchadd('ColorColumn', '\%81v', 100)
 "Redjail Bomb (thx Damian Conway!)
 "highlight ColorColumn ctermbg=red ctermfg=blue
 "exec 'set colorcolumn='.join(range(2,80,3), ',')
@@ -62,7 +61,7 @@ vmap  <expr>  <DOWN>   DVB_Drag('down')
 vmap  <expr>  <UP>     DVB_Drag('up')
 vmap  <expr>  D        DVB_Duplicate()
 
-" Show tabs
+" Showing tabs
 "exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 exec "set listchars=tab:\uBB·,trail:\uB7,nbsp:~"
 nnoremap <leader>l :set list!<CR>
@@ -161,12 +160,12 @@ autocmd BufWritePost ~/.config/qutebrowser/config.py !cat .config/qutebrowser/co
 """ Remaps """
 
 nnoremap Y y$
-nnoremap <leader>s :set spell!<CR>
+nnoremap <buffer> <leader>ss :set spell!
+nnoremap <buffer> <leader>sl :set spelllang=
+nnoremap <buffer> <leader>sL :setlocal spelllang=
 nnoremap <leader>e :Errors<Enter>
 nnoremap <leader>x :! ./%
-inoremap <leader>e <Esc>
 inoremap <leader>w <Esc>:w<Enter>
-inoremap <leader>d <Esc>ddA
 inoremap <leader><leader> <Esc>/<++><Enter>cf>
 nnoremap <leader>p "+p
 nnoremap <leader>y "+yy

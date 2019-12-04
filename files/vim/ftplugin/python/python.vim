@@ -3,15 +3,15 @@
 
 " Column marker: 80 characters
 call matchadd('ColorColumn', '\%81v', 100)
-let b:syntastic_mode="passive"
+"let b:syntastic_mode="passive"
 
-nnoremap <leader>C :sp ~/.vim/ftplugin/python/python.vim<CR>
-nnoremap <leader>E :Errors<CR>
+nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/python/python.vim<CR>
+nnoremap <buffer> <leader>E :Errors<CR>
 
-nnoremap <leader>gt :YcmCompleter GoTo<CR>
-nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
-nnoremap <leader>gd :YcmCompleter GetDoc<CR>
-nnoremap <leader>gT :YcmCompleter GetType<CR>
-nnoremap <leader>fi :YcmCompleter FixIt<CR>
-nnoremap <leader>r :YcmCompleter RefactorRename<Space>
-nnoremap <leader>e :YcmDiags<CR>
+nnoremap <buffer> <leader>gt :YcmCompleter GoTo<CR>
+nnoremap <buffer> <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <buffer> <leader>gd :YcmCompleter GetDoc<CR>
+nnoremap <buffer> <leader>gT :YcmCompleter GetType<CR>
+nnoremap <buffer> <leader>fi :YcmCompleter FixIt<CR>
+nnoremap <buffer> <leader>r :YcmCompleter RefactorRename<Space>
+nnoremap <buffer> <leader>e :YcmDiags<CR>
