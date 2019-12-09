@@ -69,6 +69,7 @@ ttf-inconsolata
 ttf-linux-libertine
 unclutter
 unrar
+unzip
 urxvt-perls
 w3m
 wget
