@@ -1,38 +1,32 @@
 ! To load into RESOURCE_MANAGER, run xrdb ~/.Xresources
 
 ! *background and foreground are read by sxiv
-! Gruvbox dark
-! hard contrast:
-!*background: #1d2021
 *background: #282828
-! soft contrast:
-!*background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #000000
 *color8:  #1d2021
 ! DarkRed + Red
-*color1:  #cc241d
-*color9:  #fb4934
+*color1:  #ff3333
+*color9:  #ff6666
 ! DarkGreen + Green
-*color2:  #98971a
-*color10: #b8bb26
+*color2:  #66ff66
+*color10: #b2ff66
 ! DarkYellow + Yellow
-*color3:  #d79921
-*color11: #fabd2f
+*color3:  #fabd2f
+*color11: #ffff66
 ! DarkBlue + Blue
-*color4:  #458588
-*color12: #83a598
+*color4:  #6666ff
+*color12: #66b2ff
 ! DarkMagenta + Magenta
-*color5:  #b16286
-!*color5:  #5f005f
-*color13: #d3869b
+*color5:  #ff3366
+*color13: #ff66bb
 ! DarkCyan + Cyan
-*color6:  #20b2aa
-*color14: #87d3f8
+*color6:  #33ddff
+*color14: #66ffff
 ! LightGrey + White
-*color7:  #a89984
-*color15: #ebdbb2
+*color7:  #ebdbb2
+*color15: #ffffff
 
 ! Man pages
 URxvt.colorIT: #ff0000
