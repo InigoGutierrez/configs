@@ -13,5 +13,4 @@ nnoremap <buffer> <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <buffer> <leader>gd :YcmCompleter GetDoc<CR>
 nnoremap <buffer> <leader>gT :YcmCompleter GetType<CR>
 nnoremap <buffer> <leader>fi :YcmCompleter FixIt<CR>
-nnoremap <buffer> <leader>r :YcmCompleter RefactorRename<Space>
 nnoremap <buffer> <leader>e :YcmDiags<CR>

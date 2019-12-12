@@ -11,12 +11,13 @@ call plug#begin('~/.vim/plugged') "Update with PlugInstall
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-syntastic/syntastic'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 "Plug 'OmniSharp/omnisharp-vim'
 Plug 'dylanaraps/wal.vim'
 call plug#end()
@@ -164,7 +165,7 @@ nnoremap <leader>ss :set spell!<CR>
 nnoremap <leader>sl :set spelllang=
 nnoremap <leader>sL :setlocal spelllang=
 nnoremap <leader>e :Errors<Enter>
-nnoremap <leader>x :! ./%
+nnoremap <leader>x :w<CR>:! ./%
 inoremap <leader>w <Esc>:w<Enter>
 inoremap <leader><leader> <Esc>/<++><Enter>cf>
 nnoremap <leader>p "+p
@@ -174,6 +175,9 @@ nnoremap <leader>d "+dd
 vnoremap <leader>d "+d
 
 nnoremap <leader>G :Goyo \| set linebreak<CR>
+
+" For LimeLight
+let g:limelight_conceal_ctermfg = 7
 
 "" git
 nnoremap <leader>gs :!git status<CR>
