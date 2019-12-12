@@ -50,7 +50,6 @@ command=~/scripts/i3blocks/i3battery.sh BAT1
 interval=20
 
 [mail]
-label=📫
 command=~/scripts/i3blocks/i3mailbox.sh
 interval=once
 signal=15
