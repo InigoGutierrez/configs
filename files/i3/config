@@ -357,9 +357,9 @@ strip_workspace_numbers yes
 		background			$black2
 		statusline			$white2
 		separator			$white2
-		focused_workspace	$blue	$black2		$blue
-		inactive_workspace	$black2	$black2		$blue
-		urgent_workspace	$black2	$magenta	$white2
+		focused_workspace	$blue		$black2		$blue
+		inactive_workspace	$black2		$black2		$blue
+		urgent_workspace	$magenta	$magenta	$white2
 	}
         #status_command i3status
         status_command i3blocks
