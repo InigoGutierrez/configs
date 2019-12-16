@@ -4,6 +4,7 @@
 " Linters: sh, shellcheck
 
 call matchadd('ColorColumn', '\%101v', 100)
+setlocal textwidth=80
 
 nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/sh/sh.vim<CR>
 nnoremap <buffer> <leader>+x :!chmod 744 %<CR><CR>

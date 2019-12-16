@@ -4,8 +4,9 @@
 " Syntastic linters: chktex, lacheck, proselint
 
 call matchadd('ColorColumn', '\%91v', 100)
+setlocal textwidth=80
 
-nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/tex.vim<CR>
+nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/tex/tex.vim<CR>
 nnoremap <buffer> <leader>e :Errors<CR>
 " proselint not enabled by default (it's slow)
 nnoremap <buffer> <leader>sp :SyntasticCheck proselint<CR>

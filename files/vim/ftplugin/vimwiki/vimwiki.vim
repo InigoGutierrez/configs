@@ -17,5 +17,8 @@ setlocal textwidth=80
 nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/vimwiki/vimwiki.vim<CR>
 nnoremap <buffer> <leader>e :Errors<CR>
 
-nnoremap <buffer> <leader>c :w<CR>:!toPDF.sh %<CR><CR>
-nnoremap <buffer> <leader>o :w<CR>:!toPDF.sh -o %<CR><CR>
+nnoremap <buffer> <leader>c :w<CR>:!toPDF.sh "%"<CR><CR>
+nnoremap <buffer> <leader>o :w<CR>:!toPDF.sh -o "%"<CR><CR>
+
+" Syntax highlighting colors
+highlight Title ctermfg=darkblue
