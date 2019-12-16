@@ -5,6 +5,9 @@ set bell-style none
 
 # Set vi editing mode
 set editing-mode vi
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[6 q\2
+set vi-cmd-mode-string \1\e[2 q\2
 
 # Shows all possible matches the first time TAB is pressed instead of beeping.
 set show-all-if-ambiguous on
