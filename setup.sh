@@ -48,7 +48,7 @@ cp "$HOME/repos/configs/files/ranger/rifle.conf" "$HOME/.config/ranger/rifle.con
 cp "$HOME/repos/configs/files/ranger/scope.sh" "$HOME/.config/ranger/scope.sh"
 
 # rcs
-cp "$HOME/repos/configs/files/rcs/.profile" "$HOME/.profile"
+[ -f "$HOME/.profile" ] || cp "$HOME/repos/configs/files/rcs/.profile" "$HOME/.profile"
 cp "$HOME/repos/configs/files/rcs/.bashrc" "$HOME/.bashrc"
 cp "$HOME/repos/configs/files/rcs/.bash_aliases" "$HOME/.bash_aliases"
 [ -f "$HOME/.bash_vars" ] || cp "$HOME/repos/configs/files/rcs/.bash_vars" "$HOME/.bash_vars"
