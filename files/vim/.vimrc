@@ -22,6 +22,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'dylanaraps/wal.vim'
 call plug#end()
 
+" Basic settings
 set nocompatible
 filetype indent plugin on
 set encoding=utf-8
@@ -185,14 +186,3 @@ nnoremap <leader>gs :!git status<CR>
 nnoremap <leader>ga :!git add %<CR>
 nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gc :!git commit -m "
-
-"" c++
-"nnoremap <leader>ct <Esc>:r ~/.config/custom/vim/c/template.txt<CR>/<+++><CR>cf>
-"nnoremap <leader>ce <Esc>:r ~/.config/custom/vim/c/enum.txt<CR>/<+++><CR>cf>
-"nnoremap <leader>cf <Esc>:r ~/.config/custom/vim/c/for.txt<CR>/<+++><CR>cf>
-"nnoremap <leader>cif <Esc>:r ~/.config/custom/vim/c/if.txt<CR>/<+++><CR>cf>
-"nnoremap <leader>celse <Esc>:r ~/.config/custom/vim/c/else.txt<CR>/<+++><CR>cf>
-"nnoremap <leader>celif <Esc>:r ~/.config/custom/vim/c/elif.txt<CR>/<+++><CR>cf>
-"nnoremap <leader>cs <Esc>:r ~/.config/custom/vim/c/switch.txt<CR>/<+++><CR>cf>
-"nnoremap <leader>cw <Esc>:r ~/.config/custom/vim/c/while.txt<CR>/<+++><CR>cf>
-"nnoremap <leader>cd <Esc>:r ~/.config/custom/vim/c/do.txt<CR>/<+++><CR>cf>
