@@ -22,8 +22,11 @@ export CONFIG_FOLDER_LOGS="$HOME/logs"
 export CONFIG_WIFI_DEV="wlp2s0"
 export CONFIG_ETH_DEV=""
 
+export CONFIG_BATTERY="BAT1"
+export CONFIG_SENSORS_TEMP_REGEX="^Package"
+export CONFIG_SENSORS_TEMP_COL="4"
 
-export CONFIG_FOLDER_GMAIL_INBOX="$HOME/.mail/gmail/INBOX/new"
+export CONFIG_FOLDER_GMAIL_INBOX="$HOME/.mail/gmail/[Gmail]/INBOX/new"
 export CONFIG_FOLDER_UNIOVI_INBOX="$HOME/.mail/uniovi/INBOX/new"
 
 # export ARDUINO_DIR="/usr/share/arduino"
