@@ -24,7 +24,7 @@ if [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3; then
 	cat "$HOME/.xinitrci3" > "$HOME/.xinitrc"
 	neofetch --config "$XDG_CONFIG_HOME/neofetch/neofetchLogin.conf"
 	#figlet "Starting i3-gaps..." | lolcat -a -d 1 -s 10 -p 1 -F 0.05
-	exec startx
+	exec startx >"$CONFIG_FOLDER_LOGS/startx.log" 2>"$CONFIG_FOLDER_LOGS/startx.err"
 elif [ "$(tty)" = "/dev/tty3" ] && ! pgrep -x xfce4-session; then
 	echo ""
 	cat "$HOME/.xinitrcxfce4" > "$HOME/.xinitrc"
