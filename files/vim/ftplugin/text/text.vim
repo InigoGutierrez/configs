@@ -1,11 +1,10 @@
-" ~/.vim/ftplugin/text.vim
+" ~/.vim/ftplugin/text/text.vim
 " Plain text files vim configuration
 "
 " Syntastic linter: proselint
 
 call matchadd('ColorColumn', '\%101v', 100)
 setlocal textwidth=100
-setlocal spell
 
 nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/text/text.vim<CR>
 
