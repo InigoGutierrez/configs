@@ -11,6 +11,8 @@ nnoremap <buffer> <leader>e :Errors<CR>
 " proselint not enabled by default (it's slow)
 nnoremap <buffer> <leader>sp :SyntasticCheck proselint<CR>
 
+nnoremap <buffer> <leader>temp :-1r ~/.vim/ftplugin/tex/snips/template.txt<CR>Gdd?<+++><CR>cf>
+
 nnoremap <buffer> <leader>c :w<Enter>:! pdflatex --shell-escape %<Enter>
 inoremap <buffer> <leader>ldocclass \documentclass{}<Esc>o<++><Esc>k$i
 inoremap <buffer> <leader>lpckg \usepackage{}<Esc>o<++><Esc>k$i
