@@ -1,11 +1,11 @@
 ! To load into RESOURCE_MANAGER, run xrdb ~/.Xresources
 
 ! *background and foreground are read by sxiv
-*background: #282828
+*background: #181820
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #000000
-*color8:  #1d2021
+*color8:  #181820
 ! DarkRed + Red
 *color1:  #ff3333
 *color9:  #ff6666
@@ -43,8 +43,8 @@ URxvt.scrollBar:	false
 !URxvt.shading:		12
 
 ! Real transparency (needs a running composite manager such as picom)
-URxvt.depth:		32
-URxvt.background:	[90]#050505
+!URxvt.depth:		32
+!URxvt.background:	[90]#050505
 
 *.font:	inconsolata:size=12
 URxvt.font:	xft:inconsolata:size=10,xft:symbola
