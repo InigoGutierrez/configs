@@ -11,6 +11,7 @@ export TERM="rxvt-256color"
 export TERMINAL="urxvt"
 export BROWSER="qutebrowser"
 export READER="zathura"
+export VIEWER="sxiv -b"
 
 export CONFIG_DIC_ES="/usr/share/dict/spanish"
 export CONFIG_DIC_EN="/usr/share/dict/british"
