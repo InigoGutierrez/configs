@@ -93,6 +93,10 @@ case "$extension" in
         try lynx   -dump "$path" && { dump | trim | fmt -s -w "$width;" exit 4; }
         try elinks -dump "$path" && { dump | trim | fmt -s -w "$width;" exit 4; }
         ;; # fall back to highlight/cat if the text browsers fail
+	# Plain text files:
+	json)
+		mimetype="text/" # Fix so it calls as if it had text mimetype
+
 esac
 
 case "$mimetype" in
