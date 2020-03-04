@@ -1,6 +1,40 @@
 set page-padding 1
 set selection-clipboard clipboard
 set statusbar-home-tilde true
+set guioptions shv
+
+# Colors
+
+# Outside the document
+set default-bg "#000000"
+
+# Document light and dark colors
+set recolor true # recolor at start
+set recolor-keephue false
+
+set recolor-lightcolor "#181820"
+
+# Solarized
+# Dark
+#set recolor-darkcolor "#fdf6e3" #base3 (lighest)
+set recolor-darkcolor "#eee8d5" #base2
+#set recolor-darkcolor "#93a1a1" #base1
+#set recolor-darkcolor "#2aa198" #cyan
+#set recolor-darkcolor "#268bd2" #blue
+#set recolor-lightcolor "#073642" #base02
+#set recolor-lightcolor "#002b36" #base03 (darkest)
+# Light
+#set recolor-darkcolor "#002b36" #base03 (darkest)
+#set recolor-lightcolor "#fdf6e3" #base3 (lighest)
+
+# based on custom dmenu
+#set recolor-darkcolor "#ffffff"
+#set recolor-lightcolor "#093145"
+
+# Keep images color
+set recolor-reverse-video false
+# Use same hue when recoloring
+set recolor-keephue false
 
 map u scroll half-up
 map d scroll half-down
@@ -9,7 +43,7 @@ map b toggle_statusbar
 map r reload
 map R rotate
 map p print
-map Y exec 'dunstify %'
+map Y exec 'echo "%" | xsel -bi; dunstify "%"'
 map I exec '/home/taamas/scripts/pdfs/pdfSxiv.sh "%"'
 #map y feedkeys "<Mod4>d"
 #map P change_mode presentation
