@@ -3,7 +3,7 @@
 "
 " Linters: sh, shellcheck
 
-call matchadd('ColorColumn', '\%101v', 100)
+call matchadd('ColorColumn', '\%81v', 100)
 setlocal textwidth=80
 
 nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/sh/sh.vim<CR>
