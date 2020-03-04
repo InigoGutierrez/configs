@@ -24,7 +24,6 @@ call plug#end()
 
 " Basic settings
 set nocompatible
-filetype indent plugin on
 set encoding=utf-8
 set number relativenumber
 set tabstop=4
@@ -44,6 +43,13 @@ highlight ColorColumn ctermbg=darkblue ctermfg=black
 "Redjail Bomb (thx Damian Conway!)
 "highlight ColorColumn ctermbg=red ctermfg=blue
 "exec 'set colorcolumn='.join(range(2,80,3), ',')
+
+" Filetypes
+filetype indent plugin on
+au BufRead,BufNewFile *.pu set filetype=plantuml
+au BufRead,BufNewFile *.puml set filetype=plantuml
+au BufRead,BufNewFile *.g set filetype=antlr3
+au BufRead,BufNewFile *.g4 set filetype=antlr4
 
 " hlnext: Highlighting searches
 nnoremap <silent> n n:call HLNext(0.1)<CR>
