@@ -11,9 +11,9 @@ setlocal tabstop=4 shiftwidth=4 expandtab
 " Show existing tabs (they can be deleted with :retab)
 setlocal list
 
-" Column marker: 80 characters
-call matchadd('ColorColumn', '\%81v', 100)
-setlocal textwidth=80
+" Column marker: 110 characters
+call matchadd('ColorColumn', '\%111v', 100)
+setlocal textwidth=110
 
 " Mappings
 nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/javascript/javascript.vim<CR>
