@@ -5,6 +5,10 @@ markup=pango
 #command=shufEmoji.sh 1
 #interval=once
 
+[corona]
+command=~/scripts/i3blocks/i3corona.sh
+interval=once
+
 [weather]
 command=~/scripts/i3blocks/i3weather.sh
 interval=once
