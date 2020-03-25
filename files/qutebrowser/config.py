@@ -1371,7 +1371,8 @@ c.url.searchengines = {
         'rae': 'https://dle.rae.es/?w={}', #rae
         'maps': 'https://www.google.com/maps/place/{}', #google maps
         'im': 'https://imagemagick.org/script/search.php?q={}', # ImageMagick
-        'mc': 'https://minecraft.gamepedia.com/{}' # Minecraft wiki
+        'mc': 'https://minecraft.gamepedia.com/{}', # Minecraft wiki
+        'mb': 'https://musicbrainz.org/search?query={}&type=artist&method=indexed' # MusicBrainz (Artist)
 }
 
 ## Page(s) to open at the start.
