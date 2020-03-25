@@ -12,7 +12,7 @@ set default-bg "#000000"
 set recolor true # recolor at start
 set recolor-keephue false
 
-set recolor-lightcolor "#181820"
+set recolor-lightcolor "#232f40"
 
 # Solarized
 # Dark

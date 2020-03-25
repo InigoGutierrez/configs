@@ -1,7 +1,8 @@
 ! To load into RESOURCE_MANAGER, run xrdb ~/.Xresources
 
 ! *background and foreground are read by sxiv
-*background: #181820
+!*background: #181820
+*background: #232f40
 *foreground: #ebdbb2
 ! Black + DarkGrey
 *color0:  #000000
