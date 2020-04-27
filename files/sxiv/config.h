@@ -25,8 +25,8 @@ static const char * const FG_COLOR = "#191970";
  * (first/last value is used as min/max zoom level)
  */
 static const float zoom_levels[] = {
-	 12.5,  25.0,  50.0,  75.0,
-	100.0, 150.0, 200.0, 400.0, 800.0
+	 12.5,  25.0,  50.0,  75.0, 100.0,
+	 150.0, 200.0, 400.0, 800.0, 1600.0
 };
 
 /* default slideshow delay (in sec, overwritten via -S option): */
@@ -55,7 +55,7 @@ static const bool ALPHA_LAYER = false;
 #ifdef _THUMBS_CONFIG
 
 /* thumbnail sizes in pixels (width == height): */
-static const int thumb_sizes[] = { 32, 64, 96, 128, 160 };
+static const int thumb_sizes[] = { 32, 64, 96, 128, 160, 200, 260, 400, 450 };
 
 /* thumbnail size at startup, index into thumb_sizes[]: */
 static const int THUMB_SIZE = 3;
