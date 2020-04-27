@@ -60,3 +60,8 @@ PS1="${keys}[${pur}\u${keys}@${pur}\h${keys}]${wd}\w${umode}\$${def} "
 
 # Aliases are defined in $HOME/.bash_aliases for convenience.
 [ -f "$HOME/.bash_aliases" ] && . "$HOME/.bash_aliases"
+
+# fzf goodies
+. /usr/share/fzf/key-bindings.bash
+. /usr/share/fzf/completion.bash
+
