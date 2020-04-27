@@ -3,6 +3,11 @@
 "
 " Syntastic linter: proselint
 
+" Tabs hate: tabs are expanded to 2 spaces
+setlocal tabstop=2 shiftwidth=2 expandtab
+" Show existing tabs (they can be deleted with :retab)
+setlocal list
+
 call matchadd('ColorColumn', '\%101v', 100)
 setlocal textwidth=100
 

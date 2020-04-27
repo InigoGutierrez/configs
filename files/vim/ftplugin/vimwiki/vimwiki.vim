@@ -11,8 +11,8 @@ setlocal tabstop=2 shiftwidth=2 expandtab
 setlocal list
 
 " Column marker: 80 characters
-call matchadd('ColorColumn', '\%81v', 100)
-setlocal textwidth=80
+call matchadd('ColorColumn', '\%101v', 100)
+setlocal textwidth=100
 
 nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/vimwiki/vimwiki.vim<CR>
 nnoremap <buffer> <leader>e :Errors<CR>

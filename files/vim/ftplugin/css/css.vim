@@ -3,7 +3,7 @@
 "
 " Syntastic linters: csslint, prettycss, sstylelint
 
-let g:syntastic_css_csslint_args = "--ignore=order-alphabetical,ids"
+"let g:syntastic_css_csslint_args = "--ignore=order-alphabetical,ids"
 
 setlocal textwidth=80
 call matchadd('ColorColumn', '\%81v', 100)

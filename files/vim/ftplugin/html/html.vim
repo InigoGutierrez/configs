@@ -63,3 +63,4 @@ inoremap <buffer> <leader>himg <img src="" alt="<++>"><Enter><++><Esc>?""<Enter>
 nnoremap <buffer> <leader>hc I<!-- <Esc>A --><Esc>0
 " Uncomment a line
 nnoremap <buffer> <leader>hC 05x/--><Enter>3x0
+
