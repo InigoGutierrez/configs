@@ -16,8 +16,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-syntastic/syntastic'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/deoplete.nvim'
+Plug 'dense-analysis/ale'
+"Plug 'vim-syntastic/syntastic'
+"Plug 'Valloric/YouCompleteMe'
 "Plug 'OmniSharp/omnisharp-vim'
 Plug 'dylanaraps/wal.vim'
 call plug#end()
@@ -43,6 +45,20 @@ highlight ColorColumn ctermbg=darkblue ctermfg=black
 "Redjail Bomb (thx Damian Conway!)
 "highlight ColorColumn ctermbg=red ctermfg=blue
 "exec 'set colorcolumn='.join(range(2,80,3), ',')
+
+" Completion color
+highlight Pmenu ctermbg=blue ctermfg=black
+highlight PmenuSel ctermbg=darkblue ctermfg=white
+
+" Panel border color
+highlight VertSplit ctermbg=black ctermfg=darkblue
+
+" Symbol pairs match color
+highlight MatchParen ctermbg=cyan ctermfg=black
+
+" Errors colors
+highlight Error ctermbg=red ctermfg=black
+highlight SpellBad ctermbg=red ctermfg=black
 
 " Filetypes
 filetype indent plugin on
@@ -73,6 +89,20 @@ vmap  <expr>  D        DVB_Duplicate()
 "exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 exec "set listchars=tab:\uBB·,trail:\uB7,nbsp:~"
 nnoremap <leader>l :set list!<CR>
+
+" For deoplete
+
+let g:deoplete#enable_at_startup = 1
+
+call deoplete#custom#option({
+\ 'auto_complete': v:true,
+\ 'auto_complete_delay': 0,
+\ 'smart_case': v:true,
+\ })
+
+call deoplete#custom#option('sources', {
+\ '_': ['ale'],
+\})
 
 " For YouCompleteMe
 let g:ycm_auto_trigger = 0
@@ -132,18 +162,27 @@ let g:airline_symbols.maxlinenr = '↩'
 " For vimwiki
 " filetype plugin on
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                     \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/docs/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
+	\ {'path': '~/docs/notes/', 'syntax': 'markdown', 'ext': '.md'},
+	\ {'path': '~/games/dungeonesYDragones/tarkba/vimwiki/', 'syntax': 'markdown', 'ext': '.md'},
+	\ {'path': '~/games/dungeonesYDragones/creaciones/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Vertical split character
+set fillchars+=vert:█
 
 " Shortcuts for split navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-"map <C-H> <C-w>H "<C-H> can't be different from <C-h>
-"map <C-J> <C-w>J
-"map <C-K> <C-w>K
-"map <C-L> <C-w>L
+map <A-h> <C-w><
+map <A-j> <C-w>+
+map <A-k> <C-w>-
+map <A-l> <C-w>>
+map <A-H> <C-w>10<
+map <A-J> <C-w>5+
+map <A-K> <C-w>5-
+map <A-L> <C-w>10>
 
 nnoremap <C-n> :tabnew<CR>
 "nnoremap <Tab> gt "Can't be set without also remapping <C-i>
@@ -192,3 +231,4 @@ nnoremap <leader>gs :!git status<CR>
 nnoremap <leader>ga :!git add %<CR>
 nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gc :!git commit -m "
+
