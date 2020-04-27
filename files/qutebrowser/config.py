@@ -698,7 +698,7 @@ c.completion.height = '30%'
 ## Limit fullscreen to the browser window (does not expand to fill the
 ## screen).
 ## Type: Bool
-c.content.windowed_fullscreen = True
+c.content.fullscreen.window = True
 
 ## Monitor load requests for cross-site scripting attempts. Suspicious
 ## scripts will be blocked and reported in the inspector's JavaScript
