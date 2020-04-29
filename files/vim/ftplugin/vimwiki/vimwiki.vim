@@ -22,3 +22,4 @@ nnoremap <buffer> <leader>o :w<CR>:!toPDF.sh -o "%"<CR><CR>
 
 " Syntax highlighting colors
 highlight Title ctermfg=darkblue
+
