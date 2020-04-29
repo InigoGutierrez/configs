@@ -10,7 +10,7 @@
 let b:ale_linters = ['eslint']
 
 " Tabs are expanded to 4 spaces
-setlocal tabstop=4 shiftwidth=4 expandtab
+setlocal tabstop=2 shiftwidth=2 expandtab
 " Show existing tabs (they can be deleted with :retab)
 setlocal list
 
