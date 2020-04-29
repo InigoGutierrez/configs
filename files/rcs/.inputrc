@@ -14,3 +14,4 @@ set show-all-if-ambiguous on
 
 # Shows file type (directory or executable) as a character when showing autocomplete targets.
 set visible-stats on
+
