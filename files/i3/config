@@ -79,21 +79,8 @@ set $wst 🙈
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt -title "floating" -e tmux
-bindsym $mod+Shift+Return exec urxvt -e tmux
-
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# start dmenu_run (a program launcher)
-bindsym $mod+x exec dmenu_run -l 8 -p "~$"
-bindsym $mod+Shift+x exec rofi -show run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+$left focus left
@@ -127,9 +114,6 @@ bindsym $mod+Control+$right workspace next
 bindsym $mod+Control+Left workspace prev
 bindsym $mod+Control+Right workspace next
 
-# Jump to window
-bindsym $mod+Control+j exec rofi -show window
-
 # split in horizontal orientation
 bindsym $mod+b split h
 
@@ -153,9 +137,6 @@ bindsym $mod+Shift+space floating toggle
 
 # toggle sticky
 bindsym $mod+Shift+s sticky toggle
-
-
-bindsym $mod+Control+x exec sxivslideshot
 
 # modify gaps
 bindsym $mod+Shift+g gaps inner current minus 2
@@ -232,70 +213,9 @@ assign [class="Transmission"] 5
 hide_edge_borders both
 #hide_edge_borders none
 
-# system control
-bindsym $mod+Control+s exec ~/scripts/systemControl.sh
-# lock
-bindsym $mod+Control+Shift+l exec ~/scripts/i3lock.sh
-# reboot
-bindsym $mod+Control+Shift+r exec ~/scripts/prompt.sh "Reboot?" "$reboot"
-# touchpad
-bindsym $mod+t exec touchpad.sh
-
 # scratchpad
 bindsym $mod+minus move scratchpad
 bindsym $mod+plus scratchpad show
-
-# From https://faq.i3wm.org/question/3747/enabling-multimedia-keys/?answer=3759#post-id-3759
-# Pulse Audio controls
-set $volChange 2
-set $bigVolChange 10
-#increase sound volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/scripts/vol.sh "+$volChange"
-bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id ~/scripts/vol.sh "+$bigVolChange"
-#decrease sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/scripts/vol.sh "-$volChange"
-bindsym $mod+XF86AudioLowerVolume exec --no-startup-id ~/scripts/vol.sh "-$bigVolChange"
-#mute sound
-bindsym XF86AudioMute exec --no-startup-id ~/scripts/vol.sh "mute"
-# Sreen brightness controls
-set $brightChange 4
-set $bigBrightChange 60
-# increase screen brightness
-bindsym XF86MonBrightnessUp exec ~/scripts/brightness.sh $brightChange
-bindsym $mod+XF86MonBrightnessUp exec ~/scripts/brightness.sh $bigBrightChange
-# decrease screen brightness
-bindsym XF86MonBrightnessDown exec ~/scripts/brightness.sh -$brightChange
-bindsym $mod+XF86MonBrightnessDown exec ~/scripts/brightness.sh -$bigBrightChange
-# Touchpad controls
-#bindsym XF86Switch_VT_5 exec ~/.config/i3/toggletouchpad.sh # toggle touchpad
-
-# Media player controls
-bindsym XF86AudioPlay exec ~/scripts/cmusPlay.sh
-bindsym XF86AudioNext exec cmus-remote -n && pkill -SIGRTMIN+12 i3blocks
-bindsym XF86AudioPrev exec cmus-remote -r && pkill -SIGRTMIN+12 i3blocks
-
-## Programs
-
-bindsym $mod+q exec qutebrowser
-bindsym $mod+Shift+f exec firefox
-bindsym $mod+w exec firefox https://web.whatsapp.com/
-bindsym $mod+s exec screenshot.sh
-bindsym Print exec screenshot.sh
-bindsym $mod+a exec screenshot.sh -a
-bindsym $mod+Shift+a exec screenshot.sh -c
-bindsym $mod+r exec urxvt -title "floating" -e ranger
-bindsym $mod+c exec ~/scripts/dmenuTerm.sh
-bindsym $mod+d exec ~/scripts/dmenuDic.sh
-bindsym $mod+m exec ~/scripts/dmenuMount.sh
-bindsym $mod+e exec ~/scripts/emoji.sh
-bindsym $mod+Shift+m exec ~/scripts/dmenuUmount.sh
-bindsym $mod+Shift+c exec notify-send "$(fortune)"
-bindsym $mod+y exec surfraw.sh
-bindsym $mod+Control+f exec screenRecord.sh
-bindsym $mod+Control+p exec passmenu
-bindsym $mod+z exec docs.sh
-
-##
 
 # reload the configuration file
 bindsym $mod+Control+c reload
@@ -367,7 +287,5 @@ strip_workspace_numbers yes
 
 ### Init
 exec i3-msg "gaps inner current set 0; gaps outer current set 0"
-# bg
-#exec_always bash ~/scripts/pkmBgSelector.sh
-#exec transmission-gtk
 exec $HOME/scripts/xinit.sh
+

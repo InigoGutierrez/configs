@@ -13,6 +13,12 @@ export BROWSER="qutebrowser"
 export READER="zathura"
 export VIEWER="sxiv"
 
+export CONFIG_VOL_CHANGE="2"
+export CONFIG_BIG_VOL_CHANGE="10"
+
+export CONFIG_BRIGHT_CHANGE="4"
+export CONFIG_BIG_BRIGHT_CHANGE="60"
+
 export CONFIG_DIC_ES="/usr/share/dict/spanish"
 export CONFIG_DIC_EN="/usr/share/dict/british"
 export CONFIG_DIC_PL="/usr/share/dict/słowa.txt"

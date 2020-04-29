@@ -7,6 +7,9 @@ mkdir -p "$HOME/.config"
 # keymap
 cp "$HOME/repos/configs/files/rcs/ttymaps.kmap" "$HOME/.config/ttymaps.kmap"
 
+# sxhkd
+cp "$HOME/repos/configs/files/sxhkd/sxhkdrc" "$HOME/.config/sxhkd/sxhkdrc"
+
 # i3
 mkdir -p "$HOME/.config/i3"
 cp "$HOME/repos/configs/files/i3/config" "$HOME/.config/i3/config"
