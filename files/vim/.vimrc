@@ -105,25 +105,25 @@ call deoplete#custom#option('sources', {
 \})
 
 " For YouCompleteMe
-let g:ycm_auto_trigger = 0
-let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_auto_trigger = 0
+"let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " For syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_cs_checkers = ['code_checker']
-let g:syntastic_enable_signs = 1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_cs_checkers = ['code_checker']
+"let g:syntastic_enable_signs = 1
+"let g:syntastic_aggregate_errors = 1
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 2
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 " For omnisharp
-let g:OmniSharp_server_stdio = 1
-let g:OmniSharp_server_path = '/home/taamas/repos/omnisharp-roslyn/artifacts/scripts/OmniSharp.Stdio'
-let g:OmniSharp_selector_ui = 'fzf'
+"let g:OmniSharp_server_stdio = 1
+"let g:OmniSharp_server_path = '/home/taamas/repos/omnisharp-roslyn/artifacts/scripts/OmniSharp.Stdio'
+"let g:OmniSharp_selector_ui = 'fzf'
 
 " For cursor shape with tmux
 if exists('$TMUX')
@@ -183,6 +183,9 @@ map <A-H> <C-w>10<
 map <A-J> <C-w>5+
 map <A-K> <C-w>5-
 map <A-L> <C-w>10>
+
+nnoremap <leader>f :40Vexplore<CR>
+nnoremap <leader>F :40Lexplore<CR>
 
 nnoremap <C-n> :tabnew<CR>
 "nnoremap <Tab> gt "Can't be set without also remapping <C-i>
