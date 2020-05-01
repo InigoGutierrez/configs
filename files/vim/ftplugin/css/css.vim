@@ -8,8 +8,8 @@
 setlocal textwidth=80
 call matchadd('ColorColumn', '\%81v', 100)
 
-" Tabs are expanded to 4 spaces
-setlocal tabstop=4 shiftwidth=4 noexpandtab
+" Tabs are expanded to 2 spaces
+setlocal tabstop=2 shiftwidth=2 expandtab
 " Don't show existing tabs
 setlocal nolist
 
@@ -17,3 +17,4 @@ setlocal nolist
 nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/css/css.vim<CR>
 nnoremap <buffer> <leader>e :Errors<CR>
 nnoremap <buffer> <leader>s vi{!sort<CR>
+
