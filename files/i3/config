@@ -207,7 +207,6 @@ for_window [instance="sxivfloat"] sticky enable
 for_window [instance="sxivfloat"] border pixel 1
 for_window [title="SFML"] floating enable
 for_window [title="Firefox"] floating enable
-assign [class="Transmission"] 5
 
 # edge borders
 hide_edge_borders both
