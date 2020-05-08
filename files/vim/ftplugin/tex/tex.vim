@@ -9,11 +9,13 @@ setlocal textwidth=80
 nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/tex/tex.vim<CR>
 nnoremap <buffer> <leader>e :Errors<CR>
 " proselint not enabled by default (it's slow)
-nnoremap <buffer> <leader>sp :SyntasticCheck proselint<CR>
+"nnoremap <buffer> <leader>sp :SyntasticCheck proselint<CR>
 
-nnoremap <buffer> <leader>temp :-1r ~/.vim/ftplugin/tex/snips/template.txt<CR>Gdd?<+++><CR>cf>
+nnoremap <buffer> <leader>c :w<Enter>:! toPDF.sh %<CR>
+nnoremap <buffer> <leader>o :w<Enter>:! toPDF.sh -o %<CR><CR>
 
-nnoremap <buffer> <leader>c :w<Enter>:! pdflatex --shell-escape %<Enter>
+nnoremap <buffer> <leader>temp :-1r ~/.vim/ftplugin/tex/snips/template.txt<CR>/<+++><CR>cf>
+
 inoremap <buffer> <leader>ldocclass \documentclass{}<Esc>o<++><Esc>k$i
 inoremap <buffer> <leader>lpckg \usepackage{}<Esc>o<++><Esc>k$i
 inoremap <buffer> <leader>lbdoc \begin{document}<Esc>o<Enter><Enter><Enter>\end{document}<Esc>kkI
