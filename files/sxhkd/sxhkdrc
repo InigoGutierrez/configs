@@ -5,7 +5,6 @@
 # |___/_/\_\_| |_|_|\_\__,_|_|  \___|
 #
 # Config file for the Simple X HotKey Daemon
-#
 
 super + Return
 	urxvt -title "floating" -e tmux
@@ -14,7 +13,7 @@ super + shift + Return
 	urxvt -e tmux
 
 super + x
-	dmenu_run -l 8 -p "~$"
+	dmenu_run -c -bw 3 -l 8 -p "~$"
 
 # Jump to window
 super + ctrl + j
@@ -94,6 +93,9 @@ super + d
 super + e
 	~/scripts/emoji.sh
 
+super + n
+	~/scripts/quicktext.sh
+
 super + m
 	~/scripts/dmenuMount.sh
 
@@ -114,4 +116,3 @@ super + ctrl + p
 
 super + z
 	docs.sh
-
