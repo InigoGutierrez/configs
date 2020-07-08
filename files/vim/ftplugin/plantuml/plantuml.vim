@@ -10,6 +10,10 @@ setlocal list
 call matchadd('ColorColumn', '\%81v', 100)
 setlocal textwidth=80
 
+let mapleader = " "
+
+nnoremap <buffer> <leader>temp :-1r ~/.vim/ftplugin/plantuml/snips/template.txt<CR>Gdd?<+++><CR>cf>
+
 nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/plantuml/plantuml.vim<CR>
 nnoremap <buffer> <leader>e :Errors<CR>
 

@@ -3,12 +3,24 @@
 "
 " Syntastic linter: tidy
 
+" Tabs are expanded to 2 spaces
+setlocal tabstop=2 shiftwidth=2 expandtab
+" Show existing tabs (they can be deleted with :retab)
+setlocal list
+
+" Column marker: 110 characters
 call matchadd('ColorColumn', '\%101v', 100)
+
+let mapleader = " "
 
 nnoremap <buffer> <leader>o :!$BROWSER % &<CR><CR>
 nnoremap <buffer> <leader>f :!firefox --new-window % &<CR><CR>
 nnoremap <buffer> <leader>C :sp ~/.vim/ftplugin/html/html.vim<CR>
 nnoremap <buffer> <leader>e :Errors<CR>
+
+nnoremap <buffer> <leader>temp :-1r ~/.vim/ftplugin/html/snips/template.txt<CR>Gdd?<+++><CR>cf>
+
+let mapleader = ","
 
 " Layout elements
 inoremap <buffer> <leader>hheader <header><Enter><Enter></header><Enter><++><Esc>kki
@@ -63,4 +75,3 @@ inoremap <buffer> <leader>himg <img src="" alt="<++>"><Enter><++><Esc>?""<Enter>
 nnoremap <buffer> <leader>hc I<!-- <Esc>A --><Esc>0
 " Uncomment a line
 nnoremap <buffer> <leader>hC 05x/--><Enter>3x0
-
