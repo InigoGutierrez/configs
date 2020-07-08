@@ -16,12 +16,15 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-airline/vim-airline'
-Plug 'Shougo/deoplete.nvim'
-Plug 'dense-analysis/ale'
 "Plug 'vim-syntastic/syntastic'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'dense-analysis/ale'
+"Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete-clangx'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Valloric/YouCompleteMe'
 "Plug 'OmniSharp/omnisharp-vim'
 Plug 'dylanaraps/wal.vim'
+Plug 'ThePrimeagen/vim-be-good'
 call plug#end()
 
 " Basic settings
@@ -39,26 +42,7 @@ set vb " No bell
 set ignorecase
 set wrapscan
 set incsearch
-
-" Line size marking
-highlight ColorColumn ctermbg=darkblue ctermfg=black
-"Redjail Bomb (thx Damian Conway!)
-"highlight ColorColumn ctermbg=red ctermfg=blue
-"exec 'set colorcolumn='.join(range(2,80,3), ',')
-
-" Completion color
-highlight Pmenu ctermbg=blue ctermfg=black
-highlight PmenuSel ctermbg=darkblue ctermfg=white
-
-" Panel border color
-highlight VertSplit ctermbg=black ctermfg=darkblue
-
-" Symbol pairs match color
-highlight MatchParen ctermbg=cyan ctermfg=black
-
-" Errors colors
-highlight Error ctermbg=red ctermfg=black
-highlight SpellBad ctermbg=red ctermfg=black
+set nohlsearch
 
 " Filetypes
 filetype indent plugin on
@@ -92,21 +76,24 @@ nnoremap <leader>l :set list!<CR>
 
 " For deoplete
 
-let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_at_startup = 1
+"
+"call deoplete#custom#option({
+"\ 'auto_complete': v:true,
+"\ 'auto_complete_delay': 0,
+"\ 'smart_case': v:true,
+"\ })
+"
+"call deoplete#custom#option('sources', {
+"\ '_': ['ale'],
+"\})
 
-call deoplete#custom#option({
-\ 'auto_complete': v:true,
-\ 'auto_complete_delay': 0,
-\ 'smart_case': v:true,
-\ })
-
-call deoplete#custom#option('sources', {
-\ '_': ['ale'],
-\})
+" For CoC
+"inoremap <silent><expr> <c-space> coc#refresh()
 
 " For YouCompleteMe
-"let g:ycm_auto_trigger = 0
-"let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_auto_trigger = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " For syntastic
 "set statusline+=%#warningmsg#
@@ -184,19 +171,51 @@ map <A-J> <C-w>5+
 map <A-K> <C-w>5-
 map <A-L> <C-w>10>
 
+" Shortcuts for opening netrw
 nnoremap <leader>f :40Vexplore<CR>
 nnoremap <leader>F :40Lexplore<CR>
+
+" FZF
+nnoremap <C-p> :Files<CR>
+
+" Moving -here-
+nnoremap <leader>h :cd %:h<CR>
 
 nnoremap <C-n> :tabnew<CR>
 "nnoremap <Tab> gt "Can't be set without also remapping <C-i>
 "nnoremap <S-Tab> gT
 
+nnoremap <leader>vrc :80vsp ~/.vimrc<CR>
 nnoremap <leader>S :!tmux split-window -p 40<CR><CR>
 
 nnoremap <leader>/ /grtfjx<CR>
+"
 " Color
 syntax enable
 syntax on
+
+" Line size marking
+highlight ColorColumn ctermbg=darkblue ctermfg=black
+"Redjail Bomb (thx Damian Conway!)
+"highlight ColorColumn ctermbg=red ctermfg=blue
+"exec 'set colorcolumn='.join(range(2,80,3), ',')
+
+" Completion color
+highlight Pmenu ctermbg=blue ctermfg=black
+highlight PmenuSel ctermbg=darkblue ctermfg=white
+
+" Panel border color
+highlight VertSplit ctermbg=black ctermfg=darkblue
+
+" Symbol pairs match color
+highlight MatchParen ctermbg=cyan ctermfg=black
+
+" Errors colors
+highlight Error ctermbg=red ctermfg=black
+highlight SpellBad ctermbg=red ctermfg=black
+
+" Comments colors
+highlight Comment ctermfg=green
 
 "Clean trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -223,7 +242,7 @@ vnoremap <leader>y "+y
 nnoremap <leader>d "+dd
 vnoremap <leader>d "+d
 
-nnoremap <leader>G :Goyo \| set linebreak<CR>
+nnoremap <leader>G :Goyo \| set linebreak<CR>:e<CR>
 
 " For LimeLight
 let g:limelight_conceal_ctermfg = 7
@@ -234,4 +253,3 @@ nnoremap <leader>gs :!git status<CR>
 nnoremap <leader>ga :!git add %<CR>
 nnoremap <leader>gp :!git push<CR>
 nnoremap <leader>gc :!git commit -m "
-
