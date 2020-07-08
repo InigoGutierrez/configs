@@ -273,11 +273,11 @@ bar {
 	separator_symbol "·"
 strip_workspace_numbers yes
 	colors {
-		background			$black2
+		background			$black
 		statusline			$white2
 		separator			$white2
-		focused_workspace	$blue		$black2		$blue
-		inactive_workspace	$black2		$black2		$blue
+		focused_workspace	$blue		$black		$blue
+		inactive_workspace	$black		$black		$blue
 		urgent_workspace	$magenta	$magenta	$white2
 	}
         #status_command i3status
