@@ -75,3 +75,6 @@ cp "$HOME/repos/configs/files/sxiv/key-handler" "$HOME/.config/sxiv/exec/key-han
 # zathura
 mkdir -p "$HOME/.config/zathura"
 cp "$HOME/repos/configs/files/zathura/zathurarc" "$HOME/.config/zathura/zathurarc"
+
+# emojis
+cp "$HOME/repos/configs/files/emoji" "$HOME/.config/emoji"
