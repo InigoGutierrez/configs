@@ -50,9 +50,10 @@ w: Set as wallpaper.                        .
 r: Rotate clockwise.                        .
 R: Rotate counter-clockwise.                .
 f: Flop (horizontally).                     .
-f: Flip (vertically).                       .
+F: Flip (vertically).                       .
 y: Yank filename to clipboard.              .
 Y: Yank file path to clipboard.             .
+i: Yank image to clipboard.                 .
 d: Move file to litter.	                    .
 n: Rename file.                             .
 N: Open in a new instance of sxiv.          .
@@ -94,6 +95,9 @@ do
 	"S")
 		echo -n "$(readlink -f "$file")" | xsel -ib && dunstify "$(xsel -ob) copied to clipboard"
 		$BROWSER "https://tineye.com/" ;;
+	"i")
+		xclip -selection clipboard -t image/png "$(readlink -f "$file")" && dunstify "$file copied to clipboard as image."
+		;;
 	"c")
 		[ -z "$destdir" ] && destdir="$(selectPath.sh "Copy image(s) to:")"
 		[ -z "$destdir" ] && exit
