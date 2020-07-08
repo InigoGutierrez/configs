@@ -13,6 +13,8 @@ export BROWSER="qutebrowser"
 export READER="zathura"
 export VIEWER="sxiv"
 
+export PLANTUML="$HOME/programs/plantUML/plantuml.jar"
+
 export CONFIG_VOL_CHANGE="2"
 export CONFIG_BIG_VOL_CHANGE="10"
 
