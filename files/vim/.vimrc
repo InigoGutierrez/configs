@@ -224,7 +224,7 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritePost ~/.Xresources !xrdb %
 
 " Generate ~/.mainpage/urls on ~/.config/qutebrowser save
-autocmd BufWritePost ~/.config/qutebrowser/config.py !cat .config/qutebrowser/config.py | grep -e \'.*\':\ \'.*{}.*\' | grep -v DEFAULT | sed 's/,//' | sed 's/^\ *//' > ~/.mainpage/urls
+autocmd BufWritePost ~/.config/qutebrowser/config.py !grep -e \'.*\':\ \'.*{}.*\' "$HOME/.config/qutebrowser/config.py" | grep -v DEFAULT | sed 's/,//; s/^\ *//' > ~/.mainpage/urls
 
 """ Remaps """
 
