@@ -9,10 +9,11 @@ set guioptions shv
 set default-bg "#000000"
 
 # Document light and dark colors
-set recolor true # recolor at start
+set recolor false # recolor at start
 set recolor-keephue false
 
-set recolor-lightcolor "#232f40"
+#set recolor-lightcolor "#232f40"
+set recolor-lightcolor "#1d2021"
 
 # Solarized
 # Dark
@@ -47,3 +48,6 @@ map Y exec 'echo "%" | xsel -bi; dunstify "%"'
 map I exec '/home/taamas/scripts/pdfs/pdfSxiv.sh "%"'
 #map y feedkeys "<Mod4>d"
 #map P change_mode presentation
+
+map x exec 'scp "%" taamas@93.156.110.0:~/pdfs'
+map X exec 'scp "%" taamas@93.156.110.0:/srv/http/files'
