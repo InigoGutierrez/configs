@@ -4,14 +4,14 @@ alias v='nvim'
 alias vim='nvim'
 alias ping='ping fsf.org'
 alias cdf='cd "$(fzfPath.sh)"'
-alias cdr='ranger "$(fzfPath.sh)"'
+alias cdr='route="$(fzfPath.sh)" && [ -n "$route" ] && ranger "$route"'
 alias mail='mail.sh'
 alias ls='ls -hN --color=auto --group-directories-first'
+alias cp='cp -iv'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-#alias please="sudo !!"
-#alias dict='curl dict://dict.org/d:'
+alias nb='newsboat'
 
 # config files
 alias cb="vim ~/.bashrc"
