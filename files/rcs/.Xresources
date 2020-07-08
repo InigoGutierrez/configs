@@ -1,33 +1,37 @@
 ! To load into RESOURCE_MANAGER, run xrdb ~/.Xresources
 
 ! *background and foreground are read by sxiv
-!*background: #181820
-*background: #232f40
-*foreground: #ebdbb2
+!Gruvbox
+*background: #1d2021
+!*background: #32302f
+!*background: #282828
+!*foreground: #d5c4a1
+*foreground: #fbf1c7
+!*foreground: #ebdbb2
 ! Black + DarkGrey
-*color0:  #000000
-*color8:  #181820
+*color0:  #282828
+*color8:  #928374
 ! DarkRed + Red
-*color1:  #ff3333
-*color9:  #ff6666
+*color1:  #cc241d
+*color9:  #fb4934
 ! DarkGreen + Green
-*color2:  #66ff66
-*color10: #b2ff66
+*color2:  #98971a
+*color10: #b8bb26
 ! DarkYellow + Yellow
-*color3:  #fabd2f
-*color11: #ffff66
+*color3:  #d79921
+*color11: #fabd2f
 ! DarkBlue + Blue
-*color4:  #6666ff
-*color12: #66b2ff
+*color4:  #358588
+*color12: #83a598
 ! DarkMagenta + Magenta
-*color5:  #ff3366
-*color13: #ff66bb
+*color5:  #b16286
+*color13: #d3869b
 ! DarkCyan + Cyan
-*color6:  #33ddff
-*color14: #66ffff
+*color6:  #689d6a
+*color14: #8ec07c
 ! LightGrey + White
-*color7:  #ebdbb2
-*color15: #ffffff
+*color7:  #a89984
+*color15: #ebdbb2
 
 ! Man pages
 URxvt.colorIT: #ff0000
@@ -58,3 +62,6 @@ URxvt.font:	xft:mononoki:size=10,xft:symbola
 URxvt.perl-ext-common: default,font-size
 URxvt.keysym.C-equal: font-size:reset
 
+!Xcursor.size: 32
+Xcursor.theme: Bibata_Dodger_Blue
+!Xcursor.theme: Bibata_Turquoise
