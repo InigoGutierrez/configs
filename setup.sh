@@ -8,6 +8,7 @@ mkdir -p "$HOME/.config"
 cp "$HOME/repos/configs/files/rcs/ttymaps.kmap" "$HOME/.config/ttymaps.kmap"
 
 # sxhkd
+mkdir -p "$HOME/.config/sxhkd"
 cp "$HOME/repos/configs/files/sxhkd/sxhkdrc" "$HOME/.config/sxhkd/sxhkdrc"
 
 # i3
