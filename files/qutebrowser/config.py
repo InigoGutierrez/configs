@@ -824,7 +824,9 @@ c.fonts.statusbar = '10pt Linux Libertine'
 ## Font used in the tab bar.
 ## Type: QtFont
 # c.fonts.tabs = '10pt monospace'
-c.fonts.tabs = '10pt serif'
+# No longer exists (Thu 16 Jul 2020 01:39:46 AM CEST)
+c.fonts.tabs.selected = '10pt serif'
+c.fonts.tabs.unselected = '10pt serif'
 
 ## Font family for cursive fonts.
 ## Type: FontFamily
@@ -1152,7 +1154,8 @@ c.new_instance_open_target = 'window'
 ## Hide the statusbar unless a message is shown.
 ## Type: Bool
 # c.statusbar.hide = False
-c.statusbar.hide = True
+# No longer exists (Thu 16 Jul 2020 01:39:46 AM CEST)
+c.statusbar.show = "in-mode"
 
 ## Padding (in pixels) for the statusbar.
 ## Type: Padding
