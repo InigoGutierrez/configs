@@ -8,8 +8,9 @@ setlocal tabstop=2 shiftwidth=2 expandtab
 " Show existing tabs (they can be deleted with :retab)
 setlocal list
 
-" Column marker: 110 characters
+" Column marker: 100 characters
 call matchadd('ColorColumn', '\%101v', 100)
+setlocal textwidth=100
 
 let mapleader = " "
 
