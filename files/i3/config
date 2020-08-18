@@ -47,9 +47,9 @@ font pango:monospace 8
 #
 # Use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up k
-set $down j
 set $left h
+set $down j
+set $up k
 set $right l
 
 # define workspaces names
@@ -65,17 +65,6 @@ set $ws9 9
 set $ws10 10
 set $wst 🙈
 
-#set $ws1 1:I
-#set $ws2 2:II
-#set $ws3 3:III
-#set $ws4 4:IV
-#set $ws5 5:V
-#set $ws6 6:VI
-#set $ws7 7:VII
-#set $ws8 8:VIII
-#set $ws9 9:IX
-#set $ws10 10:X
-#set $wst 🙈
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
