@@ -2,7 +2,6 @@
 alias r='tmux rename-window ranger; ranger; tmux rename-window bash'
 alias v='nvim'
 alias vim='nvim'
-alias ping='ping fsf.org'
 alias cdf='cd "$(fzfPath.sh)"'
 alias cdr='route="$(fzfPath.sh)" && [ -n "$route" ] && ranger "$route"'
 alias mail='mail.sh'
